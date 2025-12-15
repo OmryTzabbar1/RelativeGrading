@@ -1,0 +1,8 @@
+{
+  "name": "todo-app-carol",
+  "version": "1.0.0",
+  "description": "Basic todo list",
+  "main": "app.js",
+  "author": "Carol",
+  "license": "MIT"
+}

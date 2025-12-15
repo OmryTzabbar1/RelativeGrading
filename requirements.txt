@@ -1,0 +1,4 @@
+# Student Project Evaluator - Python Dependencies
+# Minimal dependencies for MVP
+
+pyyaml>=6.0

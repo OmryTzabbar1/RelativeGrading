@@ -50,8 +50,8 @@ Claude will guide you through:
 The helper scripts can also be used independently:
 
 ```python
-from scripts.scan_folders import scan_student_folders
-from scripts.analyze_repo import analyze_repository
+from scan_folders import scan_student_folders
+from analyze_repo import analyze_repository
 
 # Find all student folders
 students = scan_student_folders('/path/to/assignments')
@@ -68,15 +68,14 @@ print(info['key_files'])
 student-project-evaluator/
 ├── .claude/
 │   └── skills/
-│       └── student-project-evaluator.md  # Main skill definition
+│       ├── student-project-evaluator.md  # Main skill definition
+│       ├── analyze_repo.py               # Project type detection
+│       └── scan_folders.py               # Student folder discovery
 ├── docs/
 │   ├── PRD.md                            # Product requirements
 │   ├── PLANNING.md                       # Architecture & ADRs
 │   ├── CLAUDE.md                         # Development conventions
 │   └── TASKS.md                          # Implementation phases
-├── scripts/
-│   ├── analyze_repo.py                   # Project type detection
-│   └── scan_folders.py                   # Student folder discovery
 ├── tests/
 │   └── fixtures/                         # Sample student projects
 ├── examples/
@@ -151,9 +150,9 @@ Generated after baseline calibration:
 
 ```bash
 # Test helper scripts
-python -c "from scripts.scan_folders import scan_student_folders; print(scan_student_folders('tests/fixtures/sample_assignment'))"
+python -c "from scan_folders import scan_student_folders; print(scan_student_folders('tests/fixtures/sample_assignment'))"
 
-python -c "from scripts.analyze_repo import analyze_repository; print(analyze_repository('tests/fixtures/sample_assignment/student_alice'))"
+python -c "from analyze_repo import analyze_repository; print(analyze_repository('tests/fixtures/sample_assignment/student_alice'))"
 ```
 
 ### Code Conventions

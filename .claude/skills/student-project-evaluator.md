@@ -52,7 +52,8 @@ Evaluates student coding projects through comparative grading, where each projec
 1. Navigate to the baseline student's folder
 2. Use `analyze_repo.py` to detect project type:
    ```python
-   python scripts/analyze_repo.py {baseline_folder_path}
+   from analyze_repo import analyze_repository
+   repo_info = analyze_repository(baseline_folder_path)
    ```
 
 3. Read key files from the baseline project:
@@ -121,7 +122,7 @@ evaluation_criteria:
 
 1. Use `scan_folders.py` to find all student folders:
    ```python
-   from scripts.scan_folders import scan_student_folders
+   from scan_folders import scan_student_folders
    students = scan_student_folders(master_folder, exclude=[baseline_student])
    ```
 
@@ -145,7 +146,7 @@ For each student in the current batch:
 
 1. Use `analyze_repo.py` to get metadata:
    ```python
-   from scripts.analyze_repo import analyze_repository
+   from analyze_repo import analyze_repository
    repo_info = analyze_repository(student_folder_path)
    ```
 

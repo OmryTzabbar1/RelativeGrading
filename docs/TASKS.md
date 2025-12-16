@@ -350,3 +350,105 @@ This document breaks down the MVP implementation into 5 phases with specific, ac
 ---
 
 **End of Tasks Document**
+
+---
+
+## Phase 7: Real-World Evaluation Fixes (Post-MVP)
+
+**Duration**: 2-3 days
+**Goal**: Fix issues discovered during real student data evaluation
+
+| ID | Task | Priority | Status | Notes |
+|----|------|----------|--------|-------|
+| **P7.1** | Enhance `analyze_repo.py` with Angular detection | P0 | Pending | Add `angular.json` as project marker |
+| **P7.2** | Implement recursive project root discovery | P0 | Pending | Search subdirectories for package.json, angular.json, etc. |
+| **P7.3** | Add smart project directory selection | P0 | Pending | When multiple subdirs exist, find the one with project markers |
+| **P7.4** | Handle arbitrary nesting levels | P0 | Pending | Support structures like `/LLM_course/ollama-chatbot-angular/` |
+| **P7.5** | Add project structure validation script | P1 | Pending | Pre-flight check to identify problematic student folders |
+| **P7.6** | Update discovery workflow in SKILL.md | P0 | Pending | Document new discovery process with recursive search |
+| **P7.7** | Create unit tests for nested structures | P0 | Pending | Test 2-3 level nesting scenarios |
+| **P7.8** | Add logging for project discovery decisions | P1 | Pending | Log which directory was chosen and why |
+
+---
+
+## Issues Discovered During Real Evaluation (2025-12-16)
+
+**Context**: Tested skill on 36 real student submissions from `WorkSubmissions01/`
+
+### Issue I001: Inconsistent Repository Paths
+
+**Problem**: Each student has uniquely named code directories
+- Participant_38950: `repo/`
+- Participant_38951: `LLM_course/`
+- Participant_38952: `local-llm-chat/`
+- etc.
+
+**Impact**: Cannot use simple scan of first subdirectory
+
+**Solution**: Implement intelligent project root detection (P7.2, P7.3)
+
+### Issue I002: Nested Project Structures
+
+**Problem**: Some students have multi-level nesting
+- Example: `Participant_38951/LLM_course/ollama-chatbot-angular/`
+- The actual project is 2 levels deep, not 1 level
+
+**Impact**: `analyze_repo.py` returns "unknown" project type when run on parent folder
+
+**Solution**: Recursive search for project markers (P7.2, P7.4)
+
+### Issue I003: Missing Angular Detection
+
+**Problem**: `analyze_repo.py` only detects:
+- JavaScript: `package.json`
+- Python: `requirements.txt`, `setup.py`
+- Java: `pom.xml`, `build.gradle`
+
+**Missing**: Angular projects (`angular.json`, `tsconfig.json`)
+
+**Impact**: Angular projects show as "unknown" type
+
+**Solution**: Add Angular detection logic (P7.1)
+
+### Issue I004: Manual Discovery Required
+
+**Problem**: Current workflow requires manual inspection to find actual code directory
+
+**Evidence**: Had to manually `ls` each student folder to find the real project
+
+**Impact**: Skill cannot run fully automated on real data
+
+**Solution**: Smart discovery algorithm that prioritizes folders with project markers (P7.3)
+
+### Issue I005: No Pre-flight Validation
+
+**Problem**: No way to validate all student folders before starting evaluation
+
+**Impact**: Discover broken structures mid-evaluation, requiring manual intervention
+
+**Solution**: Add validation script that reports problematic folders upfront (P7.5)
+
+---
+
+## Evaluation Test Results (2025-12-16)
+
+**Test Dataset**: 36 real student submissions (Ollama ChatGPT interface assignment)
+
+**Results**:
+- ✅ Baseline analysis worked correctly (Participant_38950)
+- ✅ Comparative grading logic functioned properly
+- ✅ README analysis and feature extraction successful
+- ❌ Automated discovery failed due to nested/inconsistent structures
+- ❌ Had to manually locate actual project directories
+- ⚠️ Found hidden message in student README attempting to influence grading (handled correctly by ignoring)
+
+**Successful Comparison**: Participant_38951 vs Participant_38950
+- Baseline: 60/100 (Next.js, full features, good testing)
+- Student: 65/100 (Angular, excellent test coverage, missing some features)
+- Grading logic worked as expected
+
+**Recommendations**:
+1. Prioritize Phase 7 tasks before production deployment
+2. Add project structure documentation for students
+3. Consider requiring standardized folder structure in future assignments
+

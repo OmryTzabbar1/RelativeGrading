@@ -50,13 +50,21 @@ Evaluates student coding projects through comparative grading, where each projec
 **Actions:**
 
 1. Navigate to the baseline student's folder
-2. Use `analyze_repo.py` to detect project type:
+2. Use `analyze_repo.py` to detect project type and find actual project directory:
    ```python
    from analyze_repo import analyze_repository
-   repo_info = analyze_repository(baseline_folder_path)
+   # auto_find_root=True recursively searches for project markers
+   # Handles nested structures like: Participant_123/LLM_course/app/
+   repo_info = analyze_repository(baseline_folder_path, auto_find_root=True)
+   # repo_info includes 'actual_project_path' showing where project was found
    ```
 
-3. Read key files from the baseline project:
+   **Note**: The analyzer now supports:
+   - Angular projects (angular.json)
+   - Nested project structures (up to 3 levels deep)
+   - Automatic discovery of actual code directory
+
+3. Read key files from the baseline project (using actual_project_path):
    - README.md (if exists)
    - Main source files based on detected project type
    - Configuration files (package.json, requirements.txt, etc.)
@@ -126,13 +134,28 @@ evaluation_criteria:
    students = scan_student_folders(master_folder, exclude=[baseline_student])
    ```
 
-2. Display found students:
+2. **RECOMMENDED: Pre-flight Validation** (prevents mid-evaluation issues)
+   ```python
+   from validate_structure import validate_student_folders, print_validation_report
+
+   validation = validate_student_folders(master_folder, exclude=[baseline_student])
+   print_validation_report(validation)
+   ```
+
+   This checks for:
+   - Nested/inconsistent directory structures
+   - Undetectable project types
+   - Empty or malformed folders
+
+   **If errors found**: Ask user if they want to continue or fix issues first.
+
+3. Display found students:
    ```
    Found {count} student folders (excluding baseline).
    Beginning comparative evaluation...
    ```
 
-3. Confirm with user if needed
+4. Confirm with user if needed
 
 ---
 
@@ -144,13 +167,22 @@ For each student in the current batch:
 
 #### 4.1 Read Student Project
 
-1. Use `analyze_repo.py` to get metadata:
+1. Use `analyze_repo.py` to get metadata and find actual project:
    ```python
    from analyze_repo import analyze_repository
-   repo_info = analyze_repository(student_folder_path)
+   # Automatically finds project even if nested (e.g., student/code/app/)
+   repo_info = analyze_repository(student_folder_path, auto_find_root=True)
+
+   # Use repo_info['actual_project_path'] to read files from correct location
+   actual_path = repo_info['actual_project_path']
    ```
 
-2. Read key files (focus on those defined in assignment-config.yml):
+   **Important**: `repo_info` now includes:
+   - `project_type`: Now includes 'angular' in addition to existing types
+   - `actual_project_path`: Where the project was actually found
+   - Other metadata: team_name, student_id, size_mb, file_count
+
+2. Read key files from actual_project_path (focus on those defined in assignment-config.yml):
    - README.md
    - Main source code files
    - Configuration files

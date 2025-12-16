@@ -9,37 +9,31 @@ import re
 from pathlib import Path
 from typing import Dict, List, Optional
 
+from find_project_root import find_project_root
 
-def analyze_repository(folder_path: str) -> Dict:
+
+def analyze_repository(folder_path: str, auto_find_root: bool = True) -> Dict:
     """
     Analyze a student repository to extract metadata and project type.
 
     Args:
         folder_path: Path to student project folder
+        auto_find_root: If True, recursively search for actual project directory
 
     Returns:
         Dict containing:
         {
-            'project_type': str,  # 'javascript_web', 'python_app', 'java_app', 'unknown'
+            'project_type': str,  # 'angular', 'javascript_web', 'python_app', 'java_app', 'unknown'
             'key_files': List[str],  # Important files found
             'metadata': Dict,  # team_name, student_id if found
             'size_mb': float,  # Folder size in MB
-            'file_count': int  # Total number of files
+            'file_count': int,  # Total number of files
+            'actual_project_path': str  # Path where project was actually found
         }
 
     Raises:
         FileNotFoundError: If folder doesn't exist
         ValueError: If folder is empty
-
-    Example:
-        >>> analyze_repository('/path/to/student_bob/')
-        {
-            'project_type': 'javascript_web',
-            'key_files': ['README.md', 'src/index.js', 'package.json'],
-            'metadata': {'team_name': 'Team Alpha', 'student_id': '12345'},
-            'size_mb': 3.5,
-            'file_count': 89
-        }
     """
     folder = Path(folder_path)
 
@@ -49,27 +43,44 @@ def analyze_repository(folder_path: str) -> Dict:
     if not folder.is_dir():
         raise ValueError(f"Not a directory: {folder_path}")
 
+    # Find actual project root if requested
+    actual_folder = folder
+    if auto_find_root:
+        root_info = find_project_root(str(folder))
+        if root_info['project_root']:
+            actual_folder = Path(root_info['project_root'])
+
     # Detect project type and key files
-    project_type, key_files = _detect_project_type(folder)
+    project_type, key_files = _detect_project_type(actual_folder)
 
     # Extract metadata from README or folder name
-    metadata = _extract_metadata(folder)
+    metadata = _extract_metadata(actual_folder)
 
     # Calculate folder size and file count
-    size_mb, file_count = _calculate_folder_stats(folder)
+    size_mb, file_count = _calculate_folder_stats(actual_folder)
 
     return {
         'project_type': project_type,
         'key_files': key_files,
         'metadata': metadata,
         'size_mb': size_mb,
-        'file_count': file_count
+        'file_count': file_count,
+        'actual_project_path': str(actual_folder.absolute())
     }
 
 
 def _detect_project_type(folder: Path) -> tuple[str, List[str]]:
     """Detect project type based on marker files."""
     key_files = []
+
+    # Check for Angular project (more specific than generic JavaScript)
+    if (folder / 'angular.json').exists():
+        key_files.append('angular.json')
+        if (folder / 'package.json').exists():
+            key_files.append('package.json')
+        if (folder / 'README.md').exists():
+            key_files.append('README.md')
+        return 'angular', key_files
 
     # Check for JavaScript/Node project
     if (folder / 'package.json').exists():

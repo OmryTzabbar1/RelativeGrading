@@ -1,4 +1,7 @@
-# Student Project Evaluator - Python Dependencies
-# Minimal dependencies for MVP
+# Student Project Evaluator v2.0 - Sliding Window Approach
+# Python Dependencies
 
+# YAML parsing for criteria storage
 pyyaml>=6.0
+
+# Note: Python 3.8+ required for type hints support

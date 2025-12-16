@@ -38,3 +38,6 @@ tests/fixtures/assignment-config.yml
 # Temporary files
 *.log
 *.tmp
+
+# Real student submissions (exclude from git)
+tests/WorkSubmissions01/

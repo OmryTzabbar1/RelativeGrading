@@ -4,7 +4,7 @@
 
 A Claude Code skill for fair, comprehensive evaluation of student coding projects using dynamic criteria discovery through sliding window analysis.
 
-> **Note**: This is designed as a Claude Code skill (`SKILL.md`) with Python helper scripts. It can also be run standalone using `main.py`.
+> **Note**: This is a Claude Code skill (`SKILL.md`) that uses Python helper scripts for evaluation logic.
 
 ## Overview
 
@@ -61,64 +61,46 @@ pip install -r requirements.txt
 
 ## Usage
 
-### Option 1: Use as Claude Code Skill (Recommended)
+### Invoking the Skill
 
-The skill provides an interactive, guided workflow through Claude Code:
+Simply start a conversation with Claude Code and mention your evaluation task:
 
-1. **Invoke the skill** in a Claude Code conversation:
-   ```
-   I need to evaluate student projects in E:/Assignments/WebDev_A1/
-   ```
-
-2. **Claude will guide you through**:
-   - Confirming the folder path and settings
-   - Running Phase 1 (Criteria Discovery)
-   - Optionally reviewing discovered criteria
-   - Running Phase 2 (Final Evaluation)
-   - Presenting results and offering follow-up actions
-
-3. **Interactive features**:
-   - Real-time progress updates
-   - Option to review criteria before final grading
-   - View specific student details
-   - Re-run with different settings
-
-See `SKILL.md` for complete skill documentation.
-
-### Option 2: Standalone Python Script
-
-```bash
-python main.py <path-to-student-projects-folder>
+```
+I need to evaluate student projects in E:/Assignments/WebDev_A1/
 ```
 
-### Advanced Options
+### Interactive Workflow
 
-```bash
-python main.py <master-folder> \
-    --window-size 3 \
-    --output-dir ./outputs \
-    --exclude baseline_student \
-    --exclude .git
-```
+Claude will guide you through the entire process:
 
-#### Arguments
+1. **Configuration**
+   - Confirms the folder path
+   - Asks about window size (default: 3)
+   - Asks about output directory (default: ./outputs)
+   - Asks about folders to exclude
 
-- `master_folder` (required): Path to folder containing student project folders
-- `--window-size N`: Window size for sliding analysis (default: 3)
-- `--output-dir PATH`: Output directory for results (default: ./outputs)
-- `--exclude FOLDER`: Folders to exclude (can be repeated)
+2. **Phase 1: Criteria Discovery**
+   - Analyzes students in sliding windows
+   - Shows real-time progress
+   - Displays what each student adds to criteria
+   - Saves discovered criteria to YAML
 
-### Example
+3. **Review (Optional)**
+   - Option to review discovered criteria
+   - Shows all quality dimensions found
+   - Confirms before proceeding
 
-```bash
-# Evaluate 35 student projects with default settings
-python main.py "E:/Assignments/WebDev_A1/"
+4. **Phase 2: Final Evaluation**
+   - Scores all students against complete criteria
+   - Shows progress during evaluation
+   - Displays top students and statistics
 
-# Use larger window size and custom output directory
-python main.py "E:/Assignments/WebDev_A1/" \
-    --window-size 5 \
-    --output-dir ./results
-```
+5. **Results**
+   - Presents summary statistics
+   - Shows top 10 students
+   - Offers to show full report or specific details
+
+See `SKILL.md` for complete skill documentation and example sessions.
 
 ## How It Works
 
@@ -208,10 +190,10 @@ Comprehensive markdown report including:
 
 ```
 student-project-evaluator/
-├── main.py                          # Main entry point
+├── SKILL.md                         # Claude Code skill (main orchestrator)
 ├── requirements.txt                 # Python dependencies
 ├── README.md                        # This file
-├── scripts/
+├── scripts/                         # Python helper modules
 │   ├── sliding_window_analyzer.py   # Phase 1: Criteria discovery
 │   ├── criteria_builder.py          # DiscoveredCriteria class
 │   ├── final_evaluator.py           # Phase 2: Final evaluation

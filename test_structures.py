@@ -4,7 +4,7 @@ Run this to verify Phase 1 data structures are working.
 """
 
 import sys
-sys.path.insert(0, '.')
+sys.path.insert(0, '.claude/skills/student-evaluator-v2')
 
 from scripts.criteria_builder import DiscoveredCriteria
 from scripts.final_evaluator import StudentEvaluation, calculate_relative_grade

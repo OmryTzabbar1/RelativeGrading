@@ -190,23 +190,26 @@ Comprehensive markdown report including:
 
 ```
 student-project-evaluator/
-├── SKILL.md                         # Claude Code skill (main orchestrator)
-├── requirements.txt                 # Python dependencies
-├── README.md                        # This file
-├── scripts/                         # Python helper modules
-│   ├── sliding_window_analyzer.py   # Phase 1: Criteria discovery
-│   ├── criteria_builder.py          # DiscoveredCriteria class
-│   ├── final_evaluator.py           # Phase 2: Final evaluation
-│   ├── analyze_project.py           # Project feature extraction
-│   ├── output_generator.py          # CSV and markdown generation
-│   └── utils.py                     # Helper functions
+├── .claude/
+│   └── skills/
+│       └── student-evaluator-v2/    # Claude Code skill
+│           ├── SKILL.md             # Skill orchestrator (main entry point)
+│           └── scripts/             # Python helper modules
+│               ├── sliding_window_analyzer.py
+│               ├── criteria_builder.py
+│               ├── final_evaluator.py
+│               ├── analyze_project.py
+│               ├── output_generator.py
+│               └── utils.py
 ├── outputs/                         # Generated output files
 ├── tests/                           # Test scripts and fixtures
-└── docs/                            # Documentation
-    ├── PRD.md                       # Product requirements
-    ├── PLANNING.md                  # Architecture
-    ├── TASKS.md                     # Implementation tasks
-    └── CLAUDE.md                    # Development rules
+├── docs/                            # Documentation
+│   ├── PRD.md                       # Product requirements
+│   ├── PLANNING.md                  # Architecture
+│   ├── TASKS.md                     # Implementation tasks
+│   └── CLAUDE.md                    # Development rules
+├── requirements.txt                 # Python dependencies
+└── README.md                        # This file
 ```
 
 ## Development

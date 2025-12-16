@@ -5,7 +5,7 @@ Tests the complete sliding window evaluation pipeline.
 
 import sys
 import os
-sys.path.insert(0, '.')
+sys.path.insert(0, '.claude/skills/student-evaluator-v2')
 
 from scripts.sliding_window_analyzer import analyze_sliding_windows, save_discovered_criteria
 from scripts.final_evaluator import evaluate_all_students

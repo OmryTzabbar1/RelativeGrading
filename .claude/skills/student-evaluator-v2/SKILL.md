@@ -71,9 +71,9 @@ Should I proceed with the evaluation? (yes/no)
 Execute the sliding window analyzer using the Bash tool:
 
 ```bash
-cd "<project_root>" && python -c "
+python -c "
 import sys
-sys.path.insert(0, '.')
+sys.path.insert(0, '.claude/skills/student-evaluator-v2')
 from scripts.sliding_window_analyzer import analyze_sliding_windows, save_discovered_criteria
 from scripts.utils import scan_student_folders
 
@@ -130,9 +130,9 @@ Proceed to Phase 2? (yes/no)
 Execute the final evaluation:
 
 ```bash
-cd "<project_root>" && python -c "
+python -c "
 import sys
-sys.path.insert(0, '.')
+sys.path.insert(0, '.claude/skills/student-evaluator-v2')
 from scripts.sliding_window_analyzer import load_discovered_criteria
 from scripts.final_evaluator import evaluate_all_students
 from scripts.analyze_project import analyze_project

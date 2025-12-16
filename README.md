@@ -2,7 +2,9 @@
 
 **Sliding Window Criteria Discovery Approach**
 
-A Python-based tool for fair, comprehensive evaluation of student coding projects using dynamic criteria discovery through sliding window analysis.
+A Claude Code skill for fair, comprehensive evaluation of student coding projects using dynamic criteria discovery through sliding window analysis.
+
+> **Note**: This is designed as a Claude Code skill (`SKILL.md`) with Python helper scripts. It can also be run standalone using `main.py`.
 
 ## Overview
 
@@ -59,7 +61,31 @@ pip install -r requirements.txt
 
 ## Usage
 
-### Basic Usage
+### Option 1: Use as Claude Code Skill (Recommended)
+
+The skill provides an interactive, guided workflow through Claude Code:
+
+1. **Invoke the skill** in a Claude Code conversation:
+   ```
+   I need to evaluate student projects in E:/Assignments/WebDev_A1/
+   ```
+
+2. **Claude will guide you through**:
+   - Confirming the folder path and settings
+   - Running Phase 1 (Criteria Discovery)
+   - Optionally reviewing discovered criteria
+   - Running Phase 2 (Final Evaluation)
+   - Presenting results and offering follow-up actions
+
+3. **Interactive features**:
+   - Real-time progress updates
+   - Option to review criteria before final grading
+   - View specific student details
+   - Re-run with different settings
+
+See `SKILL.md` for complete skill documentation.
+
+### Option 2: Standalone Python Script
 
 ```bash
 python main.py <path-to-student-projects-folder>

@@ -1,0 +1,210 @@
+# Student Project Grading Scale
+# Documentation and Quality Focused Evaluation Framework
+# Version: 1.0
+
+grading_philosophy: |
+  All projects should have documentation, research, graphics, and planning.
+  Grades differentiate based on the QUALITY and DETAIL level of these elements.
+  Most students should fall in the 75-85 range for solid work.
+
+grade_ranges:
+  exceptional:
+    range: "95-100"
+    difficulty: "Very hard to achieve"
+    description: "Picture perfect project"
+    requirements:
+      documentation:
+        - Amazing, detailed README (comprehensive, professional quality)
+        - Complete planning documentation (problem statement, design rationale)
+        - Architecture documentation with clear design decisions
+        - Thorough inline code documentation
+      research:
+        - Relevant, thorough research related to assignment
+        - Well-documented findings and analysis
+        - Data work if applicable (notebooks, visualizations)
+      graphics:
+        - Rich visual elements (screenshots, diagrams, charts)
+        - Professional quality visualizations
+        - UI/UX documentation with images
+      planning:
+        - Articulate problem statement
+        - Clear design decisions with rationale
+        - Comprehensive project planning documents
+      quality:
+        - Everything is polished and professional
+        - Exceptional attention to detail
+        - Goes significantly beyond requirements
+
+  great:
+    range: "85-95"
+    difficulty: "Hard to achieve"
+    description: "Great project, complete and well-executed"
+    requirements:
+      documentation:
+        - All relevant documentation present and complete
+        - Good README with installation, usage, examples
+        - Planning documents exist but may lack some detail
+      research:
+        - Relevant research present and documented
+        - Analysis appropriate to assignment
+        - Adequately documented findings
+      graphics:
+        - Good visual elements present
+        - Screenshots and diagrams included
+      planning:
+        - Clear planning documentation
+        - Design decisions explained
+      quality:
+        - High quality overall
+        - May lack some polish of exceptional tier
+        - Meets all requirements well
+
+  good_solid:
+    range: "75-85"
+    difficulty: "Most students should achieve this"
+    description: "Solid project with adequate documentation"
+    requirements:
+      documentation:
+        - Most or all documentation present
+        - README exists but may be less detailed
+        - Core documentation covered
+      research:
+        - Some research present but not as thorough
+        - Basic analysis if required
+      graphics:
+        - Basic visual elements present
+        - May have fewer screenshots/diagrams
+      planning:
+        - Basic planning documentation
+        - Design decisions may be brief
+      quality:
+        - Solid implementation
+        - "Gets the job done" quality
+        - Meets core requirements
+
+  mid_low:
+    range: "65-75"
+    difficulty: "Below average but passing"
+    description: "Mid-low tier project"
+    requirements:
+      documentation:
+        - Good documentation exists but may be basic
+        - README present but minimal
+        - Some documentation may be missing
+      research:
+        - Research may be lacking or minimal
+        - Limited analysis
+      graphics:
+        - Missing or minimal visual elements
+        - Few or no screenshots
+      planning:
+        - Minimal planning documentation
+        - Design decisions not well explained
+      quality:
+        - Implementation may be incomplete or rough
+        - Missing some requirements
+        - Adequate but not polished
+
+  incomplete:
+    range: "0-65"
+    difficulty: "Failing or severely incomplete"
+    description: "Project missing core elements"
+    requirements:
+      documentation:
+        - Missing core documentation
+        - No or minimal README
+        - Planning documents absent
+      research:
+        - Missing research/analysis
+        - No data work when required
+      graphics:
+        - No visual elements
+        - No screenshots or diagrams
+      planning:
+        - No planning documentation
+        - No design rationale
+      quality:
+        - Significant gaps in requirements
+        - Poor implementation quality
+        - Core features missing or broken
+
+# Evaluation Priority (in order of importance)
+evaluation_criteria:
+  - name: "Documentation Quality"
+    weight: "High"
+    description: "README detail, planning docs, architecture, inline comments"
+
+  - name: "Research Depth"
+    weight: "High"
+    description: "Analysis, data work, insights relevant to assignment"
+
+  - name: "Visual Elements"
+    weight: "Medium"
+    description: "Screenshots, diagrams, charts, UI documentation"
+
+  - name: "Planning Documentation"
+    weight: "Medium"
+    description: "Problem statement, design decisions, rationale"
+
+  - name: "Implementation Quality"
+    weight: "Medium"
+    description: "Code completeness, organization, best practices"
+
+# Grading Guidelines
+guidelines:
+  baseline_calibration: |
+    When establishing baseline grade:
+    1. Read all documentation (README, planning docs, etc.)
+    2. Assess research quality and relevance
+    3. Count and evaluate visual elements
+    4. Review planning and design rationale
+    5. Evaluate code quality and completeness
+    6. Place in appropriate grade range based on above criteria
+
+  comparative_evaluation: |
+    When comparing students to baseline:
+    1. Compare documentation quantity and quality
+    2. Compare research depth and relevance
+    3. Compare visual elements (more/fewer, better/worse quality)
+    4. Compare planning detail and clarity
+    5. Compare implementation completeness
+    6. Adjust grade up/down based on relative quality
+
+  adjustment_scale: |
+    From baseline grade, adjust:
+    - Documentation significantly better: +5 to +10 points
+    - Documentation moderately better: +2 to +5 points
+    - Documentation similar: 0 points
+    - Documentation moderately worse: -2 to -5 points
+    - Documentation significantly worse: -5 to -10 points
+
+    Apply similar logic for research, graphics, planning, implementation.
+    Final adjustment should reflect overall relative quality.
+
+# Red Flags (automatic grade penalties)
+red_flags:
+  - flag: "No README"
+    penalty: "Major (place in 0-65 range)"
+
+  - flag: "No documentation beyond README"
+    penalty: "Significant (max 75)"
+
+  - flag: "No research when required by assignment"
+    penalty: "Significant (max 75)"
+
+  - flag: "No screenshots/visuals"
+    penalty: "Moderate (max 85)"
+
+  - flag: "No planning documentation"
+    penalty: "Moderate (max 85)"
+
+  - flag: "Incomplete implementation"
+    penalty: "Variable (based on severity)"
+
+# Notes
+notes:
+  - "Most students should fall in 75-85 range for solid work"
+  - "95-100 is reserved for truly exceptional projects"
+  - "All projects should have documentation, research, graphics, planning"
+  - "Grades reflect QUALITY and DETAIL level, not just presence/absence"
+  - "Comparative grading means relative to baseline and peers"

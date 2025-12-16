@@ -10,9 +10,20 @@ Evaluates student coding projects through comparative grading, where each projec
 ## When to Use This Skill
 
 - Instructor needs to grade student programming assignments
-- Want relative quality scores in addition to strict criteria checking
+- Want relative quality scores based on documentation and implementation quality
 - Need to identify standout projects in a class
 - Require CSV export for gradebook integration
+
+## Grading Philosophy
+
+This skill uses a **documentation and quality-focused** evaluation framework defined in `grading_scale.yml`:
+
+- **All projects should have**: documentation, research, graphics, planning
+- **Grades differentiate on**: quality and detail level of these elements
+- **Grade distribution**: Most students should fall in 75-85 range for solid work
+- **95-100 range**: Reserved for truly exceptional, picture-perfect projects
+
+See `grading_scale.yml` for complete grading scale and criteria.
 
 ## Execution Flow
 
@@ -45,7 +56,7 @@ Evaluates student coding projects through comparative grading, where each projec
 
 ### Step 2: Calibrate Baseline
 
-**Goal**: Understand what quality level the baseline grade represents.
+**Goal**: Understand what quality level the baseline grade represents using the grading scale criteria.
 
 **Actions:**
 
@@ -64,16 +75,46 @@ Evaluates student coding projects through comparative grading, where each projec
    - Nested project structures (up to 3 levels deep)
    - Automatic discovery of actual code directory
 
-3. Read key files from the baseline project (using actual_project_path):
-   - README.md (if exists)
-   - Main source files based on detected project type
-   - Configuration files (package.json, requirements.txt, etc.)
+3. Read and evaluate ALL documentation from actual_project_path:
+   - **README.md** - Assess detail level, completeness (installation, usage, examples)
+   - **Planning docs** - Look for problem statements, design rationale, architecture docs
+   - **Research files** - Jupyter notebooks, data analysis, documented findings
+   - **Visual elements** - Count screenshots, diagrams, charts in docs or separate folders
+   - **Code quality** - Implementation completeness, organization, comments
 
-4. Analyze the baseline project:
-   - What features are implemented?
-   - How well does it address the assignment requirements?
-   - What is the code quality/organization like?
-   - Document these observations
+4. **Evaluate against grading scale** (see `grading_scale.yml`):
+
+   **Documentation Quality:**
+   - Is README detailed and comprehensive, or basic?
+   - Are planning/architecture docs present?
+   - Is there inline code documentation?
+
+   **Research Depth:**
+   - Is there relevant research/analysis for the assignment?
+   - Are findings well-documented?
+   - Any data work (notebooks, visualizations)?
+
+   **Visual Elements:**
+   - How many screenshots/diagrams are included?
+   - Are they professional quality?
+   - Is UI/UX documented visually?
+
+   **Planning Documentation:**
+   - Is there a clear problem statement?
+   - Are design decisions explained with rationale?
+
+   **Implementation Quality:**
+   - Does it meet assignment requirements?
+   - Is code well-organized and complete?
+
+5. **Determine baseline grade tier** based on above:
+   - 95-100: Picture perfect (amazing docs, thorough research, rich graphics, polished)
+   - 85-95: Great (all docs present, good research, quality visuals)
+   - 75-85: Solid (adequate docs, some research, basic visuals) ← Most students
+   - 65-75: Mid-low (minimal docs, lacking research or graphics)
+   - 0-65: Incomplete (missing core documentation or requirements)
+
+   **Document specific observations** for each criterion to justify the baseline grade.
 
 5. Generate `assignment-config.yml` in the master folder:
 
@@ -189,20 +230,42 @@ For each student in the current batch:
 
 #### 4.2 Comparative Analysis
 
-Compare against **current baseline** (highest-graded student so far):
+Compare against **current baseline** (highest-graded student so far) using the grading scale criteria:
 
-**Assignment Relevance (50% weight):**
-- Does the project address the assignment requirements?
-- Are required features implemented?
-- Does it go beyond minimum requirements or fall short?
-- Evaluate on scale: -10 to +20 points from baseline
+**Documentation Quality (Primary Factor):**
+- Is README more/less detailed than baseline?
+- Are planning docs better/worse/similar?
+- More/fewer architecture or design documents?
+- Better/worse inline code documentation?
 
-**Functionality (50% weight):**
-- Feature completeness vs baseline
-- Code organization and structure
-- Documentation quality
-- Error handling
-- Evaluate on scale: -10 to +20 points from baseline
+**Research Depth:**
+- More/less thorough research than baseline?
+- Better/worse documented findings?
+- More/fewer data analysis artifacts (notebooks, visualizations)?
+
+**Visual Elements:**
+- More/fewer screenshots than baseline?
+- Better/worse quality diagrams and charts?
+- More/less comprehensive UI/UX documentation?
+
+**Planning Documentation:**
+- Clearer/less clear problem statement than baseline?
+- Better/worse explained design rationale?
+- More/less detailed planning artifacts?
+
+**Implementation Quality:**
+- More/fewer features than baseline?
+- Better/worse code organization?
+- More/less complete implementation?
+
+**Grade Adjustment Guidelines** (from `grading_scale.yml`):
+- Significantly better across criteria: +5 to +15 points
+- Moderately better: +2 to +8 points
+- Similar quality: -2 to +2 points
+- Moderately worse: -2 to -8 points
+- Significantly worse: -5 to -15 points
+
+**Remember**: Most students should fall in 75-85 range. Only truly exceptional work deserves 95-100.
 
 #### 4.3 Calculate Grade
 
@@ -364,10 +427,18 @@ Baseline progression: {show if baseline changed during evaluation}
 
 ### Grading Principles
 
-1. **Be objective**: Base grades on observable characteristics (code, features, documentation)
-2. **Be specific**: Cite exact features, files, and code when comparing
-3. **Be consistent**: Use the same evaluation criteria across all students
-4. **Be transparent**: Explain all grade adjustments clearly
+**Follow the grading scale** defined in `grading_scale.yml`:
+
+1. **Documentation-focused**: Documentation quality is the primary differentiator
+2. **Quality over presence**: All projects should have docs; grades reflect detail level
+3. **Grade distribution**: Most students should fall in 75-85 range
+4. **High bar for excellence**: 95-100 reserved for truly exceptional work
+
+**Evaluation approach:**
+1. **Be objective**: Base grades on observable characteristics (docs, research, graphics, code)
+2. **Be specific**: Cite exact files, sections, and quality differences when comparing
+3. **Be consistent**: Use the grading scale criteria across all students
+4. **Be transparent**: Explain grade adjustments with specific evidence
 
 ### Comparative Evaluation Tips
 

@@ -1,8 +1,8 @@
 # Product Requirements Document (PRD)
-# Student Project Evaluator - Dynamic Criteria Builder
+# Student Project Evaluator - Markdown Criteria Discovery
 
-**Version:** 2.0
-**Date:** 2025-12-16
+**Version:** 3.0
+**Date:** 2025-12-17
 **Status:** Active
 **Author:** Development Team
 
@@ -12,45 +12,46 @@
 
 ### 1.1 Context and Background
 
-Academic project evaluation requires fair, comprehensive criteria that reflect the collective capabilities demonstrated across all student submissions. Traditional approaches either:
+Academic project evaluation requires fair, comprehensive criteria that reflect the collective work demonstrated across all student submissions. Traditional approaches face key limitations:
 
-1. **Predetermined Rubrics**: Define criteria before seeing student work, missing innovative approaches students may take
-2. **Baseline Comparison**: Compare all students to a single baseline, which may not represent the full spectrum of quality
+1. **Predetermined Rubrics**: Define criteria before seeing student work, missing innovative approaches
+2. **Code-Based Analysis**: Scanning files/folders is slow and misses the "big picture"
+3. **Incomplete Context**: File presence doesn't indicate quality or completeness
 
-The **Student Project Evaluator v2.0** uses a **sliding window criteria discovery approach** that builds evaluation criteria dynamically by analyzing all projects first, then evaluating everyone against the complete discovered criteria.
+The **Student Project Evaluator v3.0** uses a **Markdown-Based Criteria Discovery** approach that:
+- Reads `.md` files (README, PRD, Architecture, etc.) which provide holistic project summaries
+- Extracts criteria organically from what students document
+- Weights criteria by prevalence across the class
 
 ### 1.2 Problem Statement
 
-Current evaluation systems face three critical issues:
+Current evaluation approaches have three issues:
 
-1. **Premature Criteria**: Defining criteria before seeing student work may miss important dimensions
-2. **Baseline Bias**: Single baseline may not capture full range of possible approaches and quality levels
-3. **Incomplete Picture**: Early students are evaluated without knowing what later students will demonstrate
+1. **Slow Analysis**: Scanning entire project structures is time-consuming
+2. **Missing Context**: File existence doesn't prove implementation quality
+3. **Predetermined Bias**: Fixed rubrics miss what students actually built
 
-This results in potentially unfair grading where students are compared to incomplete criteria.
+### 1.3 Innovation: Markdown-Based Criteria Discovery
 
-### 1.3 Innovation: Sliding Window Criteria Discovery
-
-**Core Concept**: Build evaluation criteria organically by examining all projects in overlapping groups.
+**Core Concept**: Markdown files summarize projects better than file trees. A README mentions testing, architecture, research, costs - giving a complete picture.
 
 **Process**:
 ```
-Students: [1, 2, 3, 4, 5, 6, ..., N]
+For each student:
+    Read all .md files
+    Extract mentioned criteria (with context validation)
+    Add student to each criterion's list
 
-Window 1: [1, 2, 3] → Initial criteria C1
-Window 2: [2, 3, 4] → Updated criteria C2 = C1 + new_from_4
-Window 3: [3, 4, 5] → Updated criteria C3 = C2 + new_from_5
-...
-Window N-2: [N-2, N-1, N] → Final criteria CF
-
-Then: Evaluate ALL students against CF
+Result: Criteria graph showing who has what
+Weight: Based on prevalence (more students = higher weight)
+Grade: Weighted score of criteria present
 ```
 
 **Benefits**:
-- Criteria emerges from actual student work
-- No single student defines the standard
-- All students judged by same complete criteria
-- Discovers full spectrum of quality dimensions
+- Fast: Only reads markdown files, not entire codebase
+- Holistic: Markdown summarizes the full project
+- Fair: Criteria discovered from actual student work
+- Weighted: Common criteria matter more than rare ones
 
 ---
 
@@ -63,10 +64,10 @@ Then: Evaluate ALL students against CF
 
 **Use Case**:
 - 35 students submitted coding projects
-- Wants fair grading based on what students collectively demonstrated
-- Needs to understand full range of approaches before finalizing criteria
+- Each has README.md and other documentation
+- Wants fair grading based on what students documented
 
-**Success Scenario**: Tool analyzes all 35 projects in overlapping windows, builds comprehensive criteria capturing all quality dimensions, then grades each student against the complete criteria. Final grades reflect true comparative performance.
+**Success Scenario**: Tool reads all markdown files, discovers 50+ criteria, weights them by prevalence, and generates relative grades. Students with comprehensive documentation score higher.
 
 ---
 
@@ -76,10 +77,10 @@ Then: Evaluate ALL students against CF
 
 | Goal | Description | Success Metric |
 |------|-------------|----------------|
-| **Fairness** | All students evaluated against same complete criteria | Zero complaints about inconsistent standards |
-| **Comprehensiveness** | Capture all quality dimensions present in submissions | Criteria includes features from 90%+ of projects |
-| **Efficiency** | Complete discovery + evaluation in reasonable time | Process 35 students in <45 minutes |
-| **Transparency** | Clear explanation of discovered criteria | Instructors can review and understand criteria |
+| **Speed** | Analyze projects quickly via markdown only | 35 students in <20 minutes |
+| **Fairness** | Weight criteria by class prevalence | Common criteria weighted higher |
+| **Transparency** | Show exactly what criteria were found | Criteria list with student counts |
+| **Accuracy** | Context-aware extraction | "Not implemented" doesn't count |
 
 ---
 
@@ -89,66 +90,80 @@ Then: Evaluate ALL students against CF
 
 | Feature ID | Feature | Acceptance Criteria |
 |------------|---------|---------------------|
-| **P0.1** | Sliding Window Analysis | Process students in overlapping windows of 3; Window 1: [1,2,3], Window 2: [2,3,4], etc. |
-| **P0.2** | Dynamic Criteria Building | Each window updates collective criteria; track: documentation types, features, testing, graphics, research |
-| **P0.3** | Criteria Evolution Tracking | Log what each student adds to criteria; display "Student X added: [new criteria]" |
-| **P0.4** | Final Criteria Generation | After all windows: produce complete criteria YAML with all discovered dimensions |
-| **P0.5** | Comprehensive Re-evaluation | Evaluate ALL students against final criteria; assign grades 0-100 |
-| **P0.6** | Relative Grading | Only best student gets 100; others scaled relative to best |
-| **P0.7** | CSV Export | Export: Student, Grade, Rank, with all discovered criteria scores |
-| **P0.8** | Criteria Report | Generate markdown showing criteria evolution and final evaluation |
+| **P0.1** | Markdown File Discovery | Find all .md files in each student project |
+| **P0.2** | Criteria Extraction | Extract specific features/elements mentioned in markdown |
+| **P0.3** | Context Validation | Only count criteria that are documented as implemented |
+| **P0.4** | Single-Pass Population | Build criteria list AND track which students have each |
+| **P0.5** | Broad Category Grouping | Group granular criteria into categories (Testing, Docs, etc.) |
+| **P0.6** | Irrelevant Criteria Flagging | Flag uncategorized criteria for manual review |
+| **P0.7** | Prevalence-Based Weighting | Weight = students_with_criterion / total_students |
+| **P0.8** | Relative Grading | Calculate grades from weighted criteria scores |
+| **P0.9** | CSV Export | Student, Grade, Rank, Criteria breakdown |
+| **P0.10** | Criteria Report | Markdown showing all criteria, categories, weights |
 
-### 4.2 Criteria Discovery Dimensions
+### 4.2 Criteria Categories (Broad Topics)
 
-**What to discover in each window:**
+| Category | Example Granular Criteria |
+|----------|--------------------------|
+| **Documentation** | README, API docs, user guide, changelog |
+| **Planning** | PRD, architecture doc, design decisions, roadmap |
+| **Testing** | Unit tests, integration tests, E2E tests, test coverage |
+| **DevOps** | CI/CD, Docker, deployment scripts, monitoring |
+| **Research** | Analysis notebooks, findings, data exploration |
+| **Visuals** | Screenshots, diagrams, charts, demo videos |
+| **Code Quality** | Linting, type checking, code review, refactoring |
+| **Business** | Cost analysis, ROI, market research, user personas |
 
-| Dimension | Examples | Scoring |
-|-----------|----------|---------|
-| **Documentation** | README, PRD, Architecture docs, PROMPT_BOOK | Quality + quantity |
-| **Planning** | PRD.md, Architecture.md, design docs | Presence + depth |
-| **Research** | Notebooks, analysis docs, findings | Depth + insights |
-| **Visual Elements** | Screenshots, diagrams, charts | Quantity + relevance |
-| **Testing** | Test files, test coverage, test types | Coverage + quality |
-| **Code Quality** | Structure, organization, patterns | Complexity + clarity |
-| **Innovation** | Novel approaches, creative solutions | Uniqueness |
+### 4.3 Context Validation Rules
+
+| Pattern | Counts? | Reason |
+|---------|---------|--------|
+| "We implemented unit tests" | ✅ Yes | Documented as done |
+| "Unit tests cover 80% of code" | ✅ Yes | Specific claim of implementation |
+| "Unit tests not yet implemented" | ❌ No | Explicitly not done |
+| "TODO: add unit tests" | ❌ No | Future work, not done |
+| "We plan to add unit tests" | ❌ No | Future intention |
+| "Unit tests are out of scope" | ❌ No | Explicitly excluded |
 
 ---
 
 ## 5. Use Cases
 
-### 5.1 Use Case 1: Evaluating 35 Web Development Projects
+### 5.1 Evaluating 35 Web Development Projects
 
 **Preconditions**:
 - 35 student folders in `/Assignments/WebDev_A1/`
-- Each contains git repository
+- Each contains at least README.md
 
 **Main Flow**:
 
-1. **Phase 1: Criteria Discovery** (20-25 minutes)
-   - Window 1 [Students 1,2,3]:
-     - Analyze all three projects
-     - Create initial criteria C1
-     - Track: Student 1 has README (excellent), Student 2 has PRD, Student 3 has tests
-   - Window 2 [Students 2,3,4]:
-     - Student 4 introduces Architecture.md
-     - Update criteria: C2 = C1 + {architecture_docs: present}
-   - Continue through Window 33 [Students 33,34,35]
-   - Display evolution: "Total criteria dimensions discovered: 15"
+1. **Discovery Phase** (10-15 minutes)
+   - For each student folder:
+     - Find all .md files (README.md, PRD.md, ARCHITECTURE.md, etc.)
+     - Read each file, extract criteria with context validation
+     - Add student to each criterion's list
+   - Build criteria graph: `{criterion: [students...]}`
 
-2. **Phase 2: Final Evaluation** (15-20 minutes)
-   - Load complete criteria CF
-   - For each student (1-35):
-     - Score against all 15 dimensions
-     - Calculate composite quality score
-   - Assign relative grades:
-     - Best student = 100
-     - Others scaled to best
+2. **Categorization Phase** (2-3 minutes)
+   - Group criteria into broad categories
+   - Flag uncategorized criteria for manual review
+   - Save flagged items to review file
+
+3. **Weighting Phase** (1 minute)
+   - For each criterion: weight = count(students) / total_students
+   - Higher prevalence = higher weight
+
+4. **Grading Phase** (2-3 minutes)
+   - For each student: sum weighted scores for criteria they have
+   - Best student = 100, others scaled relative
    - Generate outputs
 
 **Postconditions**:
-- `discovered_criteria.yml` - Complete criteria with all dimensions
-- `grades.csv` - Final grades for all students
-- `evaluation_report.md` - Criteria evolution + individual evaluations
+- `discovered_criteria.yml` - All criteria with categories and weights
+- `criteria_graph.json` - Which students have which criteria
+- `flagged_criteria.md` - Uncategorized items for manual review
+- `grades.csv` - Final grades
+- `evaluation_report.md` - Complete analysis
 
 ---
 
@@ -158,62 +173,146 @@ Then: Evaluate ALL students against CF
 
 | Requirement | Target |
 |-------------|--------|
-| **Phase 1 (Discovery)** | Process 3-student windows in <1 min each; 35 students = ~12 windows = <15 min |
-| **Phase 2 (Evaluation)** | Evaluate 1 student in <30 sec; 35 students = <20 min |
-| **Total Time** | <45 minutes for 35 students |
+| **Per Student** | <30 seconds to read and extract |
+| **Total (35 students)** | <20 minutes end-to-end |
+| **Memory** | Handle projects with 50+ .md files |
 
 ### 6.2 Accuracy Requirements
 
-- Criteria must capture features from 90%+ of projects
-- Final grades correlate with manual grading at ≥0.80
+- Context validation catches 95%+ of "not implemented" cases
+- Criteria extraction captures 90%+ of mentioned features
 - Only 1 student at 100/100 (best overall)
 
 ---
 
-## 7. Assumptions
+## 7. Weight System Design
 
-1. **Student folders accessible**: All projects pre-cloned locally
-2. **Consistent structure**: Students follow similar project organization
-3. **Window size of 3**: Balances thoroughness vs. processing time
-4. **Overlap necessary**: Ensures continuity in criteria discovery
+### 7.1 Prevalence-Based Weights
+
+```
+weight(criterion) = students_with_criterion / total_students
+
+Example (35 students):
+- "README.md": 35/35 = 1.0 weight (everyone has it, critical)
+- "Unit tests": 28/35 = 0.8 weight (most have it, important)
+- "Cost analysis": 5/35 = 0.14 weight (few have it, bonus)
+```
+
+### 7.2 Scoring Formula
+
+```
+For each student:
+    score = 0
+    max_possible = 0
+
+    for each criterion in valid_criteria:
+        max_possible += weight(criterion)
+        if student has criterion:
+            score += weight(criterion)
+
+    percentage = score / max_possible * 100
+```
+
+### 7.3 Relative Grading
+
+```
+best_percentage = max(all_student_percentages)
+
+for each student:
+    if student.percentage == best_percentage:
+        grade = 100
+    else:
+        grade = (student.percentage / best_percentage) * 100
+```
 
 ---
 
-## 8. Constraints
+## 8. Data Structures
 
-### 8.1 Technical Constraints
+### 8.1 Criteria Graph
 
-- Processing time limited by Claude Code context and API rate limits
-- Large projects (1000+ files) may slow analysis
-- Window size fixed at 3 (not configurable in MVP)
+```yaml
+criteria_graph:
+  "Unit tests":
+    students: ["alice", "bob", "carol", "diana"]
+    count: 4
+    weight: 0.8  # 4/5 students
+    category: "Testing"
 
-### 8.2 Methodology Constraints
+  "CI/CD pipeline":
+    students: ["bob", "diana"]
+    count: 2
+    weight: 0.4  # 2/5 students
+    category: "DevOps"
 
-- Criteria cannot be manually edited during discovery phase
-- All students must be in same master folder
-- Order of students matters (affects discovery sequence)
+  "Cost analysis":
+    students: ["carol"]
+    count: 1
+    weight: 0.2  # 1/5 students
+    category: "Business"
+```
+
+### 8.2 Student Scores
+
+```yaml
+student_scores:
+  alice:
+    criteria_present: ["Unit tests", "README", "Architecture"]
+    criteria_missing: ["CI/CD pipeline", "Cost analysis"]
+    raw_score: 2.3
+    max_possible: 3.4
+    percentage: 67.6
+    grade: 85
+    rank: 3
+```
 
 ---
 
-## 9. Out-of-Scope (MVP)
+## 9. Assumptions
 
-- **Manual criteria adjustment**: Can't edit discovered criteria before final evaluation
-- **Variable window size**: Fixed at 3 students per window
+1. **Markdown is accurate**: Students document what they actually built
+2. **Context validation works**: Claude can detect "not implemented" patterns
+3. **Categories are sufficient**: Predefined categories cover most criteria
+4. **Single pass is enough**: No need to re-evaluate after discovery
+
+---
+
+## 10. Constraints
+
+### 10.1 Technical Constraints
+
+- Relies on Claude Code as execution platform
+- Limited by Claude's context window for very large markdown files
+- Categories are predefined (can be extended)
+
+### 10.2 Methodology Constraints
+
+- Only analyzes .md files (ignores code quality)
+- Trusts documentation accuracy
+- Manual review needed for uncategorized criteria
+
+---
+
+## 11. Out-of-Scope (MVP)
+
+- **Code analysis**: Not scanning actual code files
+- **Plagiarism detection**: Not comparing student work
+- **LMS integration**: Export only
 - **Multi-assignment tracking**: Each run is independent
-- **LMS integration**: Export CSV only
 
 ---
 
-## 10. Success Criteria
+## 12. Success Criteria
 
 MVP is successful when:
 
-1. ✅ Tool processes 35 students in two phases (discovery + evaluation) in <45 minutes
-2. ✅ Discovered criteria captures features from 90%+ of projects
-3. ✅ Only 1 student receives 100/100 (the best)
-4. ✅ Criteria evolution is logged and transparent
-5. ✅ Instructor can review discovered criteria before accepting results
-6. ✅ Final grades correlate with manual assessment at ≥0.80
+1. ✅ Tool processes 35 students in <20 minutes
+2. ✅ Discovers 50+ unique criteria from markdown files
+3. ✅ Correctly categorizes 90%+ of criteria
+4. ✅ Weights reflect actual class prevalence
+5. ✅ Only 1 student receives 100/100 (the best)
+6. ✅ Flagged criteria are saved for manual review
+7. ✅ Final grades correlate with manual assessment at ≥0.80
 
 ---
 

@@ -1,190 +1,134 @@
-# Student Project Evaluator v2.0
+# Student Project Evaluator v3.0
 
-**Sliding Window Criteria Discovery Approach**
+**Markdown-Based Criteria Discovery**
 
-A Claude Code skill for fair, comprehensive evaluation of student coding projects using dynamic criteria discovery through sliding window analysis.
-
-> **Note**: This is a Claude Code skill (`SKILL.md`) that uses Python helper scripts for evaluation logic.
+A Claude Code skill for fair, comprehensive evaluation of student coding projects by analyzing their markdown documentation.
 
 ## Overview
 
-The Student Project Evaluator v2.0 addresses a fundamental challenge in academic evaluation: how to fairly grade student projects when the full spectrum of quality and approaches isn't known upfront.
+The Student Project Evaluator v3.0 discovers evaluation criteria organically by reading students' `.md` files (README, PRD, Architecture docs, etc.), then grades everyone against the complete discovered criteria.
 
-### The Problem
+### Key Innovation
 
-Traditional evaluation approaches face three critical issues:
+Instead of scanning code files or using predetermined rubrics, this tool:
 
-1. **Premature Criteria**: Defining rubrics before seeing student work misses innovative approaches
-2. **Baseline Bias**: Comparing all students to a single baseline may not capture the full range of quality
-3. **Inconsistent Standards**: Early students evaluated against incomplete criteria
+1. **Reads markdown files** - READMEs and docs provide holistic project summaries
+2. **Extracts criteria** - Discovers what students actually built
+3. **Validates context** - Only counts implemented features (not TODOs)
+4. **Weights by prevalence** - Common criteria matter more than rare ones
+5. **Grades relatively** - Best student = 100, others scaled proportionally
 
-### The Solution: Sliding Window Criteria Discovery
+## How It Works
 
-This tool uses a **two-phase evaluation approach**:
+```
+For each student:
+    Find all .md files
+    Extract criteria (with context validation)
+    Add student to criteria graph
 
-**Phase 1: Criteria Discovery**
-- Analyzes students in overlapping windows of 3
-- Builds comprehensive criteria organically from all projects
-- Tracks which student introduced each quality dimension
+Build weights: weight = students_with_criterion / total_students
+Score students: sum of weights for criteria they have
+Grade: relative to best student
+```
 
-**Phase 2: Final Evaluation**
-- Evaluates ALL students against the same complete criteria
-- Assigns TRUE relative grades (only best student gets 100)
-- Generates comprehensive reports with statistics
+### Example
 
-## Key Features
+| Criterion | Students | Weight | Meaning |
+|-----------|----------|--------|---------|
+| README | 35/35 | 1.00 | Core requirement |
+| Unit tests | 28/35 | 0.80 | Important feature |
+| CI/CD | 10/35 | 0.29 | Nice to have |
+| Cost analysis | 3/35 | 0.09 | Bonus feature |
 
-- ✅ **Dynamic Criteria Building**: Discovers evaluation criteria from actual student work
-- ✅ **Fair Comparison**: All students judged by same complete criteria
-- ✅ **True Relative Grading**: Best student = 100, others scaled proportionally
-- ✅ **Comprehensive Analysis**: Evaluates documentation, testing, graphics, research, code quality
-- ✅ **Transparent Reporting**: Detailed CSV and markdown reports with evolution log
-- ✅ **Progress Tracking**: Real-time display of analysis progress
+Students missing high-weight criteria are penalized more than those missing low-weight criteria.
+
+## Features
+
+- **Markdown-first analysis** - Fast, holistic project understanding
+- **Context-aware extraction** - "TODO: add tests" doesn't count
+- **Prevalence weighting** - Fair, class-relative grading
+- **Automatic categorization** - Groups criteria into topics
+- **Flagged items review** - Uncategorized criteria saved for manual review
+- **Comprehensive outputs** - CSV, JSON, and markdown reports
 
 ## Installation
 
-### Requirements
-
-- Python 3.8+
-- PyYAML 6.0+
-
-### Setup
+This is a Claude Code skill. No additional installation required beyond Claude Code itself.
 
 ```bash
 # Clone the repository
 git clone <repository-url>
 cd student-project-evaluator
-
-# Install dependencies
-pip install -r requirements.txt
 ```
+
+The skill is located in `.claude/skills/evaluating-student-projects/`.
 
 ## Usage
 
-### Invoking the Skill
-
-Simply start a conversation with Claude Code and mention your evaluation task:
+Simply ask Claude Code to evaluate your student projects:
 
 ```
-I need to evaluate student projects in E:/Assignments/WebDev_A1/
+Evaluate the student projects in /path/to/submissions/
 ```
 
-### Interactive Workflow
-
-Claude will guide you through the entire process:
-
-1. **Configuration**
-   - Confirms the folder path
-   - Asks about window size (default: 3)
-   - Asks about output directory (default: ./outputs)
-   - Asks about folders to exclude
-
-2. **Phase 1: Criteria Discovery**
-   - Analyzes students in sliding windows
-   - Shows real-time progress
-   - Displays what each student adds to criteria
-   - Saves discovered criteria to YAML
-
-3. **Review (Optional)**
-   - Option to review discovered criteria
-   - Shows all quality dimensions found
-   - Confirms before proceeding
-
-4. **Phase 2: Final Evaluation**
-   - Scores all students against complete criteria
-   - Shows progress during evaluation
-   - Displays top students and statistics
-
-5. **Results**
-   - Presents summary statistics
-   - Shows top 10 students
-   - Offers to show full report or specific details
-
-See `SKILL.md` for complete skill documentation and example sessions.
-
-## How It Works
-
-### Phase 1: Criteria Discovery
+Or more specific requests:
 
 ```
-Students: [1, 2, 3, 4, 5, ..., N]
-
-Window 1: [1, 2, 3] → Discover initial criteria C1
-Window 2: [2, 3, 4] → Update criteria C2 = C1 + new features from 4
-Window 3: [3, 4, 5] → Update criteria C3 = C2 + new features from 5
-...
-Window N-2: [N-2, N-1, N] → Final complete criteria CF
+Grade the assignments in E:/Courses/CS101/Assignment1/
 ```
 
-**What's Discovered**:
-- Documentation (README, PRD, Architecture docs, PROMPT_BOOK)
-- Testing (test files, coverage, test types)
-- Graphics (images, diagrams, charts)
-- Research (notebooks, analysis documents)
-- Code Quality (structure, organization, file count)
+```
+Compare student work in /Assignments/WebDev/ and generate a grade report
+```
 
-### Phase 2: Final Evaluation
+### What Claude Does
 
-1. **Score All Students**: Each student scored against complete criteria
-2. **Calculate Quality Scores**: Composite score across all dimensions
-3. **Assign Relative Grades**:
-   - Best student: 100
-   - 95%+ of best: 90-99
-   - 80-95% of best: 75-89
-   - 60-80% of best: 60-74
-   - Below 60%: proportional
-4. **Rank Students**: 1 = highest quality score
+1. **Discovers students** - Scans folder for subdirectories
+2. **Reads markdown** - Finds all .md files in each student folder
+3. **Extracts criteria** - Identifies features, tests, docs, etc.
+4. **Validates context** - Filters out "TODO" and "not implemented" items
+5. **Builds graph** - Tracks which students have which criteria
+6. **Categorizes** - Groups into Documentation, Testing, DevOps, etc.
+7. **Calculates weights** - Based on class prevalence
+8. **Grades students** - Relative scoring with best = 100
+9. **Generates outputs** - CSV, JSON, and markdown reports
 
 ## Output Files
 
-After evaluation, three files are generated in the output directory:
+Generated in `outputs/` directory:
 
-### 1. `discovered_criteria.yml`
+| File | Description |
+|------|-------------|
+| `criteria_graph.json` | Complete criteria data with students and weights |
+| `flagged_criteria.md` | Uncategorized items for manual review |
+| `grades.csv` | Student grades for import into grading systems |
+| `evaluation_report.md` | Full analysis with statistics and breakdowns |
 
-Complete criteria with evolution log showing which student introduced each dimension.
-
-```yaml
-criteria:
-  documentation:
-    readme:
-      present: true
-      lines: 200
-    prd:
-      present: true
-      weight: 5
-  testing:
-    present: true
-    test_file_count: 10
-  ...
-
-evolution:
-  - student: student_alice
-    dimension: documentation
-    properties: {...}
-  - student: student_bob
-    dimension: testing
-    properties: {...}
-```
-
-### 2. `grades.csv`
-
-Spreadsheet with grades and dimension scores for all students.
+### Sample grades.csv
 
 ```csv
-Student,Grade,Rank,Quality Score,documentation,testing,graphics,research,code_quality
-student_alice,100,1,153.00,30.00,33.00,30.00,20.00,40.00
-student_bob,91,2,147.00,38.00,27.00,22.00,20.00,40.00
-...
+Rank,Student,Grade,Percentage,Criteria_Count,Total_Criteria
+1,alice,100.0,80.5,45,89
+2,bob,96.2,77.4,43,89
+3,carol,94.1,75.8,42,89
 ```
 
-### 3. `evaluation_report.md`
+## Criteria Categories
 
-Comprehensive markdown report including:
-- Summary statistics (mean, median, std dev)
-- Grade distribution
-- Criteria evolution log
-- Top 10 projects
-- Individual student evaluations with dimension breakdowns
+Extracted criteria are grouped into:
+
+| Category | Examples |
+|----------|----------|
+| Documentation | README, API docs, user guide |
+| Planning | PRD, architecture, design docs |
+| Testing | Unit tests, integration tests, coverage |
+| DevOps | CI/CD, Docker, deployment |
+| Research | Analysis notebooks, findings |
+| Visuals | Screenshots, diagrams, charts |
+| Code Quality | Linting, type checking |
+| Business | Cost analysis, ROI, market research |
+
+Criteria that don't fit are flagged for manual review.
 
 ## Project Structure
 
@@ -192,97 +136,65 @@ Comprehensive markdown report including:
 student-project-evaluator/
 ├── .claude/
 │   └── skills/
-│       └── student-evaluator-v2/    # Claude Code skill
-│           ├── SKILL.md             # Skill orchestrator (main entry point)
-│           └── scripts/             # Python helper modules
-│               ├── sliding_window_analyzer.py
-│               ├── criteria_builder.py
-│               ├── final_evaluator.py
-│               ├── analyze_project.py
-│               ├── output_generator.py
-│               └── utils.py
-├── outputs/                         # Generated output files
-├── tests/                           # Test scripts and fixtures
-├── docs/                            # Documentation
-│   ├── PRD.md                       # Product requirements
-│   ├── PLANNING.md                  # Architecture
-│   ├── TASKS.md                     # Implementation tasks
-│   └── CLAUDE.md                    # Development rules
-├── requirements.txt                 # Python dependencies
-└── README.md                        # This file
+│       └── evaluating-student-projects/
+│           ├── SKILL.md           # Main skill instructions
+│           ├── CATEGORIES.md      # Category definitions
+│           ├── EXTRACTION.md      # Extraction rules
+│           └── OUTPUT-FORMATS.md  # Output specifications
+├── docs/
+│   ├── PRD.md                     # Product requirements
+│   ├── PLANNING.md                # Architecture
+│   ├── TASKS.md                   # Implementation tasks
+│   └── CLAUDE.md                  # Development rules
+├── outputs/                       # Generated files
+├── tests/                         # Test fixtures
+└── README.md                      # This file
 ```
 
-## Development
+## Context Validation
 
-### Running Tests
+The skill validates that criteria are actually implemented:
 
-```bash
-# Test data structures
-python test_structures.py
-
-# Test full pipeline (10 students)
-python test_pipeline.py
-```
-
-### Architecture
-
-The system is built around two core classes:
-
-**DiscoveredCriteria**
-- Manages quality dimensions discovered during sliding window analysis
-- Tracks evolution (which student added what)
-- Exports to YAML format
-
-**StudentEvaluation**
-- Tracks scores across all quality dimensions
-- Calculates composite quality score
-- Stores final grade and rank
+| Pattern | Counts? |
+|---------|---------|
+| "We implemented unit tests" | Yes |
+| "Test coverage is 85%" | Yes |
+| "TODO: add unit tests" | No |
+| "Unit tests not yet implemented" | No |
+| "We plan to add CI/CD" | No |
 
 ## Troubleshooting
 
-### No students found
+### No criteria extracted
 
-**Problem**: "No student folders found!"
+**Cause**: Students may have minimal markdown documentation.
 
-**Solution**: Check that:
-- Master folder path is correct
-- Student projects are in subdirectories
-- Folders aren't hidden (starting with '.')
+**Solution**: Check that students have README.md or other .md files with content.
 
-### Student got 0 grade
+### Student got very low grade
 
-**Problem**: Student received 0/100
+**Cause**: Missing high-weight (common) criteria.
 
-**Possible causes**:
-- Empty project folder
-- No recognizable features (no code, docs, tests, etc.)
-- Folder contains only metadata files
+**Check**: Look at `criteria_graph.json` to see what they're missing.
 
-**Solution**: Manually inspect the student's folder
+### Too many flagged criteria
 
-### Window size errors
+**Cause**: Category keywords may need expansion.
 
-**Problem**: "window_size must be at least 1"
-
-**Solution**: Use `--window-size 3` or higher (recommended: 3-5)
+**Solution**: Review `flagged_criteria.md` and update CATEGORIES.md.
 
 ## Version History
 
 | Version | Date | Changes |
 |---------|------|---------|
-| 2.0 | 2025-12-16 | Complete redesign with sliding window approach |
-| 1.0 | 2024-12-15 | Initial baseline comparison approach |
+| 3.0 | 2025-12-17 | Markdown-based discovery, prevalence weighting |
+| 2.0 | 2025-12-16 | Sliding window approach |
+| 1.0 | 2024-12-15 | Initial baseline comparison |
 
 ## License
 
 MIT License
 
-## Contributing
-
-This is an academic project for M.Sc. Computer Science. For questions or suggestions, please contact the development team.
-
 ---
 
-**🤖 Generated with [Claude Code](https://claude.com/claude-code)**
-
-**Co-Authored-By**: Claude Sonnet 4.5 <noreply@anthropic.com>
+**Built with [Claude Code](https://claude.com/claude-code)**

@@ -316,3 +316,38 @@ projects, append them here using the format below.
 ---
 
 <!-- DISCOVERED PATTERNS START - Append new discoveries below this line -->
+
+### 2025-12-17 - Discovered from WorkSubmissions01 Sample Evaluation
+
+**New positive indicators:**
+- "Built with [X]" → Indicates: Technology/framework is used in the project
+- "Powered by [X]" → Indicates: Underlying technology/service is integrated
+- "~X% code coverage" or "X% coverage" → Indicates: Test coverage metric achieved
+- "X+ tests" or "X tests" → Indicates: Specific number of tests implemented
+- "Works great on all screen sizes" → Indicates: Responsive design implemented
+- "100% Local" or "100% Private" → Indicates: Privacy-focused implementation
+- "Production Ready" or "Production-ready" → Indicates: Code quality claim
+- "Comprehensive tests" → Indicates: Thorough testing implemented
+
+**New negative indicators:**
+- None identified in this sample batch
+
+**New criteria types:**
+- macOS Native App: Student created a native macOS application wrapper
+- Automated Setup Scripts: Shell scripts for automated installation/setup
+- User Profiles: Customizable user settings/avatars
+- Multi-Session Support: Multiple conversation/session management
+- Export Functionality: Ability to export data in multiple formats (TXT, MD, JSON)
+- Uninstall Instructions: Documentation for removing/cleaning up the software
+- Environment Variables Documentation: Configuration via environment variables
+- Keyboard Shortcuts Documentation: List of supported keyboard shortcuts
+- Test Coverage Metrics: Specific percentage of code covered by tests
+
+**New normalization rules:**
+- "unit test", "unit tests", "unit testing" → Unit Tests
+- "e2e", "E2E", "end-to-end", "end to end" → E2E Tests
+- "dark mode", "light mode", "dark/light theme", "theme toggle" → Dark/Light Theme
+- "responsive", "mobile-friendly", "works on all devices" → Responsive Design
+- "~93% coverage", "80% coverage", "test coverage" → Test Coverage Metrics
+- "PRD", "product requirements", "Product Requirements Document" → PRD Document
+- "troubleshooting", "common problems", "FAQ" → Troubleshooting Guide

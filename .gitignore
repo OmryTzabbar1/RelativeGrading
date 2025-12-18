@@ -41,3 +41,4 @@ tests/fixtures/assignment-config.yml
 
 # Real student submissions (exclude from git)
 tests/WorkSubmissions01/
+~$*

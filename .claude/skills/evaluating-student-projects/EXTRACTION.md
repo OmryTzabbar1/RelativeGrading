@@ -2,12 +2,70 @@
 
 This document defines how to extract criteria from markdown files and validate their context.
 
+## ⚠️ CRITICAL: Thoroughness Requirements
+
+**When extracting criteria, you MUST:**
+
+1. **Read EVERY .md file found** - Don't skip files in subdirectories
+2. **Check filenames FIRST** - PRD.md exists = PRD Document criterion (see table below)
+3. **Scan for section headers** - `## Testing` = Testing Documentation (see table below)
+4. **Look for file references** - If README links to `TESTING.md`, credit it
+5. **Be liberal with matching** - "This project includes unit tests" should match "includes" pattern
+6. **Extract from tables of contents** - Documentation indexes show what exists
+7. **Read the full file** - Don't stop after the first section
+8. **Case-insensitive matching** - "Unit Tests" = "unit tests" = "UNIT TESTS"
+
+**Common mistake to avoid:**
+- ❌ Only reading README.md and stopping
+- ❌ Requiring exact phrase matches
+- ❌ Ignoring files in subdirectories like `Documentation/`, `docs/`, etc.
+- ❌ Missing documentation that's organized into multiple files
+- ✅ Read ALL markdown, check ALL filenames, match patterns liberally
+
 ## Extraction Principles
 
 1. **Be granular** - Extract specific items, not broad topics
 2. **Validate context** - Only count what's actually implemented
 3. **Normalize names** - Keep criterion names consistent
 4. **Track sources** - Note which file each criterion came from
+5. **Be thorough** - Better to over-extract than under-extract
+
+## CRITICAL: Filename-Based Detection
+
+**ALWAYS check filenames first!** If a student has these files, automatically credit them:
+
+| Filename Pattern | Criterion to Credit | Notes |
+|-----------------|-------------------|-------|
+| `PRD.md`, `prd.md`, `ProductRequirements.md` | PRD Document | Product requirements |
+| `TESTING.md`, `testing.md`, `TEST.md` | Testing Documentation | Testing guide |
+| `CONTRIBUTING.md`, `contributing.md` | Contributing Guide | Contribution guidelines |
+| `QUICKSTART.md`, `QuickStart.md`, `quick-start.md` | Quick Start Guide | Quick setup guide |
+| `ARCHITECTURE.md`, `architecture.md`, `DESIGN.md` | Architecture Documentation | Architecture/design docs |
+| `CHANGELOG.md`, `changelog.md`, `CHANGES.md` | Changelog | Version history |
+| `API.md`, `api.md`, `API_DOCS.md` | API Documentation | API documentation |
+| `ROADMAP.md`, `roadmap.md` | Roadmap | Project roadmap |
+| `DEPLOYMENT.md`, `deployment.md`, `DEPLOY.md` | Deployment Guide | Deployment instructions |
+| `TROUBLESHOOTING.md`, `troubleshooting.md`, `FAQ.md` | Troubleshooting Guide | Problem-solving guide |
+
+**File reference detection:**
+If markdown contains links or references to these files (e.g., `[TESTING.md](TESTING.md)` or `See TESTING.md for details`), credit the corresponding criterion.
+
+## Section Header Detection
+
+**Look for major section headers** that indicate implemented features:
+
+| Header Pattern | Criterion | Context Required |
+|---------------|----------|------------------|
+| `## Testing`, `## Tests`, `# Testing` | Testing Documentation | Section must have content, not TODO |
+| `## Unit Tests`, `### Unit Tests` | Unit Tests | Must describe actual tests |
+| `## Installation`, `## Setup`, `## Getting Started` | Installation Instructions | Must have actual steps |
+| `## Usage`, `## How to Use` | Usage Guide | Must have examples/instructions |
+| `## Features`, `## Functionality` | Scan content for specific features | List features individually |
+| `## Screenshots`, `## Demo`, `## Examples` | Screenshots/Visuals | Must reference actual images/demos |
+| `## Architecture`, `## Design` | Architecture Documentation | Must have design details |
+| `## CI/CD`, `## Deployment`, `## DevOps` | DevOps elements | Scan for specific tools |
+| `## API`, `## Endpoints`, `## API Reference` | API Documentation | Must have endpoint details |
+| `## Contributing`, `## Development` | Contributing Guide | Must have contribution info |
 
 ## What to Extract
 
@@ -15,21 +73,32 @@ This document defines how to extract criteria from markdown files and validate t
 
 Look for mentions of implemented features:
 
-**Positive indicators:**
-- "We built..."
-- "The project includes..."
-- "Features:"
-- "Implemented..."
-- "Created..."
-- "Developed..."
-- "Added..."
-- "Supports..."
-- "Provides..."
+**Positive indicators (case-insensitive matching):**
+- "We built...", "We created...", "We developed...", "We implemented..."
+- "The project includes...", "This project includes...", "Project includes..."
+- "Features:", "Key features:", "Main features:", "Implemented features:"
+- "Implemented...", "Created...", "Developed...", "Built..."
+- "Added...", "Integrated...", "Incorporated..."
+- "Supports...", "Provides...", "Offers...", "Enables..."
+- "Has...", "Contains...", "Comes with..."
+- "Complete...", "Comprehensive...", "Full..."
+- "Available:", "Includes:", "Featuring:"
+- "With support for...", "Capable of..."
+- "Total tests:", "Test cases:", "~X tests", "X+ tests"
+- "Coverage:", "Code coverage:", "Test coverage:"
+- "Version X.X includes...", "Version X features..."
+
+**Table of Contents / Index patterns:**
+- If a README/index file lists other .md files (e.g., `[PRD.md](PRD.md)`), credit those as existing
+- Section headers with links indicate implemented documentation
 
 **Examples:**
 - "We built a real-time chat feature" → "Real-time chat"
 - "The project includes user authentication" → "User authentication"
 - "Supports dark mode" → "Dark mode"
+- "This project includes comprehensive unit tests" → "Unit tests"
+- "Total tests: ~75 test cases" → "Unit tests" + "Test coverage metrics"
+- "Complete guide for..." → Relevant documentation criterion
 
 ### Documentation Elements
 
@@ -43,10 +112,34 @@ Look for documentation mentions:
 
 Look for testing mentions:
 
+**Test implementation indicators:**
+- "Unit tests", "unit testing", "test suite"
+- "Integration tests", "integration testing", "end-to-end tests", "E2E tests"
+- "Test coverage", "code coverage", "~X% coverage", "X% covered"
+- "Total tests:", "X test cases", "X+ tests", "~X tests"
+- "Test files:", "test_*.py", "*.test.js", "*.spec.ts"
+- "pytest", "unittest", "Jest", "Mocha", "JUnit"
+- "Testing framework", "test runner"
+- "Comprehensive tests", "thorough testing", "well-tested"
+- "All tests pass", "tests passing", "✓ tests"
+
+**Test documentation indicators:**
+- TESTING.md file exists → "Testing Documentation"
+- "## Testing" section → "Testing Documentation"
+- "How to run tests", "Running tests", "Test execution"
+
+**Coverage metrics:**
+- "85% coverage" → "Test Coverage Metrics (85%)"
+- "~90% code coverage" → "Test Coverage Metrics"
+- Any specific percentage → Track as "Test Coverage Metrics"
+
+**Examples:**
 - "Unit tests in /tests" → "Unit tests"
-- "85% code coverage" → "Test coverage (85%)"
+- "85% code coverage" → "Test Coverage Metrics"
 - "Integration tests for API endpoints" → "Integration tests"
 - "E2E tests with Playwright" → "E2E tests"
+- "This project includes comprehensive unit tests for all three versions" → "Unit tests" + "Testing Documentation"
+- "Total tests: ~75 test cases" → "Unit tests" + "Test Coverage Metrics"
 
 ### DevOps & Infrastructure
 

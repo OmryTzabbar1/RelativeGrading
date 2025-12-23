@@ -231,9 +231,7 @@ Students receive bonus points for having rare/distinguishing criteria:
 
 | Prevalence | Bonus |
 |------------|-------|
-| 20% - 24.99% | +1 point |
-| 15% - 19.99% | +2 points |
-| < 15% | +3 points |
+| ≤ 15% | +1 point |
 
 ### Final Score
 Final Score = Base Score + Sum of Rarity Bonuses (capped at 100)

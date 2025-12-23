@@ -36,13 +36,7 @@ for student, crit_list in student_criteria.items():
     bonus_details = []
     for c in crit_list:
         prevalence = criteria[c]['count'] / total_students
-        if prevalence < 0.15:
-            bonus += 3
-            bonus_details.append((criteria[c]['display_name'], prevalence, 3))
-        elif prevalence < 0.20:
-            bonus += 2
-            bonus_details.append((criteria[c]['display_name'], prevalence, 2))
-        elif prevalence < 0.25:
+        if prevalence <= 0.15:
             bonus += 1
             bonus_details.append((criteria[c]['display_name'], prevalence, 1))
 
@@ -116,17 +110,12 @@ for col, h in enumerate(headers2, 1):
     cell.fill = header_fill
     cell.border = thin_border
 
-rare_criteria = [(k, v) for k, v in criteria.items() if v['count'] / total_students < 0.25]
+rare_criteria = [(k, v) for k, v in criteria.items() if v['count'] / total_students <= 0.15]
 rare_criteria.sort(key=lambda x: x[1]['count'])
 
 for row, (key, crit) in enumerate(rare_criteria, 2):
     prev = crit['count'] / total_students
-    if prev < 0.15:
-        bonus = 3
-    elif prev < 0.20:
-        bonus = 2
-    else:
-        bonus = 1
+    bonus = 1
     ws2.cell(row=row, column=1, value=crit['display_name']).border = thin_border
     ws2.cell(row=row, column=2, value=f"{prev*100:.1f}%").border = thin_border
     ws2.cell(row=row, column=3, value=f"+{bonus}").border = thin_border

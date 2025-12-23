@@ -221,29 +221,27 @@ Example (35 students):
 
 ### Step 8: Score and Grade
 
-**Calculate raw scores:**
-```
-For each student:
-    score = sum of weights for criteria they have
-    max_possible = sum of all criterion weights
-    percentage = (score / max_possible) * 100
-```
+## Grading Formula
 
-**Assign relative grades:**
-```
-best_percentage = highest percentage among all students
+### Base Score
+Base Score = (sum of weighted criteria student has) / (total possible weight) × 100
 
-For each student:
-    if percentage == best_percentage:
-        grade = 100
-    else:
-        grade = (percentage / best_percentage) * 100
-```
+### Rarity Bonuses
+Students receive bonus points for having rare/distinguishing criteria:
+
+| Prevalence | Bonus |
+|------------|-------|
+| 20% - 24.99% | +1 point |
+| 15% - 19.99% | +2 points |
+| < 15% | +3 points |
+
+### Final Score
+Final Score = Base Score + Sum of Rarity Bonuses (capped at 100)
 
 **Assign ranks:**
-- Sort by grade descending
-- Rank 1 = highest grade
-- Handle ties: same grade = same rank
+- Sort by final score descending
+- Rank 1 = highest score
+- Handle ties: same score = same rank
 
 ### Step 9: Generate Outputs
 

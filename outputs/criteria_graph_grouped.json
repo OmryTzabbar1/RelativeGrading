@@ -1,0 +1,1940 @@
+{
+  "metadata": {
+    "total_students": 36,
+    "total_criteria": 65,
+    "original_criteria": 88,
+    "grouped_specific_criteria": 34,
+    "evaluation_date": "2025-12-23",
+    "grouping_applied": true
+  },
+  "criteria": {
+    "prd": {
+      "display_name": "PRD Document",
+      "students": [
+        "38963",
+        "38982",
+        "38962",
+        "38951",
+        "38971",
+        "38950",
+        "38960",
+        "38988",
+        "38953",
+        "38952",
+        "38966",
+        "38990",
+        "38984",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "38973",
+        "38955",
+        "38977",
+        "38986",
+        "59375",
+        "38989",
+        "38985",
+        "38964",
+        "38970",
+        "59376",
+        "38961",
+        "59373",
+        "38959",
+        "38958",
+        "38969",
+        "38957",
+        "38992",
+        "38993"
+      ],
+      "count": 36,
+      "weight": 1.0,
+      "category": "Documentation",
+      "specific_criteria": [
+        "PRD Document"
+      ]
+    },
+    "architecture_doc": {
+      "display_name": "Architecture Documentation",
+      "students": [
+        "38963",
+        "38982",
+        "38962",
+        "38951",
+        "38971",
+        "38950",
+        "38960",
+        "38988",
+        "38953",
+        "38952",
+        "38966",
+        "38990",
+        "38984",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "38973",
+        "38955",
+        "38977",
+        "38986",
+        "59375",
+        "38989",
+        "38985",
+        "38964",
+        "38970",
+        "59376",
+        "38961",
+        "59373",
+        "38959",
+        "38958",
+        "38969",
+        "38957",
+        "38992",
+        "38993"
+      ],
+      "count": 36,
+      "weight": 1.0,
+      "category": "Documentation",
+      "specific_criteria": [
+        "Architecture Documentation"
+      ]
+    },
+    "unit_tests": {
+      "display_name": "Unit Tests",
+      "students": [
+        "38963",
+        "38982",
+        "38962",
+        "38951",
+        "38971",
+        "38950",
+        "38960",
+        "38988",
+        "38953",
+        "38952",
+        "38966",
+        "38990",
+        "38984",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "38973",
+        "38955",
+        "38977",
+        "38986",
+        "59375",
+        "38989",
+        "38985",
+        "38964",
+        "38970",
+        "59376",
+        "38961",
+        "59373",
+        "38959",
+        "38958",
+        "38969",
+        "38957",
+        "38992",
+        "38993"
+      ],
+      "count": 36,
+      "weight": 1.0,
+      "category": "Testing",
+      "specific_criteria": [
+        "Unit Tests"
+      ]
+    },
+    "readme": {
+      "display_name": "README Documentation",
+      "students": [
+        "38963",
+        "38982",
+        "38962",
+        "38951",
+        "38971",
+        "38950",
+        "38960",
+        "38988",
+        "38953",
+        "38952",
+        "38966",
+        "38990",
+        "38984",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "38973",
+        "38955",
+        "38977",
+        "38986",
+        "59375",
+        "38989",
+        "38985",
+        "38964",
+        "38970",
+        "59376",
+        "38961",
+        "59373",
+        "38959",
+        "38958",
+        "38969",
+        "38957",
+        "38992",
+        "38993"
+      ],
+      "count": 36,
+      "weight": 1.0,
+      "category": "Documentation",
+      "specific_criteria": [
+        "README Documentation"
+      ]
+    },
+    "test_coverage": {
+      "display_name": "Test Coverage",
+      "students": [
+        "38963",
+        "38962",
+        "38951",
+        "38971",
+        "38950",
+        "38960",
+        "38988",
+        "38953",
+        "38952",
+        "38966",
+        "38990",
+        "38984",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "38973",
+        "38955",
+        "38977",
+        "38986",
+        "59375",
+        "38989",
+        "38985",
+        "38964",
+        "38970",
+        "59376",
+        "59373",
+        "38959",
+        "38958",
+        "38969",
+        "38992"
+      ],
+      "count": 32,
+      "weight": 0.8888888888888888,
+      "category": "Testing",
+      "specific_criteria": [
+        "Test Coverage"
+      ]
+    },
+    "streaming_responses": {
+      "display_name": "Streaming Responses",
+      "students": [
+        "38963",
+        "38982",
+        "38951",
+        "38971",
+        "38950",
+        "38960",
+        "38988",
+        "38953",
+        "38952",
+        "38966",
+        "38990",
+        "38984",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "38973",
+        "38955",
+        "38986",
+        "59375",
+        "38989",
+        "38985",
+        "38964",
+        "38970",
+        "59376",
+        "59373",
+        "38959",
+        "38958",
+        "38969",
+        "38992",
+        "38993"
+      ],
+      "count": 32,
+      "weight": 0.8888888888888888,
+      "category": "Features",
+      "specific_criteria": [
+        "Streaming Responses"
+      ]
+    },
+    "error_handling": {
+      "display_name": "Error Handling",
+      "students": [
+        "38963",
+        "38982",
+        "38962",
+        "38951",
+        "38971",
+        "38950",
+        "38960",
+        "38988",
+        "38953",
+        "38952",
+        "38966",
+        "38990",
+        "38984",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "38973",
+        "38955",
+        "38977",
+        "38986",
+        "59375",
+        "38989",
+        "38985",
+        "38964",
+        "38970",
+        "59373",
+        "38959",
+        "38958",
+        "38992",
+        "38993"
+      ],
+      "count": 32,
+      "weight": 0.8888888888888888,
+      "category": "Code Quality",
+      "specific_criteria": [
+        "Error Handling"
+      ]
+    },
+    "static_type_checking": {
+      "display_name": "Static Type Checking",
+      "students": [
+        "38963",
+        "38982",
+        "38962",
+        "38951",
+        "38971",
+        "38950",
+        "38960",
+        "38988",
+        "38953",
+        "38952",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "38973",
+        "38955",
+        "38977",
+        "38986",
+        "59375",
+        "38989",
+        "38964",
+        "38970",
+        "59376",
+        "59373",
+        "38959",
+        "38958",
+        "38969",
+        "38992",
+        "38993"
+      ],
+      "count": 30,
+      "weight": 0.8333333333333334,
+      "category": "Code Quality",
+      "specific_criteria": [
+        "TypeScript",
+        "Type Safety",
+        "Pydantic Type Safety"
+      ]
+    },
+    "logging": {
+      "display_name": "Logging",
+      "students": [
+        "38963",
+        "38982",
+        "38962",
+        "38950",
+        "38960",
+        "38988",
+        "38953",
+        "38952",
+        "38990",
+        "38984",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "38955",
+        "38977",
+        "38986",
+        "59375",
+        "38989",
+        "38964",
+        "38970",
+        "59376",
+        "59373",
+        "38959",
+        "38958",
+        "38969",
+        "38992",
+        "38993"
+      ],
+      "count": 29,
+      "weight": 0.8055555555555556,
+      "category": "Code Quality",
+      "specific_criteria": [
+        "Logging"
+      ]
+    },
+    "env_vars": {
+      "display_name": "Environment Variables",
+      "students": [
+        "38963",
+        "38982",
+        "38962",
+        "38950",
+        "38960",
+        "38988",
+        "38953",
+        "38952",
+        "38966",
+        "38990",
+        "38984",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "38955",
+        "38977",
+        "59375",
+        "38989",
+        "38985",
+        "38964",
+        "38970",
+        "59376",
+        "59373",
+        "38959",
+        "38958",
+        "38969",
+        "38993"
+      ],
+      "count": 29,
+      "weight": 0.8055555555555556,
+      "category": "DevOps",
+      "specific_criteria": [
+        "Environment Variables"
+      ]
+    },
+    "unit_testing_framework": {
+      "display_name": "Unit Testing Framework",
+      "students": [
+        "38963",
+        "38982",
+        "38962",
+        "38951",
+        "38971",
+        "38950",
+        "38960",
+        "38988",
+        "38953",
+        "38952",
+        "38966",
+        "38990",
+        "38984",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "38973",
+        "38955",
+        "38977",
+        "59375",
+        "38989",
+        "38985",
+        "38964",
+        "38970",
+        "59376",
+        "59373",
+        "38959",
+        "38958",
+        "38969",
+        "38993"
+      ],
+      "count": 32,
+      "weight": 0.8888888888888888,
+      "category": "Testing",
+      "specific_criteria": [
+        "Jest Testing",
+        "Pytest Framework",
+        "Vitest Testing"
+      ]
+    },
+    "api_architecture": {
+      "display_name": "API Architecture",
+      "students": [
+        "38982",
+        "38962",
+        "38951",
+        "38971",
+        "38950",
+        "38960",
+        "38988",
+        "38953",
+        "38952",
+        "38990",
+        "38984",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "38973",
+        "38977",
+        "38986",
+        "59375",
+        "38989",
+        "38964",
+        "38970",
+        "59376",
+        "59373",
+        "38959",
+        "38958",
+        "38969",
+        "38992",
+        "38993"
+      ],
+      "count": 30,
+      "weight": 0.8333333333333334,
+      "category": "Architecture",
+      "specific_criteria": [
+        "WebSocket",
+        "REST API"
+      ]
+    },
+    "accessibility": {
+      "display_name": "Accessibility Features",
+      "students": [
+        "38982",
+        "38962",
+        "38971",
+        "38950",
+        "38960",
+        "38988",
+        "38953",
+        "38952",
+        "38990",
+        "38984",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "38973",
+        "38955",
+        "38977",
+        "38986",
+        "59375",
+        "38989",
+        "38964",
+        "38970",
+        "59373",
+        "38959",
+        "38958",
+        "38992",
+        "38993"
+      ],
+      "count": 28,
+      "weight": 0.7777777777777778,
+      "category": "Features",
+      "specific_criteria": [
+        "Accessibility Features"
+      ]
+    },
+    "cicd": {
+      "display_name": "CI/CD Pipeline",
+      "students": [
+        "38963",
+        "38962",
+        "38951",
+        "38971",
+        "38950",
+        "38960",
+        "38988",
+        "38953",
+        "38952",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "38973",
+        "38977",
+        "38986",
+        "59375",
+        "38989",
+        "38964",
+        "38970",
+        "59373",
+        "38959",
+        "38958",
+        "38992"
+      ],
+      "count": 25,
+      "weight": 0.6944444444444444,
+      "category": "DevOps",
+      "specific_criteria": [
+        "CI/CD Pipeline"
+      ]
+    },
+    "input_validation": {
+      "display_name": "Input Validation",
+      "students": [
+        "38962",
+        "38951",
+        "38971",
+        "38950",
+        "38960",
+        "38988",
+        "38953",
+        "38952",
+        "38990",
+        "38984",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "38973",
+        "38955",
+        "38977",
+        "59375",
+        "38989",
+        "38964",
+        "38970",
+        "59373",
+        "38959",
+        "38958"
+      ],
+      "count": 25,
+      "weight": 0.6944444444444444,
+      "category": "Code Quality",
+      "specific_criteria": [
+        "Input Validation"
+      ]
+    },
+    "api_docs": {
+      "display_name": "API Documentation",
+      "students": [
+        "38963",
+        "38982",
+        "38962",
+        "38971",
+        "38950",
+        "38960",
+        "38988",
+        "38953",
+        "38990",
+        "38984",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "38973",
+        "38955",
+        "38977",
+        "59375",
+        "38989",
+        "38964",
+        "38970",
+        "38959",
+        "38958",
+        "38993"
+      ],
+      "count": 25,
+      "weight": 0.6944444444444444,
+      "category": "Documentation",
+      "specific_criteria": [
+        "API Documentation"
+      ]
+    },
+    "chat_history": {
+      "display_name": "Chat History",
+      "students": [
+        "38951",
+        "38971",
+        "38950",
+        "38960",
+        "38988",
+        "38953",
+        "38952",
+        "38990",
+        "38984",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "38973",
+        "38955",
+        "38986",
+        "59375",
+        "38989",
+        "38970",
+        "59376",
+        "59373",
+        "38959",
+        "38958",
+        "38969",
+        "38992"
+      ],
+      "count": 25,
+      "weight": 0.6944444444444444,
+      "category": "Features",
+      "specific_criteria": [
+        "Chat History"
+      ]
+    },
+    "responsive_design": {
+      "display_name": "Responsive Design",
+      "students": [
+        "38963",
+        "38951",
+        "38950",
+        "38960",
+        "38988",
+        "38953",
+        "38952",
+        "38990",
+        "38984",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "38986",
+        "59375",
+        "38989",
+        "38964",
+        "38970",
+        "59376",
+        "59373",
+        "38959",
+        "38958",
+        "38969",
+        "38992"
+      ],
+      "count": 25,
+      "weight": 0.6944444444444444,
+      "category": "Features",
+      "specific_criteria": [
+        "Responsive Design"
+      ]
+    },
+    "realtime_streaming": {
+      "display_name": "Real-time Streaming",
+      "students": [
+        "38963",
+        "38982",
+        "38962",
+        "38950",
+        "38960",
+        "38988",
+        "38953",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "38955",
+        "38977",
+        "38986",
+        "38989",
+        "38964",
+        "38970",
+        "59376",
+        "38958",
+        "38969",
+        "38992",
+        "38993"
+      ],
+      "count": 23,
+      "weight": 0.6388888888888888,
+      "category": "Features",
+      "specific_criteria": [
+        "Real-time Streaming"
+      ]
+    },
+    "integration_tests": {
+      "display_name": "Integration Tests",
+      "students": [
+        "38962",
+        "38951",
+        "38960",
+        "38988",
+        "38953",
+        "38952",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "38955",
+        "38977",
+        "38986",
+        "59375",
+        "38989",
+        "38964",
+        "38970",
+        "59376",
+        "59373",
+        "38959",
+        "38969",
+        "38992"
+      ],
+      "count": 23,
+      "weight": 0.6388888888888888,
+      "category": "Testing",
+      "specific_criteria": [
+        "Integration Tests"
+      ]
+    },
+    "theme_switching": {
+      "display_name": "Theme Switching",
+      "students": [
+        "38963",
+        "38971",
+        "38950",
+        "38960",
+        "38988",
+        "38953",
+        "38952",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "38955",
+        "38986",
+        "59375",
+        "38989",
+        "38964",
+        "38970",
+        "59373",
+        "38959",
+        "38958",
+        "38992"
+      ],
+      "count": 22,
+      "weight": 0.6111111111111112,
+      "category": "Features",
+      "specific_criteria": [
+        "Theme Switching"
+      ]
+    },
+    "dark_theme": {
+      "display_name": "Dark Theme",
+      "students": [
+        "38963",
+        "38951",
+        "38950",
+        "38960",
+        "38988",
+        "38953",
+        "38952",
+        "38990",
+        "38984",
+        "38954",
+        "38979",
+        "38980",
+        "38955",
+        "38986",
+        "59375",
+        "38989",
+        "38964",
+        "38970",
+        "59373",
+        "38959",
+        "38958",
+        "38992"
+      ],
+      "count": 22,
+      "weight": 0.6111111111111112,
+      "category": "Features",
+      "specific_criteria": [
+        "Dark Theme"
+      ]
+    },
+    "jupyter": {
+      "display_name": "Jupyter Notebooks",
+      "students": [
+        "38963",
+        "38982",
+        "38962",
+        "38951",
+        "38971",
+        "38950",
+        "38960",
+        "38953",
+        "38952",
+        "38966",
+        "38984",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38955",
+        "38977",
+        "59375",
+        "38964",
+        "38959",
+        "38969",
+        "38993"
+      ],
+      "count": 22,
+      "weight": 0.6111111111111112,
+      "category": "Research",
+      "specific_criteria": [
+        "Jupyter Notebooks"
+      ]
+    },
+    "env_validation": {
+      "display_name": "Environment Validation",
+      "students": [
+        "38962",
+        "38951",
+        "38960",
+        "38988",
+        "38953",
+        "38966",
+        "38990",
+        "38984",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "38977",
+        "59375",
+        "38989",
+        "38985",
+        "38964",
+        "38970",
+        "59376",
+        "38959",
+        "38969"
+      ],
+      "count": 22,
+      "weight": 0.6111111111111112,
+      "category": "Code Quality",
+      "specific_criteria": [
+        "Environment Validation"
+      ]
+    },
+    "light_theme": {
+      "display_name": "Light Theme",
+      "students": [
+        "38963",
+        "38950",
+        "38960",
+        "38988",
+        "38953",
+        "38990",
+        "38984",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "38955",
+        "38986",
+        "38989",
+        "38964",
+        "38970",
+        "59376",
+        "38958",
+        "38969",
+        "38992"
+      ],
+      "count": 21,
+      "weight": 0.5833333333333334,
+      "category": "Features",
+      "specific_criteria": [
+        "Light Theme"
+      ]
+    },
+    "mocking": {
+      "display_name": "Test Mocking",
+      "students": [
+        "38951",
+        "38971",
+        "38960",
+        "38988",
+        "38953",
+        "38952",
+        "38990",
+        "38984",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "38973",
+        "38955",
+        "59375",
+        "38989",
+        "38964",
+        "38970",
+        "59373",
+        "38959"
+      ],
+      "count": 21,
+      "weight": 0.5833333333333334,
+      "category": "Testing",
+      "specific_criteria": [
+        "Test Mocking"
+      ]
+    },
+    "frontend_framework": {
+      "display_name": "Frontend Framework",
+      "students": [
+        "38963",
+        "38982",
+        "38950",
+        "38960",
+        "38988",
+        "38953",
+        "38952",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "59375",
+        "38989",
+        "38964",
+        "38970",
+        "59373",
+        "38959",
+        "38958",
+        "38993"
+      ],
+      "count": 20,
+      "weight": 0.5555555555555556,
+      "category": "Frontend",
+      "specific_criteria": [
+        "Next.js",
+        "Svelte",
+        "React",
+        "Vue.js"
+      ]
+    },
+    "e2e_tests": {
+      "display_name": "E2E Tests",
+      "students": [
+        "38962",
+        "38951",
+        "38971",
+        "38950",
+        "38988",
+        "38953",
+        "38952",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "38973",
+        "38977",
+        "38989",
+        "38964",
+        "59376",
+        "59373",
+        "38958",
+        "38969"
+      ],
+      "count": 20,
+      "weight": 0.5555555555555556,
+      "category": "Testing",
+      "specific_criteria": [
+        "E2E Tests"
+      ]
+    },
+    "session_management": {
+      "display_name": "Session Management",
+      "students": [
+        "38963",
+        "38960",
+        "38988",
+        "38953",
+        "38952",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "38986",
+        "59375",
+        "38989",
+        "38964",
+        "38970",
+        "59376",
+        "59373",
+        "38959",
+        "38969",
+        "38992"
+      ],
+      "count": 20,
+      "weight": 0.5555555555555556,
+      "category": "Features",
+      "specific_criteria": [
+        "Session Management"
+      ]
+    },
+    "containerization": {
+      "display_name": "Containerization",
+      "students": [
+        "38963",
+        "38962",
+        "38951",
+        "38950",
+        "38960",
+        "38988",
+        "38953",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "38977",
+        "59375",
+        "38989",
+        "38964",
+        "38970",
+        "38959",
+        "38958"
+      ],
+      "count": 19,
+      "weight": 0.5277777777777778,
+      "category": "DevOps",
+      "specific_criteria": [
+        "Docker Compose",
+        "Docker",
+        "Dockerfile"
+      ]
+    },
+    "coverage_metric": {
+      "display_name": "Code Coverage Metrics",
+      "students": [
+        "38963",
+        "38962",
+        "38951",
+        "38960",
+        "38988",
+        "38953",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "38955",
+        "38977",
+        "38986",
+        "38989",
+        "38964",
+        "38970",
+        "38959",
+        "38992"
+      ],
+      "count": 19,
+      "weight": 0.5277777777777778,
+      "category": "Testing",
+      "specific_criteria": [
+        "Code Coverage Metrics"
+      ]
+    },
+    "github_actions": {
+      "display_name": "GitHub Actions",
+      "students": [
+        "38959",
+        "38954",
+        "38977",
+        "38986",
+        "59375",
+        "38962",
+        "38951",
+        "38979",
+        "38971",
+        "38981",
+        "38964",
+        "38989",
+        "59378",
+        "38980",
+        "38973",
+        "38988",
+        "38953",
+        "38992"
+      ],
+      "count": 18,
+      "weight": 0.5,
+      "category": "DevOps",
+      "specific_criteria": [
+        "GitHub Actions"
+      ]
+    },
+    "backend_framework": {
+      "display_name": "Backend Framework",
+      "students": [
+        "38963",
+        "38982",
+        "38962",
+        "38971",
+        "38960",
+        "38988",
+        "38953",
+        "38952",
+        "38966",
+        "38990",
+        "38984",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "38977",
+        "59375",
+        "38989",
+        "38985",
+        "38964",
+        "38970",
+        "38961",
+        "59373",
+        "38959",
+        "38993"
+      ],
+      "count": 26,
+      "weight": 0.7222222222222222,
+      "category": "Backend",
+      "specific_criteria": [
+        "Flask",
+        "FastAPI",
+        "Express.js",
+        "Django"
+      ]
+    },
+    "markdown_support": {
+      "display_name": "Markdown Support",
+      "students": [
+        "38954",
+        "38986",
+        "38958",
+        "38979",
+        "38989",
+        "38985",
+        "38964",
+        "38950",
+        "38980",
+        "59373",
+        "38988",
+        "38992",
+        "38953",
+        "38952",
+        "38966",
+        "38990",
+        "38984"
+      ],
+      "count": 17,
+      "weight": 0.4722222222222222,
+      "category": "Features",
+      "specific_criteria": [
+        "Markdown Support"
+      ]
+    },
+    "changelog": {
+      "display_name": "Changelog",
+      "students": [
+        "38955",
+        "38954",
+        "38986",
+        "38981",
+        "38979",
+        "38989",
+        "59378",
+        "38964",
+        "38970",
+        "38980",
+        "38960",
+        "38988",
+        "38953",
+        "38952",
+        "38992",
+        "59373"
+      ],
+      "count": 16,
+      "weight": 0.4444444444444444,
+      "category": "Documentation",
+      "specific_criteria": [
+        "Changelog"
+      ]
+    },
+    "syntax_highlighting": {
+      "display_name": "Code Syntax Highlighting",
+      "students": [
+        "38955",
+        "38963",
+        "38954",
+        "38986",
+        "38958",
+        "38951",
+        "38979",
+        "38985",
+        "38964",
+        "38950",
+        "38980",
+        "38992",
+        "38952",
+        "38966",
+        "59373"
+      ],
+      "count": 15,
+      "weight": 0.4166666666666667,
+      "category": "Features",
+      "specific_criteria": [
+        "Code Syntax Highlighting"
+      ]
+    },
+    "user_guide": {
+      "display_name": "User Guide",
+      "students": [
+        "38954",
+        "38977",
+        "38986",
+        "38962",
+        "38979",
+        "38981",
+        "38989",
+        "59378",
+        "38964",
+        "38980",
+        "38988",
+        "38953",
+        "38952",
+        "38992",
+        "59373"
+      ],
+      "count": 15,
+      "weight": 0.4166666666666667,
+      "category": "Documentation",
+      "specific_criteria": [
+        "User Guide"
+      ]
+    },
+    "database": {
+      "display_name": "Database",
+      "students": [
+        "38963",
+        "38950",
+        "38960",
+        "38988",
+        "38953",
+        "38952",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38980",
+        "38955",
+        "59375",
+        "38989",
+        "38964",
+        "38970",
+        "59373",
+        "38959",
+        "38958"
+      ],
+      "count": 19,
+      "weight": 0.5277777777777778,
+      "category": "Database",
+      "specific_criteria": [
+        "Redis",
+        "SQLite",
+        "MongoDB",
+        "PostgreSQL"
+      ]
+    },
+    "mobile_support": {
+      "display_name": "Mobile Support",
+      "students": [
+        "38963",
+        "38959",
+        "38954",
+        "38958",
+        "59375",
+        "38979",
+        "38989",
+        "38964",
+        "38950",
+        "38970",
+        "38960",
+        "38980",
+        "38988",
+        "38953"
+      ],
+      "count": 14,
+      "weight": 0.3888888888888889,
+      "category": "Features",
+      "specific_criteria": [
+        "Mobile Support"
+      ]
+    },
+    "cloud_deployment": {
+      "display_name": "Cloud Deployment",
+      "students": [
+        "38962",
+        "38951",
+        "38950",
+        "38960",
+        "38988",
+        "38953",
+        "38952",
+        "38954",
+        "38981",
+        "59378",
+        "38979",
+        "38980",
+        "38977",
+        "59375",
+        "38989",
+        "38964",
+        "38970",
+        "59373",
+        "38959",
+        "38958"
+      ],
+      "count": 20,
+      "weight": 0.5555555555555556,
+      "category": "DevOps",
+      "specific_criteria": [
+        "Heroku Deployment",
+        "Vercel Deployment",
+        "AWS Deployment",
+        "Netlify Deployment",
+        "GCP Deployment"
+      ]
+    },
+    "file_upload": {
+      "display_name": "File Upload",
+      "students": [
+        "38959",
+        "38954",
+        "38986",
+        "59375",
+        "38951",
+        "38979",
+        "38989",
+        "38964",
+        "38980",
+        "38969",
+        "59376",
+        "38988",
+        "38953",
+        "38992"
+      ],
+      "count": 14,
+      "weight": 0.3888888888888889,
+      "category": "Features",
+      "specific_criteria": [
+        "File Upload"
+      ]
+    },
+    "performance_benchmark": {
+      "display_name": "Performance Benchmarking",
+      "students": [
+        "38955",
+        "38954",
+        "38962",
+        "38951",
+        "38979",
+        "38981",
+        "59378",
+        "38964",
+        "38950",
+        "38970",
+        "38960",
+        "38980",
+        "38984"
+      ],
+      "count": 13,
+      "weight": 0.3611111111111111,
+      "category": "Research",
+      "specific_criteria": [
+        "Performance Benchmarking"
+      ]
+    },
+    "code_linting": {
+      "display_name": "Code Linting",
+      "students": [
+        "38982",
+        "38959",
+        "38954",
+        "38958",
+        "59375",
+        "38981",
+        "38979",
+        "38989",
+        "59378",
+        "38964",
+        "38950",
+        "38980",
+        "38988",
+        "38953",
+        "38952",
+        "59373",
+        "38993"
+      ],
+      "count": 17,
+      "weight": 0.4722222222222222,
+      "category": "Code Quality",
+      "specific_criteria": [
+        "Black Formatter",
+        "ESLint",
+        "Prettier"
+      ]
+    },
+    "deployment_guide": {
+      "display_name": "Deployment Guide",
+      "students": [
+        "38954",
+        "38981",
+        "38979",
+        "38989",
+        "59378",
+        "38964",
+        "38970",
+        "38980",
+        "38960",
+        "38988",
+        "38953",
+        "38952",
+        "59373"
+      ],
+      "count": 13,
+      "weight": 0.3611111111111111,
+      "category": "Documentation",
+      "specific_criteria": [
+        "Deployment Guide"
+      ]
+    },
+    "wcag_compliance": {
+      "display_name": "WCAG Compliance",
+      "students": [
+        "38982",
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38964",
+        "38970",
+        "38980",
+        "38960",
+        "38952",
+        "59373",
+        "38993"
+      ],
+      "count": 12,
+      "weight": 0.3333333333333333,
+      "category": "Features",
+      "specific_criteria": [
+        "WCAG Compliance"
+      ]
+    },
+    "load_balancer": {
+      "display_name": "Load Balancer",
+      "students": [
+        "38959",
+        "38954",
+        "59375",
+        "38981",
+        "38989",
+        "59378",
+        "38964",
+        "38970",
+        "38960",
+        "38988",
+        "38953"
+      ],
+      "count": 11,
+      "weight": 0.3055555555555556,
+      "category": "Architecture",
+      "specific_criteria": [
+        "Load Balancer"
+      ]
+    },
+    "load_testing": {
+      "display_name": "Load Testing",
+      "students": [
+        "38954",
+        "38981",
+        "38979",
+        "38989",
+        "59378",
+        "38964",
+        "38970",
+        "38980",
+        "38960",
+        "38988",
+        "38953"
+      ],
+      "count": 11,
+      "weight": 0.3055555555555556,
+      "category": "Research",
+      "specific_criteria": [
+        "Load Testing"
+      ]
+    },
+    "monitoring": {
+      "display_name": "Monitoring",
+      "students": [
+        "38959",
+        "38954",
+        "59375",
+        "38981",
+        "38979",
+        "38989",
+        "59378",
+        "38964",
+        "38980",
+        "38988",
+        "38953"
+      ],
+      "count": 11,
+      "weight": 0.3055555555555556,
+      "category": "Research",
+      "specific_criteria": [
+        "Metrics Collection"
+      ]
+    },
+    "css_framework": {
+      "display_name": "CSS Framework",
+      "students": [
+        "38963",
+        "38982",
+        "38954",
+        "38958",
+        "38989",
+        "38964",
+        "38950",
+        "38988",
+        "38953",
+        "38993"
+      ],
+      "count": 10,
+      "weight": 0.2777777777777778,
+      "category": "Frontend",
+      "specific_criteria": [
+        "Tailwind CSS",
+        "Shadcn UI"
+      ]
+    },
+    "owasp": {
+      "display_name": "OWASP Security",
+      "students": [
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38964",
+        "38970",
+        "38980",
+        "38960",
+        "38952",
+        "59373"
+      ],
+      "count": 10,
+      "weight": 0.2777777777777778,
+      "category": "Code Quality",
+      "specific_criteria": [
+        "OWASP Security"
+      ]
+    },
+    "microservices": {
+      "display_name": "Microservices Architecture",
+      "students": [
+        "38954",
+        "38977",
+        "38962",
+        "38979",
+        "38981",
+        "59378",
+        "38964",
+        "38970",
+        "38980",
+        "38960"
+      ],
+      "count": 10,
+      "weight": 0.2777777777777778,
+      "category": "Architecture",
+      "specific_criteria": [
+        "Microservices Architecture"
+      ]
+    },
+    "data_analysis": {
+      "display_name": "Data Analysis",
+      "students": [
+        "38954",
+        "38977",
+        "38962",
+        "38951",
+        "38981",
+        "59378",
+        "38964",
+        "38970",
+        "38960"
+      ],
+      "count": 9,
+      "weight": 0.25,
+      "category": "Research",
+      "specific_criteria": [
+        "Data Analysis"
+      ]
+    },
+    "caching": {
+      "display_name": "Caching Strategy",
+      "students": [
+        "38954",
+        "38977",
+        "38962",
+        "38981",
+        "38989",
+        "59378",
+        "38964",
+        "38988",
+        "38953"
+      ],
+      "count": 9,
+      "weight": 0.25,
+      "category": "Architecture",
+      "specific_criteria": [
+        "Caching Strategy"
+      ]
+    },
+    "kubernetes": {
+      "display_name": "Kubernetes",
+      "students": [
+        "38959",
+        "59375",
+        "38981",
+        "38989",
+        "59378",
+        "38970",
+        "38960",
+        "38988",
+        "38953"
+      ],
+      "count": 9,
+      "weight": 0.25,
+      "category": "DevOps",
+      "specific_criteria": [
+        "Kubernetes"
+      ]
+    },
+    "multimodal": {
+      "display_name": "Multimodal Support",
+      "students": [
+        "38954",
+        "38977",
+        "38958",
+        "38986",
+        "38962",
+        "38964",
+        "38950",
+        "38992"
+      ],
+      "count": 8,
+      "weight": 0.2222222222222222,
+      "category": "Features",
+      "specific_criteria": [
+        "Multimodal Support"
+      ]
+    },
+    "chat_persistence": {
+      "display_name": "Chat History Persistence",
+      "students": [
+        "38958",
+        "38970",
+        "38950",
+        "38960",
+        "59373",
+        "38952",
+        "38990",
+        "38984"
+      ],
+      "count": 8,
+      "weight": 0.2222222222222222,
+      "category": "Features",
+      "specific_criteria": [
+        "Chat History Persistence"
+      ]
+    },
+    "security": {
+      "display_name": "Security Features",
+      "students": [
+        "38954",
+        "38981",
+        "38979",
+        "59378",
+        "38964",
+        "38980",
+        "38952",
+        "59373"
+      ],
+      "count": 8,
+      "weight": 0.2222222222222222,
+      "category": "Code Quality",
+      "specific_criteria": [
+        "Security Features"
+      ]
+    },
+    "db_migrations": {
+      "display_name": "Database Migrations",
+      "students": [
+        "38954",
+        "38958",
+        "38989",
+        "38964",
+        "38950",
+        "38988",
+        "38953"
+      ],
+      "count": 7,
+      "weight": 0.19444444444444445,
+      "category": "Database",
+      "specific_criteria": [
+        "Database Migrations"
+      ]
+    },
+    "math_analysis": {
+      "display_name": "Mathematical Analysis",
+      "students": [
+        "38981",
+        "38951",
+        "59378",
+        "38970",
+        "38960"
+      ],
+      "count": 5,
+      "weight": 0.1388888888888889,
+      "category": "Research",
+      "specific_criteria": [
+        "Mathematical Analysis"
+      ]
+    },
+    "contributing_guide": {
+      "display_name": "Contributing Guide",
+      "students": [
+        "38981",
+        "59378",
+        "38970",
+        "38960",
+        "38952"
+      ],
+      "count": 5,
+      "weight": 0.1388888888888889,
+      "category": "Documentation",
+      "specific_criteria": [
+        "Contributing Guide"
+      ]
+    },
+    "multi_session": {
+      "display_name": "Multi-Session Support",
+      "students": [
+        "38963",
+        "38986",
+        "38952",
+        "38992",
+        "59373"
+      ],
+      "count": 5,
+      "weight": 0.1388888888888889,
+      "category": "Features",
+      "specific_criteria": [
+        "Multi-Session Support"
+      ]
+    },
+    "api_gateway": {
+      "display_name": "API Gateway",
+      "students": [
+        "38954",
+        "38964"
+      ],
+      "count": 2,
+      "weight": 0.05555555555555555,
+      "category": "Architecture",
+      "specific_criteria": [
+        "API Gateway"
+      ]
+    },
+    "pdf_support": {
+      "display_name": "PDF Support",
+      "students": [
+        "38979",
+        "38980"
+      ],
+      "count": 2,
+      "weight": 0.05555555555555555,
+      "category": "Features",
+      "specific_criteria": [
+        "PDF Support"
+      ]
+    },
+    "test_automation": {
+      "display_name": "Test Automation",
+      "students": [
+        "59378",
+        "38981"
+      ],
+      "count": 2,
+      "weight": 0.05555555555555555,
+      "category": "Testing",
+      "specific_criteria": [
+        "Test Automation"
+      ]
+    },
+    "image_analysis": {
+      "display_name": "Image Analysis",
+      "students": [
+        "38992",
+        "38986"
+      ],
+      "count": 2,
+      "weight": 0.05555555555555555,
+      "category": "Features",
+      "specific_criteria": [
+        "Image Analysis"
+      ]
+    }
+  }
+}

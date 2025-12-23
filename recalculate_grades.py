@@ -3,8 +3,8 @@ from openpyxl import Workbook
 from openpyxl.styles import Font, Alignment, PatternFill, Border, Side
 from openpyxl.utils import get_column_letter
 
-# Load criteria data
-with open('outputs/criteria_graph.json', 'r') as f:
+# Load criteria data (use v2 with improved extraction)
+with open('outputs/criteria_graph_v2.json', 'r') as f:
     data = json.load(f)
 
 total_students = data['metadata']['total_students']  # 36
@@ -61,8 +61,9 @@ print("NEW GRADES WITH RARITY BONUS SYSTEM")
 print("="*80)
 print(f"{'Rank':<5} {'Student':<10} {'Base%':<8} {'Bonus':<6} {'Final':<8} {'Criteria':<10}")
 print("-"*80)
+total_criteria = len(criteria)
 for rank, (student, scores) in enumerate(ranked, 1):
-    print(f"{rank:<5} {student:<10} {scores['base_pct']:<8.1f} +{scores['bonus']:<5} {scores['final_score']:<8.1f} {scores['criteria_count']}/58")
+    print(f"{rank:<5} {student:<10} {scores['base_pct']:<8.1f} +{scores['bonus']:<5} {scores['final_score']:<8.1f} {scores['criteria_count']}/{total_criteria}")
 
 # Create Excel file
 wb = Workbook()
@@ -85,7 +86,7 @@ for col, h in enumerate(headers, 1):
 
 for row, (student, scores) in enumerate(ranked, 2):
     bonus_names = ", ".join([f"{d[0]} (+{d[2]})" for d in scores['bonus_details']]) if scores['bonus_details'] else "None"
-    values = [row-1, student, scores['base_pct'], scores['bonus'], scores['final_score'], f"{scores['criteria_count']}/58", bonus_names]
+    values = [row-1, student, scores['base_pct'], scores['bonus'], scores['final_score'], f"{scores['criteria_count']}/{total_criteria}", bonus_names]
     for col, val in enumerate(values, 1):
         cell = ws.cell(row=row, column=col, value=val)
         cell.border = thin_border

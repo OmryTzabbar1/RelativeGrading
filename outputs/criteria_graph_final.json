@@ -1,963 +1,680 @@
 {
   "metadata": {
-    "extraction_date": "2025-12-23",
-    "total_students": 14,
-    "total_criteria": 95,
-    "evaluation_date": "2025-12-23"
+    "total_students": 36,
+    "evaluation_date": "2025-12-23",
+    "total_criteria": 30
   },
   "criteria": {
-    "README_Documentation": {
-      "display_name": "README Documentation",
+    "Error Handling": {
+      "display_name": "Error Handling",
       "students": [
-        "87681",
-        "87682",
-        "87683",
-        "87684",
-        "87685",
-        "87690",
-        "87691",
-        "87694",
-        "87696",
-        "87698",
-        "87706",
-        "87707",
-        "87721"
+        "38950",
+        "38951",
+        "38952",
+        "38953",
+        "38954",
+        "38955",
+        "38958",
+        "38959",
+        "38960",
+        "38962",
+        "38963",
+        "38964",
+        "38966",
+        "38970",
+        "38971",
+        "38973",
+        "38977",
+        "38979",
+        "38980",
+        "38981",
+        "38982",
+        "38984",
+        "38985",
+        "38986",
+        "38988",
+        "38989",
+        "38990",
+        "38992",
+        "38993",
+        "59373",
+        "59375",
+        "59378"
       ],
-      "count": 13,
-      "weight": 0.9285714285714286
+      "count": 32,
+      "weight": 0.8888888888888888
     },
-    "PRD_Document": {
+    "PRD Document": {
       "display_name": "PRD Document",
       "students": [
-        "87681",
-        "87683",
-        "87684",
-        "87685",
-        "87690",
-        "87694",
-        "87698"
+        "38950",
+        "38951",
+        "38952",
+        "38953",
+        "38954",
+        "38955",
+        "38958",
+        "38959",
+        "38960",
+        "38962",
+        "38963",
+        "38964",
+        "38970",
+        "38977",
+        "38979",
+        "38980",
+        "38981",
+        "38982",
+        "38984",
+        "38986",
+        "38988",
+        "38989",
+        "38990",
+        "38992",
+        "38993",
+        "59373",
+        "59375",
+        "59378"
       ],
-      "count": 7,
-      "weight": 0.5
+      "count": 28,
+      "weight": 0.7777777777777778
     },
-    "Architecture_Documentation": {
-      "display_name": "Architecture Documentation",
+    "Comparative Analysis": {
+      "display_name": "Comparative Analysis",
       "students": [
-        "87681",
-        "87683",
-        "87684",
-        "87690",
-        "87691",
-        "87694",
-        "87696",
-        "87706"
+        "38950",
+        "38951",
+        "38952",
+        "38953",
+        "38954",
+        "38955",
+        "38959",
+        "38960",
+        "38964",
+        "38970",
+        "38979",
+        "38980",
+        "38981",
+        "38982",
+        "38988",
+        "38989",
+        "38993",
+        "59375",
+        "59378"
       ],
-      "count": 8,
-      "weight": 0.5714285714285714
+      "count": 19,
+      "weight": 0.5277777777777778
     },
-    "CLAUDE_md_Development_Guide": {
-      "display_name": "CLAUDE.md Development Guide",
+    "Test Coverage Metrics": {
+      "display_name": "Test Coverage Metrics",
       "students": [
-        "87684",
-        "87691",
-        "87696"
+        "38950",
+        "38951",
+        "38952",
+        "38953",
+        "38954",
+        "38955",
+        "38958",
+        "38959",
+        "38960",
+        "38962",
+        "38964",
+        "38969",
+        "38970",
+        "38971",
+        "38973",
+        "38977",
+        "38979",
+        "38980",
+        "38981",
+        "38982",
+        "38984",
+        "38986",
+        "38988",
+        "38989",
+        "38990",
+        "38992",
+        "38993",
+        "59373",
+        "59375",
+        "59376",
+        "59378"
       ],
-      "count": 3,
-      "weight": 0.21428571428571427
+      "count": 31,
+      "weight": 0.8611111111111112
     },
-    "API_Documentation": {
-      "display_name": "API Documentation",
-      "students": [
-        "87690",
-        "87691",
-        "87694",
-        "87696"
-      ],
-      "count": 4,
-      "weight": 0.2857142857142857
-    },
-    "C4_Architecture_Diagrams": {
-      "display_name": "C4 Architecture Diagrams",
-      "students": [
-        "87690",
-        "87694",
-        "87706"
-      ],
-      "count": 3,
-      "weight": 0.21428571428571427
-    },
-    "Architecture_Decision_Records_ADR": {
-      "display_name": "Architecture Decision Records (ADR)",
-      "students": [
-        "87690",
-        "87694",
-        "87706"
-      ],
-      "count": 3,
-      "weight": 0.21428571428571427
-    },
-    "Contributing_Guidelines": {
-      "display_name": "Contributing Guidelines",
-      "students": [
-        "87691",
-        "87696"
-      ],
-      "count": 2,
-      "weight": 0.14285714285714285
-    },
-    "Cost_Analysis_Documentation": {
-      "display_name": "Cost Analysis Documentation",
-      "students": [
-        "87690",
-        "87691",
-        "87694",
-        "87696"
-      ],
-      "count": 4,
-      "weight": 0.2857142857142857
-    },
-    "Security_Documentation": {
-      "display_name": "Security Documentation",
-      "students": [
-        "87690"
-      ],
-      "count": 1,
-      "weight": 0.07142857142857142
-    },
-    "Research_Methodology": {
-      "display_name": "Research Methodology",
-      "students": [
-        "87694"
-      ],
-      "count": 1,
-      "weight": 0.07142857142857142
-    },
-    "Prompt_Engineering_Log": {
-      "display_name": "Prompt Engineering Log",
-      "students": [
-        "87690",
-        "87694"
-      ],
-      "count": 2,
-      "weight": 0.14285714285714285
-    },
-    "ISO_25010_Compliance": {
-      "display_name": "ISO 25010 Compliance",
-      "students": [
-        "87690",
-        "87691",
-        "87694",
-        "87696"
-      ],
-      "count": 4,
-      "weight": 0.2857142857142857
-    },
-    "UX_Heuristics_Documentation": {
-      "display_name": "UX Heuristics Documentation",
-      "students": [
-        "87694"
-      ],
-      "count": 1,
-      "weight": 0.07142857142857142
-    },
-    "Progress_Tracker": {
-      "display_name": "Progress Tracker",
-      "students": [
-        "87694"
-      ],
-      "count": 1,
-      "weight": 0.07142857142857142
-    },
-    "Mission_Specifications": {
-      "display_name": "Mission Specifications",
-      "students": [
-        "87694"
-      ],
-      "count": 1,
-      "weight": 0.07142857142857142
-    },
-    "Unit_Tests": {
-      "display_name": "Unit Tests",
-      "students": [
-        "87681",
-        "87683",
-        "87684",
-        "87690",
-        "87691",
-        "87694",
-        "87696",
-        "87698",
-        "87706"
-      ],
-      "count": 9,
-      "weight": 0.6428571428571429
-    },
-    "Integration_Tests": {
-      "display_name": "Integration Tests",
-      "students": [
-        "87681",
-        "87683",
-        "87684",
-        "87690",
-        "87691",
-        "87694",
-        "87696",
-        "87706"
-      ],
-      "count": 8,
-      "weight": 0.5714285714285714
-    },
-    "E2E_Tests": {
+    "E2E Tests": {
       "display_name": "E2E Tests",
       "students": [
-        "87681"
+        "38950",
+        "38954",
+        "38958",
+        "38964",
+        "38979",
+        "38980"
       ],
-      "count": 1,
-      "weight": 0.07142857142857142
+      "count": 6,
+      "weight": 0.16666666666666666
     },
-    "Test_Coverage_70%_Plus": {
-      "display_name": "Test Coverage 70%+",
+    "Data Validation": {
+      "display_name": "Data Validation",
       "students": [
-        "87681",
-        "87684",
-        "87690",
-        "87691",
-        "87694",
-        "87696",
-        "87698"
+        "38950",
+        "38951",
+        "38952",
+        "38953",
+        "38954",
+        "38955",
+        "38958",
+        "38959",
+        "38960",
+        "38962",
+        "38963",
+        "38964",
+        "38969",
+        "38970",
+        "38971",
+        "38973",
+        "38977",
+        "38979",
+        "38980",
+        "38981",
+        "38982",
+        "38984",
+        "38988",
+        "38989",
+        "38990",
+        "38993",
+        "59373",
+        "59375",
+        "59376",
+        "59378"
       ],
-      "count": 7,
-      "weight": 0.5
+      "count": 30,
+      "weight": 0.8333333333333334
     },
-    "Test_Coverage_85%_Plus": {
-      "display_name": "Test Coverage 85%+",
+    "Unit Tests": {
+      "display_name": "Unit Tests",
       "students": [
-        "87690",
-        "87694",
-        "87706"
+        "38950",
+        "38951",
+        "38952",
+        "38953",
+        "38954",
+        "38955",
+        "38957",
+        "38958",
+        "38959",
+        "38960",
+        "38961",
+        "38962",
+        "38963",
+        "38964",
+        "38966",
+        "38969",
+        "38970",
+        "38971",
+        "38973",
+        "38977",
+        "38979",
+        "38980",
+        "38981",
+        "38982",
+        "38984",
+        "38985",
+        "38986",
+        "38988",
+        "38989",
+        "38990",
+        "38992",
+        "38993",
+        "59373",
+        "59375",
+        "59376",
+        "59378"
       ],
-      "count": 3,
-      "weight": 0.21428571428571427
+      "count": 36,
+      "weight": 1.0
     },
-    "Pytest_Framework": {
-      "display_name": "Pytest Framework",
+    "Installation Instructions": {
+      "display_name": "Installation Instructions",
       "students": [
-        "87681",
-        "87683",
-        "87684",
-        "87690",
-        "87691",
-        "87694",
-        "87696",
-        "87698",
-        "87706"
+        "38950",
+        "38951",
+        "38954",
+        "38955",
+        "38958",
+        "38959",
+        "38962",
+        "38964",
+        "38969",
+        "38977",
+        "38979",
+        "38980",
+        "38981",
+        "38984",
+        "38986",
+        "38990",
+        "38992",
+        "59375",
+        "59376",
+        "59378"
       ],
-      "count": 9,
-      "weight": 0.6428571428571429
+      "count": 20,
+      "weight": 0.5555555555555556
     },
-    "Test_Coverage_HTML_Reports": {
-      "display_name": "Test Coverage HTML Reports",
+    "Configuration Management": {
+      "display_name": "Configuration Management",
       "students": [
-        "87691",
-        "87694",
-        "87696",
-        "87698"
+        "38950",
+        "38951",
+        "38952",
+        "38953",
+        "38954",
+        "38955",
+        "38957",
+        "38958",
+        "38959",
+        "38960",
+        "38961",
+        "38962",
+        "38963",
+        "38964",
+        "38966",
+        "38969",
+        "38970",
+        "38971",
+        "38973",
+        "38977",
+        "38979",
+        "38980",
+        "38981",
+        "38982",
+        "38984",
+        "38985",
+        "38986",
+        "38988",
+        "38989",
+        "38990",
+        "38992",
+        "38993",
+        "59373",
+        "59375",
+        "59376",
+        "59378"
       ],
-      "count": 4,
-      "weight": 0.2857142857142857
+      "count": 36,
+      "weight": 1.0
     },
-    "Mock_Stub_Implementations": {
-      "display_name": "Mock/Stub Implementations",
+    "Usage Guide": {
+      "display_name": "Usage Guide",
       "students": [
-        "87690",
-        "87694"
+        "38951",
+        "38953",
+        "38954",
+        "38955",
+        "38960",
+        "38962",
+        "38963",
+        "38964",
+        "38969",
+        "38970",
+        "38971",
+        "38973",
+        "38977",
+        "38979",
+        "38980",
+        "38981",
+        "38984",
+        "38988",
+        "38989",
+        "38990",
+        "59376",
+        "59378"
       ],
-      "count": 2,
-      "weight": 0.14285714285714285
+      "count": 22,
+      "weight": 0.6111111111111112
     },
-    "Concurrent_Threading_Tests": {
-      "display_name": "Concurrent/Threading Tests",
+    "Testing Documentation": {
+      "display_name": "Testing Documentation",
       "students": [
-        "87694",
-        "87698"
+        "38951",
+        "38952",
+        "38954",
+        "38955",
+        "38959",
+        "38962",
+        "38963",
+        "38964",
+        "38969",
+        "38977",
+        "38979",
+        "38980",
+        "38981",
+        "38982",
+        "38984",
+        "38986",
+        "38990",
+        "38992",
+        "38993",
+        "59373",
+        "59375",
+        "59376",
+        "59378"
       ],
-      "count": 2,
-      "weight": 0.14285714285714285
+      "count": 23,
+      "weight": 0.6388888888888888
     },
-    "Resilience_Tests": {
-      "display_name": "Resilience Tests",
+    "Statistical Analysis": {
+      "display_name": "Statistical Analysis",
       "students": [
-        "87694"
+        "38951",
+        "38954",
+        "38959",
+        "38960",
+        "38962",
+        "38963",
+        "38964",
+        "38966",
+        "38969",
+        "38970",
+        "38971",
+        "38977",
+        "38979",
+        "38980",
+        "38981",
+        "59375",
+        "59378"
       ],
-      "count": 1,
-      "weight": 0.07142857142857142
+      "count": 17,
+      "weight": 0.4722222222222222
     },
-    "CI_CD_Pipeline": {
-      "display_name": "CI/CD Pipeline",
+    "Quick Start Guide": {
+      "display_name": "Quick Start Guide",
       "students": [
-        "87681",
-        "87696"
+        "38951",
+        "38952",
+        "38954",
+        "38955",
+        "38962",
+        "38964",
+        "38977",
+        "38986",
+        "38992",
+        "59373"
       ],
-      "count": 2,
-      "weight": 0.14285714285714285
+      "count": 10,
+      "weight": 0.2777777777777778
     },
-    "Black_Code_Formatting": {
-      "display_name": "Black Code Formatting",
+    "Multi-Stage Pipeline": {
+      "display_name": "Multi-Stage Pipeline",
       "students": [
-        "87684",
-        "87691",
-        "87696"
-      ],
-      "count": 3,
-      "weight": 0.21428571428571427
-    },
-    "Ruff_Linting": {
-      "display_name": "Ruff Linting",
-      "students": [
-        "87684",
-        "87691",
-        "87696"
-      ],
-      "count": 3,
-      "weight": 0.21428571428571427
-    },
-    "ESLint": {
-      "display_name": "ESLint",
-      "students": [
-        "87691",
-        "87696"
-      ],
-      "count": 2,
-      "weight": 0.14285714285714285
-    },
-    "MyPy_Type_Checking": {
-      "display_name": "MyPy Type Checking",
-      "students": [
-        "87684",
-        "87691",
-        "87696"
-      ],
-      "count": 3,
-      "weight": 0.21428571428571427
-    },
-    "Type_Hints": {
-      "display_name": "Type Hints",
-      "students": [
-        "87683",
-        "87684",
-        "87691",
-        "87694",
-        "87696"
+        "38951",
+        "38954",
+        "38962",
+        "38964",
+        "38977"
       ],
       "count": 5,
-      "weight": 0.35714285714285715
+      "weight": 0.1388888888888889
     },
-    "Pydantic_Type_Safety": {
-      "display_name": "Pydantic Type Safety",
+    "Visualizations": {
+      "display_name": "Visualizations",
       "students": [
-        "87684",
-        "87691",
-        "87696"
+        "38951",
+        "38954",
+        "38962",
+        "38964",
+        "38977",
+        "38979",
+        "38980",
+        "38981",
+        "59378"
       ],
-      "count": 3,
-      "weight": 0.21428571428571427
+      "count": 9,
+      "weight": 0.25
     },
-    "Environment_Variables": {
-      "display_name": "Environment Variables",
+    "Architecture Documentation": {
+      "display_name": "Architecture Documentation",
       "students": [
-        "87684",
-        "87690",
-        "87691",
-        "87694",
-        "87696",
-        "87698",
-        "87707",
-        "87721"
+        "38951",
+        "38952",
+        "38953",
+        "38954",
+        "38959",
+        "38960",
+        "38962",
+        "38964",
+        "38969",
+        "38970",
+        "38977",
+        "38979",
+        "38980",
+        "38982",
+        "38988",
+        "38989",
+        "38993",
+        "59373",
+        "59375",
+        "59376"
       ],
-      "count": 8,
-      "weight": 0.5714285714285714
+      "count": 20,
+      "weight": 0.5555555555555556
     },
-    "Git_Ignore": {
-      "display_name": "Git Ignore",
+    "Correlation Analysis": {
+      "display_name": "Correlation Analysis",
       "students": [
-        "87694",
-        "87698"
+        "38951",
+        "38954",
+        "38962",
+        "38964",
+        "38977",
+        "38979",
+        "38980",
+        "38981",
+        "59378"
       ],
-      "count": 2,
-      "weight": 0.14285714285714285
+      "count": 9,
+      "weight": 0.25
     },
-    "Pre_commit_Checks": {
-      "display_name": "Pre-commit Checks",
+    "Integration Tests": {
+      "display_name": "Integration Tests",
       "students": [
-        "87691",
-        "87696"
-      ],
-      "count": 2,
-      "weight": 0.14285714285714285
-    },
-    "Nested_ThreadPoolExecutor": {
-      "display_name": "Nested ThreadPoolExecutor",
-      "students": [
-        "87684",
-        "87691",
-        "87696"
-      ],
-      "count": 3,
-      "weight": 0.21428571428571427
-    },
-    "Queue_based_Communication": {
-      "display_name": "Queue-based Communication",
-      "students": [
-        "87683",
-        "87690",
-        "87694"
-      ],
-      "count": 3,
-      "weight": 0.21428571428571427
-    },
-    "Thread_safe_Operations": {
-      "display_name": "Thread-safe Operations",
-      "students": [
-        "87684",
-        "87690",
-        "87691",
-        "87696",
-        "87698"
-      ],
-      "count": 5,
-      "weight": 0.35714285714285715
-    },
-    "Multiprocessing": {
-      "display_name": "Multiprocessing",
-      "students": [
-        "87681"
-      ],
-      "count": 1,
-      "weight": 0.07142857142857142
-    },
-    "Circuit_Breakers": {
-      "display_name": "Circuit Breakers",
-      "students": [
-        "87681",
-        "87694"
-      ],
-      "count": 2,
-      "weight": 0.14285714285714285
-    },
-    "Retry_Logic": {
-      "display_name": "Retry Logic",
-      "students": [
-        "87681",
-        "87694"
-      ],
-      "count": 2,
-      "weight": 0.14285714285714285
-    },
-    "Producer_Consumer_Pattern": {
-      "display_name": "Producer-Consumer Pattern",
-      "students": [
-        "87684",
-        "87691",
-        "87696"
-      ],
-      "count": 3,
-      "weight": 0.21428571428571427
-    },
-    "Priority_Queue_Logic": {
-      "display_name": "Priority Queue Logic",
-      "students": [
-        "87691",
-        "87696"
-      ],
-      "count": 2,
-      "weight": 0.14285714285714285
-    },
-    "Event_driven_Architecture": {
-      "display_name": "Event-driven Architecture",
-      "students": [
-        "87690",
-        "87694"
-      ],
-      "count": 2,
-      "weight": 0.14285714285714285
-    },
-    "Dependency_Injection": {
-      "display_name": "Dependency Injection",
-      "students": [
-        "87694"
-      ],
-      "count": 1,
-      "weight": 0.07142857142857142
-    },
-    "YAML_Configuration_Files": {
-      "display_name": "YAML Configuration Files",
-      "students": [
-        "87681",
-        "87684",
-        "87690",
-        "87691",
-        "87694",
-        "87696",
-        "87698"
+        "38951",
+        "38954",
+        "38964",
+        "38981",
+        "38986",
+        "38992",
+        "59378"
       ],
       "count": 7,
-      "weight": 0.5
+      "weight": 0.19444444444444445
     },
-    "JSON_Schemas": {
-      "display_name": "JSON Schemas",
-      "students": [
-        "87690",
-        "87694"
-      ],
-      "count": 2,
-      "weight": 0.14285714285714285
-    },
-    "Multiple_Config_Files": {
-      "display_name": "Multiple Config Files",
-      "students": [
-        "87684",
-        "87691",
-        "87696"
-      ],
-      "count": 3,
-      "weight": 0.21428571428571427
-    },
-    "Structured_Logging": {
-      "display_name": "Structured Logging",
-      "students": [
-        "87681",
-        "87690",
-        "87694"
-      ],
-      "count": 3,
-      "weight": 0.21428571428571427
-    },
-    "Logging_with_Rotation": {
-      "display_name": "Logging with Rotation",
-      "students": [
-        "87681"
-      ],
-      "count": 1,
-      "weight": 0.07142857142857142
-    },
-    "Transaction_ID_Tracing": {
-      "display_name": "Transaction ID Tracing",
-      "students": [
-        "87690",
-        "87694"
-      ],
-      "count": 2,
-      "weight": 0.14285714285714285
-    },
-    "Metrics_Collection": {
-      "display_name": "Metrics Collection",
-      "students": [
-        "87694"
-      ],
-      "count": 1,
-      "weight": 0.07142857142857142
-    },
-    "Checkpoint_System": {
-      "display_name": "Checkpoint System",
-      "students": [
-        "87690",
-        "87694"
-      ],
-      "count": 2,
-      "weight": 0.14285714285714285
-    },
-    "Sensitivity_Analysis": {
-      "display_name": "Sensitivity Analysis",
-      "students": [
-        "87684",
-        "87691",
-        "87696"
-      ],
-      "count": 3,
-      "weight": 0.21428571428571427
-    },
-    "Jupyter_Notebooks": {
-      "display_name": "Jupyter Notebooks",
-      "students": [
-        "87694"
-      ],
-      "count": 1,
-      "weight": 0.07142857142857142
-    },
-    "Data_Visualizations": {
-      "display_name": "Data Visualizations",
-      "students": [
-        "87690",
-        "87691",
-        "87696"
-      ],
-      "count": 3,
-      "weight": 0.21428571428571427
-    },
-    "Rich_CLI": {
-      "display_name": "Rich CLI",
-      "students": [
-        "87681",
-        "87694"
-      ],
-      "count": 2,
-      "weight": 0.14285714285714285
-    },
-    "Progress_Bars": {
-      "display_name": "Progress Bars",
-      "students": [
-        "87681"
-      ],
-      "count": 1,
-      "weight": 0.07142857142857142
-    },
-    "Frontend_React_TypeScript": {
-      "display_name": "Frontend React/TypeScript",
-      "students": [
-        "87684",
-        "87691",
-        "87696"
-      ],
-      "count": 3,
-      "weight": 0.21428571428571427
-    },
-    "GUI_Application": {
-      "display_name": "GUI Application",
-      "students": [
-        "87698"
-      ],
-      "count": 1,
-      "weight": 0.07142857142857142
-    },
-    "Google_Maps_API": {
-      "display_name": "Google Maps API",
-      "students": [
-        "87684",
-        "87690",
-        "87691",
-        "87694",
-        "87696",
-        "87698",
-        "87706",
-        "87707",
-        "87721"
-      ],
-      "count": 9,
-      "weight": 0.6428571428571429
-    },
-    "YouTube_Data_API": {
-      "display_name": "YouTube Data API",
-      "students": [
-        "87684",
-        "87690",
-        "87691",
-        "87694",
-        "87696",
-        "87698",
-        "87706",
-        "87707",
-        "87721"
-      ],
-      "count": 9,
-      "weight": 0.6428571428571429
-    },
-    "Spotify_API": {
-      "display_name": "Spotify API",
-      "students": [
-        "87690",
-        "87691",
-        "87694",
-        "87696",
-        "87698",
-        "87706",
-        "87707",
-        "87721"
-      ],
-      "count": 8,
-      "weight": 0.5714285714285714
-    },
-    "Anthropic_Claude_API": {
-      "display_name": "Anthropic Claude API",
-      "students": [
-        "87684",
-        "87691",
-        "87696",
-        "87698"
-      ],
-      "count": 4,
-      "weight": 0.2857142857142857
-    },
-    "OpenAI_API": {
-      "display_name": "OpenAI API",
-      "students": [
-        "87694"
-      ],
-      "count": 1,
-      "weight": 0.07142857142857142
-    },
-    "DuckDuckGo_Search": {
-      "display_name": "DuckDuckGo Search",
-      "students": [
-        "87691",
-        "87694",
-        "87696"
-      ],
-      "count": 3,
-      "weight": 0.21428571428571427
-    },
-    "Wikipedia_API": {
-      "display_name": "Wikipedia API",
-      "students": [
-        "87694"
-      ],
-      "count": 1,
-      "weight": 0.07142857142857142
-    },
-    "Ollama": {
-      "display_name": "Ollama",
-      "students": [
-        "87694"
-      ],
-      "count": 1,
-      "weight": 0.07142857142857142
-    },
-    "Docker_Support": {
-      "display_name": "Docker Support",
-      "students": [
-        "87681"
-      ],
-      "count": 1,
-      "weight": 0.07142857142857142
-    },
-    "One_Step_Setup_Script": {
-      "display_name": "One-Step Setup Script",
-      "students": [
-        "87691",
-        "87696"
-      ],
-      "count": 2,
-      "weight": 0.14285714285714285
-    },
-    "Wheel_Distribution": {
-      "display_name": "Wheel Distribution",
-      "students": [
-        "87694"
-      ],
-      "count": 1,
-      "weight": 0.07142857142857142
-    },
-    "Package_Distribution": {
-      "display_name": "Package Distribution",
-      "students": [
-        "87694"
-      ],
-      "count": 1,
-      "weight": 0.07142857142857142
-    },
-    "MANIFEST_in": {
-      "display_name": "MANIFEST.in",
-      "students": [
-        "87694"
-      ],
-      "count": 1,
-      "weight": 0.07142857142857142
-    },
-    "pyproject_toml": {
-      "display_name": "pyproject.toml",
-      "students": [
-        "87694"
-      ],
-      "count": 1,
-      "weight": 0.07142857142857142
-    },
-    "setup_py": {
-      "display_name": "setup.py",
-      "students": [
-        "87690"
-      ],
-      "count": 1,
-      "weight": 0.07142857142857142
-    },
-    "FastAPI_Backend": {
-      "display_name": "FastAPI Backend",
-      "students": [
-        "87684",
-        "87691",
-        "87696"
-      ],
-      "count": 3,
-      "weight": 0.21428571428571427
-    },
-    "WebSocket_Support": {
-      "display_name": "WebSocket Support",
-      "students": [
-        "87691",
-        "87696"
-      ],
-      "count": 2,
-      "weight": 0.14285714285714285
-    },
-    "Context_Hub": {
-      "display_name": "Context Hub",
-      "students": [
-        "87691",
-        "87696"
-      ],
-      "count": 2,
-      "weight": 0.14285714285714285
-    },
-    "Gaussian_Decay_Scoring": {
-      "display_name": "Gaussian Decay Scoring",
-      "students": [
-        "87684",
-        "87691",
-        "87696"
-      ],
-      "count": 3,
-      "weight": 0.21428571428571427
-    },
-    "Semantic_Similarity_Scoring": {
-      "display_name": "Semantic Similarity Scoring",
-      "students": [
-        "87684",
-        "87691",
-        "87696"
-      ],
-      "count": 3,
-      "weight": 0.21428571428571427
-    },
-    "Temporal_Duration_Matching": {
-      "display_name": "Temporal Duration Matching",
-      "students": [
-        "87684",
-        "87691",
-        "87696"
-      ],
-      "count": 3,
-      "weight": 0.21428571428571427
-    },
-    "150_Lines_Per_File_Constraint": {
-      "display_name": "150 Lines Per File Constraint",
-      "students": [
-        "87684",
-        "87691",
-        "87696"
-      ],
-      "count": 3,
-      "weight": 0.21428571428571427
-    },
-    "Parallel_Processing": {
-      "display_name": "Parallel Processing",
-      "students": [
-        "87681",
-        "87683",
-        "87684",
-        "87690",
-        "87691",
-        "87694",
-        "87696",
-        "87698",
-        "87706"
-      ],
-      "count": 9,
-      "weight": 0.6428571428571429
-    },
-    "Caching_Strategy": {
-      "display_name": "Caching Strategy",
-      "students": [
-        "87690",
-        "87691",
-        "87694",
-        "87696"
-      ],
-      "count": 4,
-      "weight": 0.2857142857142857
-    },
-    "Performance_Benchmarking": {
+    "Performance Benchmarking": {
       "display_name": "Performance Benchmarking",
       "students": [
-        "87681",
-        "87691",
-        "87696"
+        "38952",
+        "38953",
+        "38954",
+        "38962",
+        "38964",
+        "38977",
+        "38979",
+        "38980",
+        "38984",
+        "38986",
+        "38988",
+        "38989",
+        "38990",
+        "38992",
+        "59373"
       ],
-      "count": 3,
-      "weight": 0.21428571428571427
+      "count": 15,
+      "weight": 0.4166666666666667
     },
-    "1750_Plus_Tests": {
-      "display_name": "1750+ Tests",
+    "Contributing Guide": {
+      "display_name": "Contributing Guide",
       "students": [
-        "87706"
+        "38952",
+        "38955",
+        "38960",
+        "38962",
+        "38963",
+        "38969",
+        "38970",
+        "38977",
+        "38979",
+        "38980",
+        "38981",
+        "38986",
+        "38992",
+        "59373",
+        "59376",
+        "59378"
       ],
-      "count": 1,
-      "weight": 0.07142857142857142
+      "count": 16,
+      "weight": 0.4444444444444444
     },
-    "89%_Test_Coverage": {
-      "display_name": "89% Test Coverage",
+    "Setup Guide": {
+      "display_name": "Setup Guide",
       "students": [
-        "87706"
+        "38952",
+        "38953",
+        "38954",
+        "38960",
+        "38962",
+        "38964",
+        "38969",
+        "38970",
+        "38977",
+        "38981",
+        "38988",
+        "38989",
+        "59373",
+        "59376",
+        "59378"
       ],
-      "count": 1,
-      "weight": 0.07142857142857142
+      "count": 15,
+      "weight": 0.4166666666666667
     },
-    "Mathematical_Verification": {
-      "display_name": "Mathematical Verification",
+    "Changelog": {
+      "display_name": "Changelog",
       "students": [
-        "87706"
+        "38952",
+        "38960",
+        "38970",
+        "38979",
+        "38980",
+        "59373"
       ],
-      "count": 1,
-      "weight": 0.07142857142857142
+      "count": 6,
+      "weight": 0.16666666666666666
     },
-    "Interactive_Dashboard": {
-      "display_name": "Interactive Dashboard",
+    "Jupyter Notebooks": {
+      "display_name": "Jupyter Notebooks",
       "students": [
-        "87706"
+        "38954",
+        "38959",
+        "38960",
+        "38979",
+        "38981",
+        "38982",
+        "38993",
+        "59375"
       ],
-      "count": 1,
-      "weight": 0.07142857142857142
+      "count": 8,
+      "weight": 0.2222222222222222
     },
-    "Graceful_Degradation_Pattern": {
-      "display_name": "Graceful Degradation Pattern",
+    "Deployment Guide": {
+      "display_name": "Deployment Guide",
       "students": [
-        "87706"
+        "38954",
+        "38960",
+        "38964",
+        "38970",
+        "38979",
+        "38980"
       ],
-      "count": 1,
-      "weight": 0.07142857142857142
+      "count": 6,
+      "weight": 0.16666666666666666
     },
-    "Getting_Started_Guide": {
-      "display_name": "Getting Started Guide",
+    "Results Documentation": {
+      "display_name": "Results Documentation",
       "students": [
-        "87707",
-        "87721"
+        "38954",
+        "38955",
+        "38962",
+        "38964",
+        "38977",
+        "38981",
+        "59378"
+      ],
+      "count": 7,
+      "weight": 0.19444444444444445
+    },
+    "API Documentation": {
+      "display_name": "API Documentation",
+      "students": [
+        "38954",
+        "38964",
+        "38979",
+        "38980"
+      ],
+      "count": 4,
+      "weight": 0.1111111111111111
+    },
+    "DevOps Documentation": {
+      "display_name": "DevOps Documentation",
+      "students": [
+        "38954",
+        "38959",
+        "38964",
+        "38979",
+        "38980",
+        "59375"
+      ],
+      "count": 6,
+      "weight": 0.16666666666666666
+    },
+    "Screenshots": {
+      "display_name": "Screenshots",
+      "students": [
+        "38954",
+        "38955",
+        "38960",
+        "38962",
+        "38963",
+        "38964",
+        "38970",
+        "38977",
+        "38979",
+        "38980",
+        "38981",
+        "59378"
+      ],
+      "count": 12,
+      "weight": 0.3333333333333333
+    },
+    "Methodology Documentation": {
+      "display_name": "Methodology Documentation",
+      "students": [
+        "38959",
+        "38982",
+        "38993",
+        "59375"
+      ],
+      "count": 4,
+      "weight": 0.1111111111111111
+    },
+    "Use Cases Documentation": {
+      "display_name": "Use Cases Documentation",
+      "students": [
+        "38981",
+        "59378"
       ],
       "count": 2,
-      "weight": 0.14285714285714285
-    },
-    "Interactive_Mode": {
-      "display_name": "Interactive Mode",
-      "students": [
-        "87707",
-        "87721"
-      ],
-      "count": 2,
-      "weight": 0.14285714285714285
-    },
-    "Demo_Scripts": {
-      "display_name": "Demo Scripts",
-      "students": [
-        "87707",
-        "87721"
-      ],
-      "count": 2,
-      "weight": 0.14285714285714285
-    },
-    "Python_API_Wrapper": {
-      "display_name": "Python API Wrapper",
-      "students": [
-        "87707",
-        "87721"
-      ],
-      "count": 2,
-      "weight": 0.14285714285714285
+      "weight": 0.05555555555555555
     }
   }
 }

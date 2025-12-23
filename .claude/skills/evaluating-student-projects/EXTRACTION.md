@@ -29,6 +29,35 @@ This document defines how to extract criteria from markdown files and validate t
 3. **Normalize names** - Keep criterion names consistent
 4. **Track sources** - Note which file each criterion came from
 5. **Be thorough** - Better to over-extract than under-extract
+6. **Capabilities over implementation details** - Extract WHAT was accomplished, not HOW it was built
+
+### Implementation-Specific vs Capability-Based Criteria
+
+**CRITICAL RULE:** Only extract criteria that represent capabilities or accomplishments, not implementation choices.
+
+**❌ DO NOT extract (implementation-specific):**
+- Technology stack choices: "Built with React", "Powered by FastAPI", "Uses PostgreSQL"
+- Framework choices: "Built using Express.js", "Created with Next.js"
+- Language choices: "Written in Python", "Built with TypeScript"
+- Library choices: "Uses Pandas", "Powered by TensorFlow"
+
+These are HOW the project was built, not WHAT was accomplished. Different students may use different tech stacks to achieve the same capability.
+
+**✅ DO extract (capability-based):**
+- "Frontend implementation" (regardless of React/Vue/Angular)
+- "Backend API" (regardless of Express/FastAPI/Flask)
+- "Database integration" (regardless of PostgreSQL/MongoDB/MySQL)
+- "Machine learning model" (regardless of TensorFlow/PyTorch/scikit-learn)
+- "Real-time updates" (capability, regardless of WebSocket/SSE/polling implementation)
+- "Authentication system" (capability, regardless of JWT/OAuth/session-based)
+
+**General judgment:** If it's specific to how the project was built (tech choice), don't extract it. If it's useful to the project and relevant to what was accomplished (capability), extract it.
+
+**Example:**
+- ❌ "Built with React and TypeScript" → Don't extract "React" or "TypeScript"
+- ✅ "Built with React and TypeScript for a responsive frontend" → Extract "Frontend implementation" + "Responsive design"
+- ❌ "Powered by Claude API" → Don't extract as a criterion
+- ✅ "LLM integration for intelligent responses" → Extract "LLM integration" or "AI-powered features"
 
 ## CRITICAL: Filename-Based Detection
 
@@ -177,7 +206,6 @@ Look for visuals:
 "We implemented X"
 "X is included"
 "The project has X"
-"Built with X"
 "X is complete"
 "Successfully added X"
 "X works as expected"
@@ -413,8 +441,6 @@ projects, append them here using the format below.
 ### 2025-12-17 - Discovered from WorkSubmissions01 Sample Evaluation
 
 **New positive indicators:**
-- "Built with [X]" → Indicates: Technology/framework is used in the project
-- "Powered by [X]" → Indicates: Underlying technology/service is integrated
 - "~X% code coverage" or "X% coverage" → Indicates: Test coverage metric achieved
 - "X+ tests" or "X tests" → Indicates: Specific number of tests implemented
 - "Works great on all screen sizes" → Indicates: Responsive design implemented

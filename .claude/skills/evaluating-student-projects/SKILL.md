@@ -24,10 +24,11 @@ Evaluation Workflow:
 - [ ] Step 4: Extract criteria from markdown content
 - [ ] Step 4b: Discover and save new extraction patterns
 - [ ] Step 5: Build criteria graph (who has what)
-- [ ] Step 6: Categorize criteria into broad topics
-- [ ] Step 7: Calculate prevalence-based weights
-- [ ] Step 8: Score and grade each student
-- [ ] Step 9: Generate output files
+- [ ] Step 6: Smart Grouping - Consolidate tech variations
+- [ ] Step 7: Categorize criteria into broad topics
+- [ ] Step 8: Calculate prevalence-based weights
+- [ ] Step 9: Score and grade each student
+- [ ] Step 10: Generate output files
 ```
 
 ## Execution Flow
@@ -180,7 +181,72 @@ criteria_graph = {
 - Track which students have each criterion
 - One student can only be counted once per criterion
 
-### Step 6: Categorize Criteria
+### Step 6: Smart Grouping - Consolidate Tech Variations
+
+**CRITICAL:** Before categorizing, consolidate tech-specific variations to ensure fair, capability-based comparison.
+
+**The Problem:**
+Extracting granular criteria like "Black", "Ruff", "ESLint", "MyPy", "Type Hints", "Pydantic" as separate items unfairly rewards students who used MORE tools for the SAME purpose (code quality).
+
+**The Solution:**
+Group technology choices that serve the same capability into consolidated criteria.
+
+**Consolidation Rules:**
+
+| Raw Criteria (Tech Choices) | Consolidated Criterion | Rationale |
+|------------------------------|------------------------|-----------|
+| Black, Ruff, ESLint, Prettier, MyPy, Type Hints, Pydantic, Pre-commit | **Code Quality Tools** | All serve code quality/linting/typing |
+| Unit Tests, Integration Tests, E2E Tests, Pytest, Jest, Mocha | Keep separate TYPES, consolidate FRAMEWORKS | Test types are different capabilities; frameworks are tech choices |
+| Google Maps API, YouTube API, Spotify API, Claude API, OpenAI API | **External API Integrations** | All are API integrations (capability) |
+| YAML Config, JSON Config, .env files, Multiple config files | **Configuration Management** | All serve configuration (capability) |
+| Nested ThreadPoolExecutor, Queue-based, Multiprocessing, Parallel Processing | **Concurrency Patterns** | All are concurrency approaches |
+| CI/CD, Docker, Deployment Scripts, One-step Setup | **DevOps Infrastructure** | All are deployment/ops capabilities |
+| React, Next.js, Vue, Angular, Responsive Design, Dark Mode | **Frontend Implementation** | All are frontend capabilities |
+| FastAPI, Flask, Express, WebSocket, REST API | **Backend Services** | All are backend capabilities |
+
+**When to Consolidate:**
+- ✅ **DO consolidate:** Different tools serving the SAME purpose
+  - Black + Ruff + ESLint → "Code Quality Tools"
+  - pytest + jest + mocha → "Testing Framework"
+  - Docker + Kubernetes → "Containerization"
+
+- ❌ **DO NOT consolidate:** Different types/levels of the same category
+  - Unit Tests vs Integration Tests (different test TYPES)
+  - README vs API Docs (different doc TYPES)
+  - Circuit Breakers vs Retry Logic (different resilience PATTERNS)
+
+**How to Apply:**
+```
+For each criteria type:
+    Find all tech-specific variations
+    If they serve the same capability:
+        Create consolidated criterion
+        Merge student lists (union of all students)
+        Remove individual tech criteria
+
+Example:
+Before:
+  - "Black Code Formatting": [alice, bob]
+  - "Ruff Linting": [bob, carol]
+  - "ESLint": [carol]
+  - "MyPy": [alice, bob]
+
+After:
+  - "Code Quality Tools (Formatting/Linting/Type Checking)": [alice, bob, carol]
+```
+
+**Result:** Fair comparison based on CAPABILITIES, not tool count.
+
+**Implementation:**
+Use the `smart_grouping.py` script to perform this consolidation automatically:
+```bash
+cd .claude/skills/evaluating-student-projects/scripts
+python smart_grouping.py
+```
+
+This script reads `outputs/criteria_graph_final.json` and outputs `outputs/criteria_graph_grouped.json` with consolidated criteria.
+
+### Step 7: Categorize Criteria
 
 Match each criterion to a broad category. See [CATEGORIES.md](CATEGORIES.md) for full list.
 
@@ -201,7 +267,7 @@ Match each criterion to a broad category. See [CATEGORIES.md](CATEGORIES.md) for
 - Include in output but mark as "Uncategorized"
 - These criteria still count toward student scores
 
-### Step 7: Calculate Weights
+### Step 8: Calculate Weights
 
 Weight each criterion by prevalence (how many students have it):
 
@@ -219,7 +285,7 @@ Example (35 students):
 - Medium weight (0.3-0.7): Common feature, good to have
 - Low weight (<0.3): Bonus feature, rewards those who have it
 
-### Step 8: Score and Grade
+### Step 9: Score and Grade
 
 ## Grading Formula
 
@@ -241,28 +307,54 @@ Final Score = Base Score + Sum of Rarity Bonuses (capped at 100)
 - Rank 1 = highest score
 - Handle ties: same score = same rank
 
-### Step 9: Generate Outputs
+**Implementation:**
+Use the `recalculate_grades.py` script to calculate grades with rarity bonuses:
+```bash
+cd .claude/skills/evaluating-student-projects/scripts
+python recalculate_grades.py
+```
+
+This script reads `outputs/criteria_graph_grouped.json` and outputs grade rankings to console.
+
+### Step 10: Generate Outputs
 
 Generate the following files in the `outputs/` directory:
 
-1. **criteria_graph.json** - Complete criteria data
-2. **flagged_criteria.md** - Uncategorized criteria for review
-3. **grades.csv** - Student grades and ranks
-4. **evaluation_report.md** - Full analysis report
+1. **criteria_graph_final.json** - Complete raw criteria data
+2. **criteria_graph_grouped.json** - Consolidated criteria (after smart grouping)
+3. **grades.xlsx** - Comprehensive Excel report with rankings and analysis
+4. **evaluation_report.md** - Full analysis report in Markdown
+
+**Implementation:**
+Use the `create_excel_report.py` script to generate the comprehensive Excel report:
+```bash
+cd .claude/skills/evaluating-student-projects/scripts
+python create_excel_report.py
+```
+
+This script creates a multi-sheet Excel workbook with:
+- Final grades and rankings
+- Detailed criteria breakdown
+- Comparison charts
+- Category distribution
+- Before/after consolidation comparison
 
 For detailed output formats, see [OUTPUT-FORMATS.md](OUTPUT-FORMATS.md).
+
+**Note:** For development and validation, additional utility scripts are available in `scripts/dev/`. See `scripts/README.md` for the complete script organization.
 
 ## Progress Reporting
 
 After each major step, report progress to the user:
 
 ```
-[Step 2/9] Found 35 student folders
-[Step 3/9] Reading markdown files... (student 15/35)
-[Step 4/9] Extracted 127 unique criteria
-[Step 6/9] Categorized 118 criteria, flagged 9 for review
-[Step 8/9] Grading complete. Top score: 100 (alice)
-[Step 9/9] Generated 4 output files in outputs/
+[Step 2/10] Found 35 student folders
+[Step 3/10] Reading markdown files... (student 15/35)
+[Step 4/10] Extracted 127 unique criteria
+[Step 6/10] Consolidated 127 criteria into 45 capability groups
+[Step 7/10] Categorized 42 criteria, flagged 3 for review
+[Step 9/10] Grading complete. Top score: 87.0 (alice)
+[Step 10/10] Generated 4 output files in outputs/
 ```
 
 ## Error Handling
@@ -289,12 +381,13 @@ After each major step, report progress to the user:
 1. Scans folder, finds 35 student directories
 2. "Found 35 student folders. Proceeding with evaluation..."
 3. Reads all .md files from each student
-4. Extracts criteria: "Discovered 89 unique criteria across all students"
-5. Categorizes: "Categorized 82 criteria into 8 categories. 7 flagged for review."
-6. Calculates weights and grades
-7. "Evaluation complete!"
-   - Best student: alice (100)
-   - Average grade: 78.3
+4. Extracts criteria: "Discovered 127 unique criteria across all students"
+5. Smart Grouping: "Consolidated 127 criteria into 45 capability groups"
+6. Categorizes: "Categorized 42 criteria into 8 categories. 3 flagged for review."
+7. Calculates weights and grades
+8. "Evaluation complete!"
+   - Best student: alice (87.0)
+   - Average grade: 62.4
    - Generated files in outputs/
 
 ## Output Summary
@@ -305,27 +398,33 @@ After completion, provide a summary:
 ## Evaluation Complete
 
 **Students evaluated:** 35
-**Criteria discovered:** 89
-**Categorized:** 82 | **Flagged:** 7
+**Criteria extracted:** 127 (raw)
+**Consolidated:** 45 capability groups
+**Categorized:** 42 | **Flagged:** 3
 
 **Grade Distribution:**
-- 90-100: 5 students
-- 80-89: 12 students
-- 70-79: 10 students
-- 60-69: 6 students
-- Below 60: 2 students
+- 80-100: 3 students
+- 70-79: 2 students
+- 60-69: 5 students
+- 50-59: 8 students
+- Below 50: 17 students
 
 **Top 5 Students:**
-1. alice (100) - 45/52 criteria
-2. bob (96.2) - 43/52 criteria
-3. carol (94.1) - 42/52 criteria
-4. diana (91.8) - 41/52 criteria
-5. eve (89.5) - 40/52 criteria
+1. alice (87.0) - 31/45 criteria (69%)
+2. bob (76.4) - 25/45 criteria (56%)
+3. carol (75.5) - 24/45 criteria (53%)
+4. diana (61.6) - 17/45 criteria (38%)
+5. eve (54.0) - 15/45 criteria (33%)
+
+**Consolidation Impact:**
+- Fair comparison based on capabilities, not tool count
+- Students rewarded for what they can do, not how many tools they used
 
 **Output files:**
-- outputs/criteria_graph.json
+- outputs/criteria_graph_final.json (raw criteria)
+- outputs/criteria_graph_grouped.json (consolidated)
 - outputs/flagged_criteria.md
-- outputs/grades.csv
+- outputs/grades.xlsx
 - outputs/evaluation_report.md
 ```
 

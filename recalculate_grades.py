@@ -3,8 +3,8 @@ from openpyxl import Workbook
 from openpyxl.styles import Font, Alignment, PatternFill, Border, Side
 from openpyxl.utils import get_column_letter
 
-# Load criteria data (use v2 with improved extraction)
-with open('outputs/criteria_graph_v2.json', 'r') as f:
+# Load criteria data (final comprehensive evaluation)
+with open('outputs/criteria_graph_final.json', 'r') as f:
     data = json.load(f)
 
 total_students = data['metadata']['total_students']  # 36

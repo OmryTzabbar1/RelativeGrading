@@ -31,7 +31,7 @@ Project documentation and guides that help users understand the project.
 
 ### Planning
 
-Planning and design documentation showing project forethought.
+Planning, design, and requirements documentation showing project forethought and analysis.
 
 **Keywords to match:**
 - prd, product requirements
@@ -40,18 +40,36 @@ Planning and design documentation showing project forethought.
 - technical spec, technical specification
 - roadmap, project roadmap
 - milestones
-- requirements, requirements document
+- requirements, requirements document, functional requirements, non-functional requirements
 - system design
 - database schema, db schema
 - wireframes
 - mockups (planning context)
 - user stories
-- use cases
+- use cases, use case
+- problem statement, problem
+- solution overview, proposed solution
+- project goals, objectives
+- success metrics, kpis, evaluation criteria
+- assumptions, assumptions documentation
+- constraints, limitations, scope
+- design decisions, design rationale
+- trade-offs, alternatives considered
+- technology selection, technology justification
+- user personas, target users
+- user flow, user journey
+- timeline, schedule, project plan
 
 **Example criteria:**
 - "PRD document"
-- "Architecture diagram"
-- "Database schema design"
+- "Problem Statement"
+- "Solution Overview"
+- "Use Case Documentation"
+- "Functional Requirements"
+- "Success Metrics"
+- "Design Decision Documentation"
+- "Assumptions Documentation"
+- "Project Timeline"
 
 ---
 
@@ -195,29 +213,34 @@ Code quality, standards, and maintainability practices.
 
 ### Business
 
-Business, market, and commercial considerations.
+Business, market, commercial, and risk considerations.
 
 **Keywords to match:**
-- cost analysis, cost breakdown
+- cost analysis, cost breakdown, budget
 - roi, return on investment
 - market research, market analysis
 - user personas, customer personas
 - business case, business model
 - pricing, pricing strategy
 - monetization
-- competitive analysis
+- competitive analysis, competitor comparison
 - swot analysis
 - value proposition
 - target audience
 - stakeholder analysis
-- budget, budgeting
+- budgeting
 - revenue model
 - go-to-market
+- risk analysis, risk assessment, risks
+- risk mitigation
 
 **Example criteria:**
-- "Cost analysis document"
-- "User persona definitions"
-- "Competitive analysis"
+- "Cost Analysis"
+- "ROI Analysis"
+- "Market Research"
+- "Competitive Analysis"
+- "Risk Analysis"
+- "Business Model"
 
 ---
 

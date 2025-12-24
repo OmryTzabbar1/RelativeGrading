@@ -95,6 +95,17 @@ If markdown contains links or references to these files (e.g., `[TESTING.md](TES
 | `## CI/CD`, `## Deployment`, `## DevOps` | DevOps elements | Scan for specific tools |
 | `## API`, `## Endpoints`, `## API Reference` | API Documentation | Must have endpoint details |
 | `## Contributing`, `## Development` | Contributing Guide | Must have contribution info |
+| `## Problem Statement`, `## Problem` | Problem Statement | Must describe the problem |
+| `## Solution`, `## Proposed Solution` | Solution Overview | Must describe solution approach |
+| `## Requirements`, `## Functional Requirements` | Requirements Documentation | Must list requirements |
+| `## Use Cases`, `## Use Case` | Use Case Documentation | Must describe use cases |
+| `## Cost Analysis`, `## Budget`, `## Costs` | Cost Analysis | Must have cost breakdown |
+| `## Assumptions`, `## Constraints` | Assumptions/Constraints | Must list assumptions |
+| `## Success Metrics`, `## KPIs`, `## Metrics` | Success Metrics | Must define metrics |
+| `## Risk Analysis`, `## Risks` | Risk Analysis | Must identify risks |
+| `## Roadmap`, `## Future Work`, `## Next Steps` | Roadmap | Must outline future plans |
+| `## User Stories`, `## User Personas` | User Research | Must define users/stories |
+| `## Design Decisions`, `## Trade-offs` | Design Rationale | Must explain decisions |
 
 ## What to Extract
 
@@ -103,6 +114,8 @@ If markdown contains links or references to these files (e.g., `[TESTING.md](TES
 Look for mentions of implemented features:
 
 **Positive indicators (case-insensitive matching):**
+
+**Implementation indicators:**
 - "We built...", "We created...", "We developed...", "We implemented..."
 - "The project includes...", "This project includes...", "Project includes..."
 - "Features:", "Key features:", "Main features:", "Implemented features:"
@@ -117,17 +130,44 @@ Look for mentions of implemented features:
 - "Coverage:", "Code coverage:", "Test coverage:"
 - "Version X.X includes...", "Version X features..."
 
+**Planning & analysis indicators:**
+- "The problem is...", "Problem statement:", "We identified the following problem..."
+- "Our solution...", "Proposed solution:", "We propose..."
+- "The objective is...", "Goals:", "Our goal is to..."
+- "Success will be measured by...", "KPIs:", "Metrics include..."
+- "We assume...", "Assumptions:", "Based on the assumption that..."
+- "Constraints include...", "Limitations:", "We are constrained by..."
+- "Use cases:", "Use case 1:", "The user can...", "The system shall..."
+- "Requirements:", "Functional requirements:", "The system must..."
+- "Cost analysis shows...", "Budget:", "Estimated cost:", "Total cost:"
+- "ROI:", "Return on investment:", "Expected savings:"
+- "Risks include...", "Risk analysis:", "Potential risks:"
+- "Timeline:", "Schedule:", "Milestones:", "We plan to..."
+- "Design decision:", "We chose X because...", "Trade-offs:", "Alternatives considered:"
+
 **Table of Contents / Index patterns:**
 - If a README/index file lists other .md files (e.g., `[PRD.md](PRD.md)`), credit those as existing
 - Section headers with links indicate implemented documentation
 
 **Examples:**
+
+**Implementation features:**
 - "We built a real-time chat feature" → "Real-time chat"
 - "The project includes user authentication" → "User authentication"
 - "Supports dark mode" → "Dark mode"
 - "This project includes comprehensive unit tests" → "Unit tests"
 - "Total tests: ~75 test cases" → "Unit tests" + "Test coverage metrics"
-- "Complete guide for..." → Relevant documentation criterion
+
+**Planning & analysis:**
+- "## Problem Statement\nThe current system lacks efficient routing..." → "Problem Statement"
+- "Our solution uses A* algorithm to optimize..." → "Solution Overview"
+- "Success metrics: 90% accuracy, <100ms response time" → "Success Metrics"
+- "We identified three primary use cases..." → "Use Case Documentation"
+- "Cost analysis: $0.50/1000 API calls, estimated $150/month" → "Cost Analysis"
+- "Assumptions: Users have GPS-enabled devices" → "Assumptions Documentation"
+- "Constraints: Limited to 100 concurrent users" → "Constraints Documentation"
+- "The system must handle 1000 requests/second" → "Functional Requirements"
+- "Trade-offs: We chose simplicity over feature richness" → "Trade-offs Analysis"
 
 ### Documentation Elements
 
@@ -136,6 +176,53 @@ Look for documentation mentions:
 - "See the README for..." → "README"
 - "API documentation is in /docs" → "API documentation"
 - "Architecture described in ARCHITECTURE.md" → "Architecture document"
+
+### Planning & Analysis Artifacts
+
+**IMPORTANT:** Problem statements, requirements, analysis, and planning documentation are equally important as technical implementation. Extract these as criteria:
+
+**Planning Documents:**
+- "Problem Statement" section/header → "Problem Statement"
+- "Solution Overview", "Proposed Solution" → "Solution Overview"
+- "Project Goals", "Objectives" → "Project Goals"
+- "Success Metrics", "KPIs", "Evaluation Criteria" → "Success Metrics"
+- "Assumptions" section → "Assumptions Documentation"
+- "Constraints", "Limitations" → "Constraints Documentation"
+- "Scope" section → "Scope Documentation"
+
+**Business & Economics:**
+- "Cost Analysis", "Cost Breakdown", "Budget" → "Cost Analysis"
+- "ROI Analysis", "Return on Investment" → "ROI Analysis"
+- "Market Research", "Market Analysis" → "Market Research"
+- "Competitive Analysis", "Competitor Comparison" → "Competitive Analysis"
+- "Business Model", "Revenue Model" → "Business Model"
+- "Risk Analysis", "Risk Assessment" → "Risk Analysis"
+
+**Requirements & Use Cases:**
+- "Use Cases" section → "Use Case Documentation"
+- "User Stories" → "User Stories"
+- "Functional Requirements" → "Functional Requirements"
+- "Non-functional Requirements" → "Non-functional Requirements"
+- "User Personas", "Target Users" → "User Personas"
+- "User Flow", "User Journey" → "User Flow Documentation"
+
+**Design Rationale:**
+- "Design Decisions", "Design Rationale" → "Design Decision Documentation"
+- "Trade-offs", "Alternatives Considered" → "Trade-offs Analysis"
+- "Technology Selection", "Why we chose X" → "Technology Justification"
+
+**Project Management:**
+- "Timeline", "Schedule", "Project Plan" → "Timeline Documentation"
+- "Milestones" section → "Milestones"
+- "Roadmap", "Future Work" → "Roadmap"
+- "Known Issues", "Known Limitations" → "Known Limitations"
+
+**Examples:**
+- "## Problem Statement\nThe current system lacks..." → "Problem Statement"
+- "Cost analysis shows..." → "Cost Analysis"
+- "We identified three use cases..." → "Use Case Documentation"
+- "Success metrics: 90% accuracy, <100ms latency" → "Success Metrics"
+- "Assumptions: API rate limit is 1000 req/min" → "Assumptions Documentation"
 
 ### Testing
 

@@ -148,20 +148,21 @@ def generate_markdown_report(report_data, output_path):
     """Generate markdown report for a student"""
     lines = []
 
-    # Header
-    lines.append("# Student Evaluation Report\n")
-    lines.append(f"**Student ID:** {report_data['student_name']}\n")
-    lines.append(f"**Date:** {datetime.now().strftime('%Y-%m-%d')}\n")
-    lines.append("\n---\n\n")
+    # Title (will be centered and large in PDF)
+    lines.append("# STUDENT EVALUATION REPORT\n\n")
 
-    # Summary
-    lines.append("## Summary\n\n")
+    # Header info (will be centered in PDF with custom CSS class)
+    lines.append('<div class="header-info">\n\n')
+    lines.append(f"**Student ID:** {report_data['student_name']}\n\n")
+    lines.append(f"**Assessment Date:** {datetime.now().strftime('%Y-%m-%d')}\n\n")
+    lines.append('</div>\n\n')
+
+    # Final Score (large, orange, centered)
     grade_info = report_data['grade_info']
-
     if grade_info:
-        lines.append(f"**Final Score:** {grade_info.get('grade', 0):.1f}/100\n")
+        lines.append(f'<div class="final-score">FINAL SCORE: {grade_info.get("grade", 0):.1f} / 100</div>\n\n')
 
-    lines.append("\n---\n\n")
+    lines.append("---\n\n")
 
     # Strengths
     lines.append("## Strengths\n\n")
@@ -199,12 +200,15 @@ def generate_markdown_report(report_data, output_path):
 
     lines.append("---\n\n")
 
-    # Category Breakdown
+    # Category Breakdown (as table)
     lines.append("## Category Breakdown\n\n")
+    lines.append("| Category | Criteria Achieved | Total | Percentage |\n")
+    lines.append("|----------|-------------------|-------|------------|\n")
     for category in CATEGORY_ORDER:
         if category in report_data['category_breakdown']:
             achieved, total = report_data['category_breakdown'][category]
-            lines.append(f"**{category}:** {achieved}/{total} criteria\n")
+            pct = (achieved / total * 100) if total > 0 else 0
+            lines.append(f"| {category} | {achieved} | {total} | {pct:.0f}% |\n")
 
     lines.append("\n---\n\n")
 
@@ -234,7 +238,7 @@ def convert_markdown_to_pdf(md_path, pdf_path):
         extras=['tables', 'fenced-code-blocks']
     )
 
-    # Professional CSS styling
+    # Professional CSS styling matching Detailed_Grade_Breakdown.pdf
     css_style = """
     @page {
         size: A4;
@@ -249,24 +253,32 @@ def convert_markdown_to_pdf(md_path, pdf_path):
     }
 
     h1 {
-        color: #2c3e50;
-        border-bottom: 3px solid #3498db;
-        padding-bottom: 10px;
-        font-size: 24pt;
+        color: #000;
+        text-align: center;
+        font-size: 28pt;
+        font-weight: bold;
+        margin: 20px 0 30px 0;
+        padding: 0;
+        border: none;
+        letter-spacing: 1px;
     }
 
     h2 {
-        color: #34495e;
-        border-bottom: 2px solid #95a5a6;
-        padding-bottom: 5px;
+        color: #000;
+        font-size: 20pt;
+        font-weight: bold;
         margin-top: 30px;
-        font-size: 18pt;
+        margin-bottom: 15px;
+        padding: 0;
+        border: none;
     }
 
     h3 {
-        color: #16a085;
+        color: #000;
+        font-size: 16pt;
+        font-weight: bold;
         margin-top: 20px;
-        font-size: 14pt;
+        margin-bottom: 10px;
     }
 
     ul {
@@ -291,6 +303,69 @@ def convert_markdown_to_pdf(md_path, pdf_path):
 
     p {
         margin: 10px 0;
+    }
+
+    /* Header info styling */
+    .header-info {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .header-info p {
+        margin: 5px 0;
+        font-size: 11pt;
+        color: #555;
+    }
+
+    /* Final score styling */
+    .final-score {
+        text-align: center;
+        font-size: 32pt;
+        font-weight: bold;
+        color: #f39c12;
+        margin: 30px 0;
+        letter-spacing: 1px;
+    }
+
+    /* Table styling */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+    }
+
+    th {
+        background-color: #5b9bd5;
+        color: white;
+        font-weight: bold;
+        padding: 10px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+    td {
+        padding: 8px 10px;
+        border: 1px solid #ddd;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    /* Status indicators */
+    .status-excellent {
+        color: #27ae60;
+        font-weight: bold;
+    }
+
+    .status-fair {
+        color: #f39c12;
+        font-weight: bold;
+    }
+
+    .status-poor {
+        color: #e74c3c;
+        font-weight: bold;
     }
     """
 

@@ -1,12 +1,14 @@
-# Student Evaluation Report
+# STUDENT EVALUATION REPORT
+
+<div class="header-info">
+
 **Student ID:** Participant_101198_assignsubmission_file
-**Date:** 2025-12-29
 
----
+**Assessment Date:** 2025-12-29
 
-## Summary
+</div>
 
-**Final Score:** 99.1/100
+<div class="final-score">FINAL SCORE: 99.1 / 100</div>
 
 ---
 
@@ -41,13 +43,15 @@ The following criteria were not found in your submission. These represent opport
 
 ## Category Breakdown
 
-**Planning:** 4/4 criteria
-**Documentation:** 4/5 criteria
-**CodeQuality:** 6/8 criteria
-**Testing:** 4/5 criteria
-**Research:** 1/1 criteria
-**DevOps:** 2/2 criteria
-**Visuals:** 1/1 criteria
+| Category | Criteria Achieved | Total | Percentage |
+|----------|-------------------|-------|------------|
+| Planning | 4 | 4 | 100% |
+| Documentation | 4 | 5 | 80% |
+| CodeQuality | 6 | 8 | 75% |
+| Testing | 4 | 5 | 80% |
+| Research | 1 | 1 | 100% |
+| DevOps | 2 | 2 | 100% |
+| Visuals | 1 | 1 | 100% |
 
 ---
 

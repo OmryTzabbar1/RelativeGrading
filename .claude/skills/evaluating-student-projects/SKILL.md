@@ -23,10 +23,12 @@ Evaluation Workflow:
 - [ ] Step 3: For each student, find and read all .md files
 - [ ] Step 4: Extract criteria from markdown content
 - [ ] Step 4b: Discover and save new extraction patterns
+- [ ] Step 4c: Verify criteria with code analysis (Git, Security, Quality Tools)
 - [ ] Step 5: Build criteria graph (who has what)
 - [ ] Step 6: Smart Grouping - Consolidate tech variations
 - [ ] Step 7: Categorize criteria into broad topics
 - [ ] Step 8: Calculate prevalence-based weights
+- [ ] Step 8b: Apply assignment-specific calibration profile
 - [ ] Step 9: Score and grade each student
 - [ ] Step 10: Generate output files
 ```
@@ -159,6 +161,71 @@ Format to use:
 - Builds a comprehensive extraction ruleset over time
 - Makes the skill smarter with each evaluation
 
+### Step 4c: Verify Criteria with Code Analysis
+
+**CRITICAL:** Don't just trust markdown documentation - verify implementation by analyzing the actual code repository.
+
+**Why this is needed:**
+- Students sometimes claim features they didn't implement ("README-driven development")
+- Documentation can be aspirational rather than factual
+- Code analysis provides ground truth verification
+
+**What to verify:**
+
+Use the `code_analysis.py` module to extract verified criteria:
+
+```python
+from code_analysis import run_full_code_analysis, format_criteria_summary
+
+for student_folder in student_folders:
+    # Run all three analysis functions
+    analysis_results = run_full_code_analysis(student_folder)
+
+    # Get formatted criteria list
+    verified_criteria = format_criteria_summary(analysis_results)
+
+    # Add to student's criteria list with "(verified)" suffix
+    student_criteria.extend(verified_criteria)
+```
+
+**Three types of analysis:**
+
+**1. Git Repository Analysis** (`analyze_git_repository`)
+- Commit count: 10+ commits = 2 points (shows iterative development)
+- Commit messages: Meaningful = 2 points (shows professionalism)
+- PROMPT_BOOK.md: Present = 5 points CRITICAL (AI development documentation)
+- Branching strategy: Multiple branches = 1 point (shows workflow)
+
+**2. Security Scanning** (`scan_for_secrets`)
+- No hardcoded secrets: 5 points CRITICAL (API keys, tokens, passwords)
+- .env.example exists: 2 points (shows environment config pattern)
+- .gitignore exists: 1 point (shows basic git hygiene)
+- .gitignore properly configured: 2 points (excludes secrets, venv, node_modules)
+
+**3. Code Quality Tools** (`check_code_quality_tools`)
+- Linting configs: ESLint, Pylint, Ruff, Flake8
+- Formatters: Prettier, Black
+- Type checking: TypeScript, MyPy
+- Pre-commit hooks: .pre-commit-config.yaml
+- Test frameworks: pytest, jest, mocha configs
+
+**How verified criteria are marked:**
+
+Verified criteria get a "(verified)" suffix to distinguish from documentation-only claims:
+- "Git Commits 10+ (verified)"
+- "No Hardcoded Secrets (verified)"
+- "ESLint Configuration (verified)"
+- "Pre-commit Hooks (verified)"
+
+**Error handling:**
+- If git analysis fails (not a git repo): Skip gracefully
+- If security scan fails (permissions): Log warning, continue
+- If file access fails: Treat as "not present"
+
+**Performance:**
+- Code analysis adds ~2-5 seconds per student
+- Worth it for accuracy improvement (fixes systematic bias)
+
 ### Step 5: Build Criteria Graph
 
 As you extract criteria, build a graph structure:
@@ -285,6 +352,89 @@ Example (35 students):
 - Medium weight (0.3-0.7): Common feature, good to have
 - Low weight (<0.3): Bonus feature, rewards those who have it
 
+### Step 8b: Apply Assignment-Specific Calibration Profile
+
+**CRITICAL:** Different assignments emphasize different skills. Apply assignment-specific weight adjustments to fix systematic bias.
+
+**Why this is needed:**
+- WorkSubmissions04 (Multi-Agent): Emphasizes CodeQuality, Testing, DevOps
+- WorkSubmissions05 (RAG Lab): Emphasizes Research, Planning, Cost Analysis
+- WorkSubmissions06 (Experimental): Emphasizes Research, Visuals, Testing
+- Without calibration, evaluator can have -15 to +12 point bias
+
+**How to apply:**
+
+Use the `assignment_profiles.py` module to adjust weights by category:
+
+```python
+from assignment_profiles import detect_assignment_type, apply_assignment_profile
+
+# Auto-detect assignment from folder name
+assignment_type = detect_assignment_type(worksubmissions_folder)
+# Returns: "WorkSubmissions04", "WorkSubmissions05", "WorkSubmissions06", or None
+
+# Apply profile adjustments to criteria graph
+if assignment_type:
+    criteria_graph = apply_assignment_profile(criteria_graph, assignment_type)
+    print(f"Applied {assignment_type} profile")
+else:
+    print("No assignment profile found, using default weights")
+```
+
+**What profiles do:**
+
+**Category weight multipliers:**
+- Emphasize important categories (1.2x to 1.6x weight)
+- De-emphasize less relevant categories (0.7x to 0.9x weight)
+
+**Example - WorkSubmissions05 (RAG Lab):**
+```
+Research: 1.6x (60% more important) - Cost Analysis critical
+Planning: 1.4x (40% more important)
+Documentation: 1.2x (20% more important)
+CodeQuality: 0.7x (30% less important) - Less emphasis on linting
+```
+
+**Required criteria penalties:**
+- Missing required criteria = -5 points per criterion
+- Example: WS04 requires "Unit_Tests", "README", "Architecture_Documentation"
+- Student missing Unit_Tests loses 5 points
+
+**Bonus criteria rewards:**
+- Having bonus criteria = +20% weight boost
+- Example: WS04 bonus: "CI/CD_Pipeline", "Pre_Commit_Hooks"
+- Student with CI/CD gets 1.2x weight for that criterion
+
+**Profile metadata:**
+The profile application adds metadata to criteria_graph:
+```json
+{
+  "metadata": {
+    "assignment_profile": {
+      "key": "WorkSubmissions05",
+      "name": "RAG & Context Window Laboratory",
+      "focus_areas": ["Research", "Planning", "Implementation"],
+      "adjustments_applied": {
+        "Research": {"multiplier": 1.6, "criteria_affected": 8},
+        "CodeQuality": {"multiplier": 0.7, "criteria_affected": 3}
+      }
+    }
+  }
+}
+```
+
+**Expected impact:**
+- Fixes systematic bias (WS05: -15.0 → ~±2.0)
+- Rewards students who focused on assignment priorities
+- Penalizes students who ignored core requirements
+
+**Available profiles:**
+- `WorkSubmissions04`: Multi-Agent Tour Guide (Parallel Processing)
+- `WorkSubmissions05`: RAG & Context Window Laboratory
+- `WorkSubmissions06`: Experimental Software Project
+
+See `assignment_profiles.py` for full profile definitions.
+
 ### Step 9: Score and Grade
 
 ## Grading Formula
@@ -348,13 +498,15 @@ For detailed output formats, see [OUTPUT-FORMATS.md](OUTPUT-FORMATS.md).
 After each major step, report progress to the user:
 
 ```
-[Step 2/10] Found 35 student folders
-[Step 3/10] Reading markdown files... (student 15/35)
-[Step 4/10] Extracted 127 unique criteria
-[Step 6/10] Consolidated 127 criteria into 45 capability groups
-[Step 7/10] Categorized 42 criteria, flagged 3 for review
-[Step 9/10] Grading complete. Top score: 87.0 (alice)
-[Step 10/10] Generated 4 output files in outputs/
+[Step 2/12] Found 35 student folders
+[Step 3/12] Reading markdown files... (student 15/35)
+[Step 4/12] Extracted 127 unique criteria
+[Step 4c/12] Verified 89 criteria via code analysis (Git: 35, Security: 35, Quality: 19)
+[Step 6/12] Consolidated 127 criteria into 45 capability groups
+[Step 7/12] Categorized 42 criteria, flagged 3 for review
+[Step 8b/12] Applied WorkSubmissions04 profile (CodeQuality +50%, Research -10%)
+[Step 9/12] Grading complete. Top score: 87.0 (alice)
+[Step 10/12] Generated 4 output files in outputs/
 ```
 
 ## Error Handling
@@ -382,10 +534,13 @@ After each major step, report progress to the user:
 2. "Found 35 student folders. Proceeding with evaluation..."
 3. Reads all .md files from each student
 4. Extracts criteria: "Discovered 127 unique criteria across all students"
+4c. Verifies implementation: "Verified 89 criteria via code analysis"
 5. Smart Grouping: "Consolidated 127 criteria into 45 capability groups"
 6. Categorizes: "Categorized 42 criteria into 8 categories. 3 flagged for review."
-7. Calculates weights and grades
-8. "Evaluation complete!"
+7. Calculates weights
+8b. Applies assignment profile: "Applied WorkSubmissions04 profile"
+9. Calculates grades with profile adjustments
+10. "Evaluation complete!"
    - Best student: alice (87.0)
    - Average grade: 62.4
    - Generated files in outputs/
@@ -399,8 +554,15 @@ After completion, provide a summary:
 
 **Students evaluated:** 35
 **Criteria extracted:** 127 (raw)
+**Verified via code analysis:** 89 criteria
 **Consolidated:** 45 capability groups
 **Categorized:** 42 | **Flagged:** 3
+
+**Assignment Profile:** WorkSubmissions04 - Multi-Agent Tour Guide
+- CodeQuality: +50% weight emphasis
+- Testing: +30% weight emphasis
+- DevOps: +20% weight emphasis
+- Research: -10% weight de-emphasis
 
 **Grade Distribution:**
 - 80-100: 3 students
@@ -416,9 +578,10 @@ After completion, provide a summary:
 4. diana (61.6) - 17/45 criteria (38%)
 5. eve (54.0) - 15/45 criteria (33%)
 
-**Consolidation Impact:**
-- Fair comparison based on capabilities, not tool count
-- Students rewarded for what they can do, not how many tools they used
+**Accuracy Improvements:**
+- Code verification: Catches "README-driven development"
+- Assignment profiles: Fixes systematic bias (±2 points accuracy)
+- Fair comparison: Capabilities, not tool count
 
 **Output files:**
 - outputs/criteria_graph_final.json (raw criteria)

@@ -188,26 +188,39 @@ Visual documentation and demonstration materials.
 Code quality, standards, and maintainability practices.
 
 **Keywords to match:**
-- linting, linter, eslint, pylint
-- prettier, code formatting
-- type checking, typescript, mypy
+- linting, linter, eslint, pylint, ruff, flake8
+- prettier, code formatting, black, autopep8, yapf
+- type checking, typescript, mypy, pyright, pyre
 - code review, peer review
+- pre-commit, git hooks, husky, lint-staged
 - refactoring
 - clean code
 - solid principles
 - design patterns
-- code style, style guide
+- code style, style guide, coding standards
+- pep 8, pep8, airbnb style, google style
 - documentation strings, docstrings
 - comments, code comments
-- static analysis
-- sonarqube
+- static analysis, sonarqube, sonarcloud
 - code complexity
 - technical debt
+- quality gates, quality checks
+- project setup, setup.py, pyproject.toml, package.json
+- dependency management, requirements
+- environment management, venv, virtual environment
 
 **Example criteria:**
-- "ESLint configuration"
-- "TypeScript strict mode"
-- "Code review process documented"
+- "ESLint Configuration"
+- "Pylint Configuration"
+- "TypeScript Type Checking"
+- "Pre-commit Hooks"
+- "Code Style Guide"
+- "PEP8 Compliance"
+- "Prettier Formatting"
+- "Black Formatting"
+- "Code Review Process"
+- "Quality Gates"
+- "Project Setup Configuration"
 
 ---
 

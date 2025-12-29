@@ -257,6 +257,64 @@ Look for testing mentions:
 - "This project includes comprehensive unit tests for all three versions" → "Unit tests" + "Testing Documentation"
 - "Total tests: ~75 test cases" → "Unit tests" + "Test Coverage Metrics"
 
+### Quality Standards & Best Practices
+
+**IMPORTANT:** Code quality standards and best practices are critical criteria. Extract these when students mention them in their documentation.
+
+**Linting & Code Quality:**
+- "ESLint", "eslint configuration", ".eslintrc" → "ESLint Configuration"
+- "Pylint", "pylint", ".pylintrc" → "Pylint Configuration"
+- "Ruff", "ruff configuration" → "Ruff Linting"
+- "Linting", "linter", "code linting" → "Linting Configuration"
+- "Flake8", "Black", "isort" → "Python Code Quality Tools"
+- "TSLint", "JSLint" → "JavaScript Linting"
+- "SonarQube", "SonarCloud" → "Static Analysis Tools"
+
+**Code Formatting:**
+- "Prettier", "prettier configuration" → "Prettier Formatting"
+- "Black", "black formatter" → "Black Formatting"
+- "autopep8", "yapf" → "Python Formatting"
+- "Code formatting", "auto-formatting", "format on save" → "Code Formatting"
+
+**Code Style & Standards:**
+- "Code style guide", "style guide", "coding standards" → "Code Style Guide"
+- "CONTRIBUTING.md" (as a style/standards doc) → "Contributing Guide" + "Code Style Guide"
+- "PEP 8", "PEP8 compliant", "follows PEP 8" → "PEP8 Compliance"
+- "Airbnb style guide", "Google style guide" → "Code Style Guide"
+- "Consistent code style", "enforced style" → "Code Style Guide"
+
+**Pre-commit & Git Hooks:**
+- "Pre-commit hooks", "pre-commit", ".pre-commit-config.yaml" → "Pre-commit Hooks"
+- "Git hooks", "commit hooks", "husky" → "Git Hooks"
+- "Pre-commit configuration", "pre-commit framework" → "Pre-commit Hooks"
+- "Lint-staged", "lint on commit" → "Pre-commit Hooks"
+
+**Type Checking:**
+- "TypeScript", "TypeScript strict mode", "strict type checking" → "TypeScript Type Checking"
+- "Mypy", "type hints", "type annotations" → "Mypy Type Checking"
+- "Type checking", "static type checking" → "Type Checking"
+- "Pyright", "Pyre" → "Python Type Checking"
+
+**Code Review & Quality Practices:**
+- "Code review", "peer review", "pull request reviews" → "Code Review Process"
+- "Code review guidelines", "review checklist" → "Code Review Process"
+- "Quality gates", "quality checks" → "Quality Gates"
+- "Code standards enforced", "automated quality checks" → "Automated Quality Checks"
+
+**Project Setup & Configuration:**
+- "setup.py", "pyproject.toml", "package.json" (mentioned as quality config) → "Project Setup Configuration"
+- "Requirements files", "dependency management" → "Dependency Management"
+- "Virtual environment", "venv", "conda environment" → "Environment Management"
+
+**Examples:**
+- "We use ESLint to maintain code quality" → "ESLint Configuration"
+- "Code formatted with Black and checked with Pylint" → "Black Formatting" + "Pylint Configuration"
+- "Pre-commit hooks ensure code quality before commits" → "Pre-commit Hooks"
+- "TypeScript in strict mode for type safety" → "TypeScript Type Checking"
+- "All PRs require code review" → "Code Review Process"
+- "Following PEP 8 style guide" → "PEP8 Compliance"
+- "Prettier and ESLint configured" → "Prettier Formatting" + "ESLint Configuration"
+
 ### DevOps & Infrastructure
 
 Look for DevOps elements:
@@ -482,6 +540,151 @@ If markdown includes links:
 - Link to live demo → "Live deployment"
 - Link to documentation → Validates docs exist
 - Broken links → Note but still count if text claims it exists
+
+---
+
+## Code Verification Patterns
+
+**CRITICAL:** Don't just trust markdown documentation - verify implementation by analyzing actual code repositories.
+
+This section defines criteria that are VERIFIED through code analysis rather than relying solely on documentation claims. These verified criteria receive a "(verified)" suffix and provide ground truth validation.
+
+### Why Code Verification is Needed
+
+**The "README-Driven Development" Problem:**
+- Students sometimes claim features they didn't implement
+- Documentation can be aspirational rather than factual
+- Marketing language ("Production ready!", "Enterprise-grade!") vs actual implementation
+- Code analysis provides objective verification
+
+### Three Types of Verification
+
+Use the `code_analysis.py` module for automated verification:
+
+#### 1. Git Repository Analysis (`analyze_git_repository`)
+
+**Verified Criteria:**
+
+| Criterion | Verification Method | Points | Category |
+|-----------|-------------------|--------|----------|
+| Git Commits 10+ (verified) | Count commits: `git rev-list --count HEAD` ≥ 10 | 2 | CodeQuality |
+| Meaningful Commit Messages (verified) | Check for multi-word messages (not just "update", "fix") | 2 | CodeQuality |
+| PROMPT_BOOK.md (verified) | Check for PROMPT_BOOK.md, PROMPTBOOK.md, docs/PROMPT_BOOK.md | 5 | Documentation |
+| Branching Strategy (verified) | Check for multiple branches beyond main | 1 | DevOps |
+
+**Why these matter:**
+- **10+ commits**: Shows iterative development, not last-minute cramming
+- **Meaningful messages**: Professional git hygiene ("Add user auth" not "update")
+- **PROMPT_BOOK.md**: CRITICAL for AI-assisted development documentation (5 points!)
+- **Branching**: Shows proper git workflow (feature branches, etc.)
+
+#### 2. Security Scanning (`scan_for_secrets`)
+
+**Verified Criteria:**
+
+| Criterion | Verification Method | Points | Category |
+|-----------|-------------------|--------|----------|
+| No Hardcoded Secrets (verified) | Scan code files for API keys, tokens, passwords | 5 | Security |
+| .env.example Exists (verified) | Check for .env.example, .env.template | 2 | DevOps |
+| .gitignore Exists (verified) | Check for .gitignore file | 1 | DevOps |
+| .gitignore Properly Configured (verified) | Verify excludes: .env, venv/, node_modules/, *.pyc | 2 | DevOps |
+
+**Secret detection patterns:**
+```python
+secret_patterns = [
+    r'api[_-]?key\s*=\s*["\'][\w\-]{20,}["\']',  # API keys
+    r'sk-[a-zA-Z0-9]{20,}',                       # OpenAI keys
+    r'ghp_[a-zA-Z0-9]{36,}',                      # GitHub tokens
+    r'password\s*=\s*["\'][^"\']+["\']',          # Hardcoded passwords
+    r'AKIA[0-9A-Z]{16}',                          # AWS access keys
+]
+```
+
+**Why these matter:**
+- **No hardcoded secrets**: CRITICAL security practice (5 points!)
+- **.env.example**: Shows understanding of environment configuration
+- **.gitignore**: Basic git hygiene
+- **Proper .gitignore**: Excludes sensitive files, dependencies
+
+#### 3. Code Quality Tools (`check_code_quality_tools`)
+
+**Verified Criteria:**
+
+| Tool Category | File Patterns | Criterion | Points |
+|--------------|---------------|-----------|--------|
+| **Linting** | .eslintrc.*, eslintConfig in package.json | ESLint Configuration (verified) | 2 |
+|  | .pylintrc, pylintrc, pylint.cfg | Pylint Configuration (verified) | 2 |
+|  | ruff.toml, .ruff.toml, pyproject.toml (ruff) | Ruff Linting (verified) | 2 |
+|  | .flake8, setup.cfg (flake8) | Flake8 Configuration (verified) | 2 |
+| **Formatting** | .prettierrc.*, prettier.config.* | Prettier Configuration (verified) | 2 |
+|  | pyproject.toml (black), .black | Black Configuration (verified) | 2 |
+| **Type Checking** | tsconfig.json | TypeScript Type Checking (verified) | 2 |
+|  | mypy.ini, .mypy.ini, pyproject.toml (mypy) | MyPy Type Checking (verified) | 2 |
+| **Pre-commit** | .pre-commit-config.yaml | Pre-commit Hooks (verified) | 2 |
+| **Testing** | pytest.ini, setup.cfg (pytest) | Pytest Configuration (verified) | 2 |
+|  | jest.config.js, package.json (jest) | Jest Configuration (verified) | 2 |
+
+**Why these matter:**
+- Shows professional code quality practices
+- Automated enforcement of standards
+- Indicates mature development workflow
+
+### How Verified Criteria are Marked
+
+**Suffix notation:**
+- Documentation claim: "ESLint Configuration"
+- Code-verified: "ESLint Configuration (verified)"
+
+**Student comparison:**
+- Student A: Claims "ESLint configured" in README (no .eslintrc file) = 0 points
+- Student B: Has .eslintrc.json file = 2 points for "ESLint Configuration (verified)"
+
+**Fair grading:**
+Verified criteria ensure students who actually implemented tools get credit, while students who only claimed them in documentation don't.
+
+### Integration with Markdown Extraction
+
+**Workflow:**
+1. Extract criteria from markdown documentation (existing process)
+2. Run code verification analysis on repository
+3. Add verified criteria with "(verified)" suffix
+4. Combine both lists for final criteria graph
+
+**Example:**
+```python
+# Student criteria after both steps
+student_criteria = [
+    "README",                                    # From markdown
+    "Unit Tests",                                # From markdown
+    "ESLint Configuration (verified)",           # From code analysis
+    "Git Commits 10+ (verified)",                # From code analysis
+    "No Hardcoded Secrets (verified)",           # From code analysis
+    "PROMPT_BOOK.md (verified)",                 # From code analysis
+]
+```
+
+### Error Handling
+
+**Graceful degradation:**
+- If git analysis fails (not a git repo): Skip gracefully, log warning
+- If security scan fails (permissions): Log warning, continue
+- If file access fails: Treat as "file not present"
+- Never fail entire evaluation due to verification errors
+
+**Performance:**
+- Code analysis adds ~2-5 seconds per student
+- Worth it for ±15 point accuracy improvement
+
+### Expected Impact
+
+**Before code verification (WorkSubmissions05):**
+- Mean difference: -15.0 points (severe under-grading)
+- Students with implementation but poor docs: Under-graded
+
+**After code verification (expected):**
+- Mean difference: ±2 points (excellent accuracy)
+- Catches "README-driven development"
+- Rewards actual implementation over marketing claims
 
 ---
 

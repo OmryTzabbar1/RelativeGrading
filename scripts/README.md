@@ -1,73 +1,127 @@
 # Student Project Evaluator Scripts
 
-This directory contains utility scripts organized by purpose.
+Production scripts for student project evaluation.
+
+---
 
 ## Directory Structure
 
 ```
 scripts/
-├── experimental/     # Alternative evaluation implementations
-├── dev/             # Development & testing utilities
-└── README.md        # This file
+├── run_evaluation.py      # Main integrated evaluation script
+├── organize_outputs.py    # Organize outputs by submission
+├── dev/                   # Development & testing utilities
+└── README.md             # This file
 ```
 
-## Core Workflow Scripts
+---
 
-The **core evaluation scripts** used in the standard workflow are located in:
+## Main Scripts
+
+### run_evaluation.py
+**Purpose:** Main integrated evaluation script with code verification and assignment profiles.
+
+**Features:**
+- Markdown criteria extraction
+- Code verification (Git analysis, security scanning, quality tools)
+- Assignment-specific calibration profiles
+- Rarity bonus system (no grading curve)
+- Excel and JSON outputs
+
+**Usage:**
+```bash
+python scripts/run_evaluation.py tests/WorkSubmissions05
 ```
-.claude/skills/evaluating-student-projects/scripts/
+
+**Outputs:**
+- `outputs/criteria_graph_final.json` - Complete criteria data
+- `outputs/grades.xlsx` - Student grades with rarity bonuses
+- `outputs/EVALUATION_SUMMARY.md` - Summary report
+
+---
+
+### organize_outputs.py
+**Purpose:** Organize evaluation outputs into submission-specific folders.
+
+**Usage:**
+```bash
+python scripts/organize_outputs.py WorkSubmissions05
 ```
 
-These include:
-- `smart_grouping.py` - Step 6: Consolidate tech variations
-- `recalculate_grades.py` - Step 9: Calculate grades
-- `create_excel_report.py` - Step 10: Generate Excel reports
+**What it does:**
+- Creates `outputs/WorkSubmissions05/` directory
+- Moves all evaluation outputs there
+- Prevents overwriting when evaluating multiple submissions
 
-See `.claude/skills/evaluating-student-projects/scripts/README.md` for details.
-
-## Experimental Scripts
-
-**Location:** `scripts/experimental/`
-
-Alternative evaluation implementations and experimental approaches:
-- `comprehensive_evaluation.py` - Enhanced extraction rules
-- `granular_evaluation.py` - Very specific criteria extraction
-- `evaluate_criteria.py` - WorkSubmissions01-specific evaluator
-
-These are **not** part of the standard workflow. See `scripts/experimental/README.md` for details.
+---
 
 ## Development Utilities
 
 **Location:** `scripts/dev/`
 
-Validation and analysis scripts for development:
-- `validate_output.py` - Comprehensive validation
+- `validate_output.py` - Comprehensive output validation
 - `validate_simple.py` - Quick validation
 - `analyze_results.py` - Criteria distribution analysis
-- `verify_student.py` - Single student criteria check
-- `sample_students_report.py` - Sample student reports
+- `verify_student.py` - Single student criteria verification
+- `sample_students_report.py` - Generate sample reports
 
 See `scripts/dev/README.md` for details.
 
-## Quick Reference
+---
 
-### Standard Workflow
+## Standard Workflow
+
+**Complete evaluation workflow:**
+
 ```bash
-# Core scripts (after criteria extraction)
-cd .claude/skills/evaluating-student-projects/scripts
-python smart_grouping.py
-python recalculate_grades.py
-python create_excel_report.py
+# 1. Run evaluation
+python scripts/run_evaluation.py tests/WorkSubmissions05
+
+# 2. Organize outputs
+python scripts/organize_outputs.py WorkSubmissions05
+
+# 3. Compare with actual grades
+python compare_grades.py WorkSubmissions05
 ```
 
-### Validation
-```bash
-cd scripts/dev
-python validate_output.py
+**Result:**
+- All outputs in `outputs/WorkSubmissions05/`
+- Grade comparison in `outputs/WorkSubmissions05/grade_comparison.xlsx`
+
+---
+
+## Core Evaluation Logic
+
+The evaluation skill logic is located in:
+```
+.claude/skills/evaluating-student-projects/
+├── code_analysis.py          # Code verification module
+├── assignment_profiles.py    # Assignment-specific profiles
+├── EXTRACTION.md            # Criteria extraction rules
+├── CATEGORIES.md            # Category definitions
+└── SKILL.md                 # Skill instructions
 ```
 
-### Analysis
-```bash
-cd scripts/dev
-python analyze_results.py
-```
+---
+
+## Related Documentation
+
+- `EVALUATION_WORKFLOW.md` - Complete workflow guide
+- `IMPROVEMENT_RECOMMENDATIONS.md` - Accuracy improvements
+- `docs/INTEGRATED_EVALUATION_RESULTS.md` - Results analysis
+- `docs/grading_system_recommendation.md` - Grading system analysis
+
+---
+
+## Grading System
+
+**Current system (implemented):**
+- ❌ No grading curve (removed)
+- ✅ Absolute percentage scores
+- ✅ Rarity bonus: +1 point per rare criterion (≤15% prevalence)
+- ✅ Final grade = Percentage + Rarity Bonus (capped at 100)
+
+**Results:**
+- WS05: -0.0 bias, 0.903 correlation (excellent!)
+- WS04: +0.3 bias, 0.709 correlation
+- WS06: -3.6 bias, 0.736 correlation

@@ -1,0 +1,588 @@
+{
+  "metadata": {
+    "total_students": 20,
+    "total_criteria": 28,
+    "assignment_folder": "tests\\WorkSubmissions04",
+    "assignment_profile": {
+      "key": "WorkSubmissions04",
+      "name": "Multi-Agent Tour Guide (Parallel Processing)",
+      "description": "Multi-agent orchestration with parallel processing focus",
+      "focus_areas": [
+        "CodeQuality",
+        "Testing",
+        "DevOps",
+        "Planning"
+      ],
+      "adjustments_applied": {
+        "CodeQuality": {
+          "multiplier": 1.5,
+          "criteria_affected": 9,
+          "total_weight_change": 1.9500000000000002
+        },
+        "Planning": {
+          "multiplier": 1.1,
+          "criteria_affected": 4,
+          "total_weight_change": 0.3650000000000002
+        },
+        "Testing": {
+          "multiplier": 1.3,
+          "criteria_affected": 5,
+          "total_weight_change": 1.1099999999999999
+        },
+        "Research": {
+          "multiplier": 0.9,
+          "criteria_affected": 1,
+          "total_weight_change": -0.07999999999999996
+        },
+        "DevOps": {
+          "multiplier": 1.2,
+          "criteria_affected": 2,
+          "total_weight_change": 0.2599999999999999
+        },
+        "Visuals": {
+          "multiplier": 0.9,
+          "criteria_affected": 1,
+          "total_weight_change": -0.06999999999999995
+        }
+      }
+    }
+  },
+  "criteria": {
+    "Pylint Configuration": {
+      "students": [
+        "Participant_87682_assignsubmission_file",
+        "Participant_87687_assignsubmission_file",
+        "Participant_87698_assignsubmission_file",
+        "Participant_87716_assignsubmission_file"
+      ],
+      "count": 4,
+      "category": "CodeQuality",
+      "weight": 0.30000000000000004
+    },
+    "Success Metrics": {
+      "students": [
+        "Participant_87681_assignsubmission_file",
+        "Participant_87682_assignsubmission_file",
+        "Participant_87683_assignsubmission_file",
+        "Participant_87684_assignsubmission_file",
+        "Participant_87685_assignsubmission_file",
+        "Participant_87687_assignsubmission_file",
+        "Participant_87690_assignsubmission_file",
+        "Participant_87691_assignsubmission_file",
+        "Participant_87692_assignsubmission_file",
+        "Participant_87694_assignsubmission_file",
+        "Participant_87696_assignsubmission_file",
+        "Participant_87698_assignsubmission_file",
+        "Participant_87706_assignsubmission_file",
+        "Participant_87707_assignsubmission_file",
+        "Participant_87714_assignsubmission_file",
+        "Participant_87715_assignsubmission_file",
+        "Participant_87716_assignsubmission_file",
+        "Participant_87719_assignsubmission_file",
+        "Participant_87721_assignsubmission_file"
+      ],
+      "count": 19,
+      "category": "Planning",
+      "weight": 1.045
+    },
+    "ESLint Configuration": {
+      "students": [
+        "Participant_87684_assignsubmission_file",
+        "Participant_87691_assignsubmission_file",
+        "Participant_87692_assignsubmission_file",
+        "Participant_87696_assignsubmission_file"
+      ],
+      "count": 4,
+      "category": "CodeQuality",
+      "weight": 0.30000000000000004
+    },
+    "TypeScript Type Checking": {
+      "students": [
+        "Participant_87681_assignsubmission_file",
+        "Participant_87684_assignsubmission_file",
+        "Participant_87691_assignsubmission_file",
+        "Participant_87692_assignsubmission_file",
+        "Participant_87694_assignsubmission_file",
+        "Participant_87696_assignsubmission_file",
+        "Participant_87706_assignsubmission_file",
+        "Participant_87714_assignsubmission_file"
+      ],
+      "count": 8,
+      "category": "CodeQuality",
+      "weight": 0.6000000000000001
+    },
+    "E2E Tests": {
+      "students": [
+        "Participant_87682_assignsubmission_file",
+        "Participant_87684_assignsubmission_file",
+        "Participant_87685_assignsubmission_file",
+        "Participant_87687_assignsubmission_file",
+        "Participant_87690_assignsubmission_file",
+        "Participant_87691_assignsubmission_file",
+        "Participant_87692_assignsubmission_file",
+        "Participant_87696_assignsubmission_file",
+        "Participant_87698_assignsubmission_file",
+        "Participant_87703_assignsubmission_file",
+        "Participant_87706_assignsubmission_file",
+        "Participant_87714_assignsubmission_file",
+        "Participant_87716_assignsubmission_file",
+        "Participant_87719_assignsubmission_file"
+      ],
+      "count": 14,
+      "category": "Testing",
+      "weight": 0.9099999999999999
+    },
+    "Test Coverage Metrics": {
+      "students": [
+        "Participant_87681_assignsubmission_file",
+        "Participant_87682_assignsubmission_file",
+        "Participant_87683_assignsubmission_file",
+        "Participant_87684_assignsubmission_file",
+        "Participant_87685_assignsubmission_file",
+        "Participant_87687_assignsubmission_file",
+        "Participant_87690_assignsubmission_file",
+        "Participant_87691_assignsubmission_file",
+        "Participant_87692_assignsubmission_file",
+        "Participant_87694_assignsubmission_file",
+        "Participant_87696_assignsubmission_file",
+        "Participant_87698_assignsubmission_file",
+        "Participant_87706_assignsubmission_file",
+        "Participant_87707_assignsubmission_file",
+        "Participant_87714_assignsubmission_file",
+        "Participant_87715_assignsubmission_file",
+        "Participant_87716_assignsubmission_file",
+        "Participant_87719_assignsubmission_file",
+        "Participant_87721_assignsubmission_file"
+      ],
+      "count": 19,
+      "category": "Testing",
+      "weight": 1.4819999999999998,
+      "bonus": true
+    },
+    "Functional Requirements": {
+      "students": [
+        "Participant_87681_assignsubmission_file",
+        "Participant_87682_assignsubmission_file",
+        "Participant_87683_assignsubmission_file",
+        "Participant_87684_assignsubmission_file",
+        "Participant_87685_assignsubmission_file",
+        "Participant_87687_assignsubmission_file",
+        "Participant_87690_assignsubmission_file",
+        "Participant_87691_assignsubmission_file",
+        "Participant_87692_assignsubmission_file",
+        "Participant_87694_assignsubmission_file",
+        "Participant_87696_assignsubmission_file",
+        "Participant_87698_assignsubmission_file",
+        "Participant_87703_assignsubmission_file",
+        "Participant_87706_assignsubmission_file",
+        "Participant_87707_assignsubmission_file",
+        "Participant_87714_assignsubmission_file",
+        "Participant_87715_assignsubmission_file",
+        "Participant_87716_assignsubmission_file",
+        "Participant_87719_assignsubmission_file",
+        "Participant_87721_assignsubmission_file"
+      ],
+      "count": 20,
+      "category": "Planning",
+      "weight": 1.1
+    },
+    "Pre-commit Hooks": {
+      "students": [
+        "Participant_87684_assignsubmission_file",
+        "Participant_87685_assignsubmission_file",
+        "Participant_87690_assignsubmission_file",
+        "Participant_87691_assignsubmission_file",
+        "Participant_87696_assignsubmission_file",
+        "Participant_87698_assignsubmission_file",
+        "Participant_87716_assignsubmission_file",
+        "Participant_87719_assignsubmission_file"
+      ],
+      "count": 8,
+      "category": "CodeQuality",
+      "weight": 0.6000000000000001
+    },
+    "Prettier Configuration": {
+      "students": [
+        "Participant_87684_assignsubmission_file",
+        "Participant_87690_assignsubmission_file",
+        "Participant_87691_assignsubmission_file",
+        "Participant_87696_assignsubmission_file"
+      ],
+      "count": 4,
+      "category": "CodeQuality",
+      "weight": 0.30000000000000004
+    },
+    "Architecture Documentation": {
+      "students": [
+        "Participant_87681_assignsubmission_file",
+        "Participant_87682_assignsubmission_file",
+        "Participant_87683_assignsubmission_file",
+        "Participant_87684_assignsubmission_file",
+        "Participant_87685_assignsubmission_file",
+        "Participant_87687_assignsubmission_file",
+        "Participant_87690_assignsubmission_file",
+        "Participant_87691_assignsubmission_file",
+        "Participant_87694_assignsubmission_file",
+        "Participant_87696_assignsubmission_file",
+        "Participant_87698_assignsubmission_file",
+        "Participant_87703_assignsubmission_file",
+        "Participant_87706_assignsubmission_file",
+        "Participant_87707_assignsubmission_file",
+        "Participant_87714_assignsubmission_file",
+        "Participant_87715_assignsubmission_file",
+        "Participant_87716_assignsubmission_file",
+        "Participant_87719_assignsubmission_file",
+        "Participant_87721_assignsubmission_file"
+      ],
+      "count": 19,
+      "category": "Documentation",
+      "weight": 0.95,
+      "required": true,
+      "required_penalty": -5.0
+    },
+    "PRD Document": {
+      "students": [
+        "Participant_87682_assignsubmission_file",
+        "Participant_87683_assignsubmission_file",
+        "Participant_87684_assignsubmission_file",
+        "Participant_87685_assignsubmission_file",
+        "Participant_87687_assignsubmission_file",
+        "Participant_87691_assignsubmission_file",
+        "Participant_87692_assignsubmission_file",
+        "Participant_87696_assignsubmission_file",
+        "Participant_87698_assignsubmission_file",
+        "Participant_87703_assignsubmission_file",
+        "Participant_87706_assignsubmission_file",
+        "Participant_87707_assignsubmission_file",
+        "Participant_87714_assignsubmission_file",
+        "Participant_87715_assignsubmission_file",
+        "Participant_87716_assignsubmission_file",
+        "Participant_87719_assignsubmission_file",
+        "Participant_87721_assignsubmission_file"
+      ],
+      "count": 17,
+      "category": "Planning",
+      "weight": 0.935
+    },
+    "Cost Analysis": {
+      "students": [
+        "Participant_87681_assignsubmission_file",
+        "Participant_87682_assignsubmission_file",
+        "Participant_87684_assignsubmission_file",
+        "Participant_87685_assignsubmission_file",
+        "Participant_87687_assignsubmission_file",
+        "Participant_87690_assignsubmission_file",
+        "Participant_87691_assignsubmission_file",
+        "Participant_87694_assignsubmission_file",
+        "Participant_87696_assignsubmission_file",
+        "Participant_87698_assignsubmission_file",
+        "Participant_87706_assignsubmission_file",
+        "Participant_87707_assignsubmission_file",
+        "Participant_87714_assignsubmission_file",
+        "Participant_87716_assignsubmission_file",
+        "Participant_87719_assignsubmission_file",
+        "Participant_87721_assignsubmission_file"
+      ],
+      "count": 16,
+      "category": "Research",
+      "weight": 0.7200000000000001
+    },
+    "Integration Tests": {
+      "students": [
+        "Participant_87681_assignsubmission_file",
+        "Participant_87682_assignsubmission_file",
+        "Participant_87683_assignsubmission_file",
+        "Participant_87684_assignsubmission_file",
+        "Participant_87685_assignsubmission_file",
+        "Participant_87687_assignsubmission_file",
+        "Participant_87690_assignsubmission_file",
+        "Participant_87691_assignsubmission_file",
+        "Participant_87694_assignsubmission_file",
+        "Participant_87696_assignsubmission_file",
+        "Participant_87698_assignsubmission_file",
+        "Participant_87706_assignsubmission_file",
+        "Participant_87707_assignsubmission_file",
+        "Participant_87714_assignsubmission_file",
+        "Participant_87715_assignsubmission_file",
+        "Participant_87716_assignsubmission_file",
+        "Participant_87719_assignsubmission_file",
+        "Participant_87721_assignsubmission_file"
+      ],
+      "count": 18,
+      "category": "Testing",
+      "weight": 1.1700000000000002
+    },
+    "Roadmap": {
+      "students": [
+        "Participant_87684_assignsubmission_file",
+        "Participant_87691_assignsubmission_file",
+        "Participant_87696_assignsubmission_file"
+      ],
+      "count": 3,
+      "category": "Uncategorized",
+      "weight": 0.15
+    },
+    "Testing Documentation": {
+      "students": [
+        "Participant_87685_assignsubmission_file",
+        "Participant_87706_assignsubmission_file",
+        "Participant_87714_assignsubmission_file",
+        "Participant_87719_assignsubmission_file"
+      ],
+      "count": 4,
+      "category": "Testing",
+      "weight": 0.26
+    },
+    "Unit Tests": {
+      "students": [
+        "Participant_87681_assignsubmission_file",
+        "Participant_87682_assignsubmission_file",
+        "Participant_87683_assignsubmission_file",
+        "Participant_87684_assignsubmission_file",
+        "Participant_87685_assignsubmission_file",
+        "Participant_87687_assignsubmission_file",
+        "Participant_87690_assignsubmission_file",
+        "Participant_87691_assignsubmission_file",
+        "Participant_87692_assignsubmission_file",
+        "Participant_87694_assignsubmission_file",
+        "Participant_87696_assignsubmission_file",
+        "Participant_87698_assignsubmission_file",
+        "Participant_87706_assignsubmission_file",
+        "Participant_87707_assignsubmission_file",
+        "Participant_87714_assignsubmission_file",
+        "Participant_87715_assignsubmission_file",
+        "Participant_87716_assignsubmission_file",
+        "Participant_87719_assignsubmission_file",
+        "Participant_87721_assignsubmission_file"
+      ],
+      "count": 19,
+      "category": "Testing",
+      "weight": 1.2349999999999999,
+      "required": true,
+      "required_penalty": -5.0
+    },
+    "Changelog": {
+      "students": [
+        "Participant_87706_assignsubmission_file",
+        "Participant_87714_assignsubmission_file"
+      ],
+      "count": 2,
+      "category": "Documentation",
+      "weight": 0.1
+    },
+    "Ruff Linting": {
+      "students": [
+        "Participant_87681_assignsubmission_file",
+        "Participant_87683_assignsubmission_file",
+        "Participant_87684_assignsubmission_file",
+        "Participant_87691_assignsubmission_file",
+        "Participant_87694_assignsubmission_file",
+        "Participant_87696_assignsubmission_file",
+        "Participant_87706_assignsubmission_file",
+        "Participant_87714_assignsubmission_file",
+        "Participant_87715_assignsubmission_file"
+      ],
+      "count": 9,
+      "category": "CodeQuality",
+      "weight": 0.675
+    },
+    "Black Code Formatting": {
+      "students": [
+        "Participant_87682_assignsubmission_file",
+        "Participant_87683_assignsubmission_file",
+        "Participant_87684_assignsubmission_file",
+        "Participant_87687_assignsubmission_file",
+        "Participant_87691_assignsubmission_file",
+        "Participant_87696_assignsubmission_file",
+        "Participant_87698_assignsubmission_file",
+        "Participant_87715_assignsubmission_file",
+        "Participant_87716_assignsubmission_file"
+      ],
+      "count": 9,
+      "category": "CodeQuality",
+      "weight": 0.675
+    },
+    "CI/CD Pipeline": {
+      "students": [
+        "Participant_87681_assignsubmission_file",
+        "Participant_87682_assignsubmission_file",
+        "Participant_87684_assignsubmission_file",
+        "Participant_87685_assignsubmission_file",
+        "Participant_87687_assignsubmission_file",
+        "Participant_87690_assignsubmission_file",
+        "Participant_87691_assignsubmission_file",
+        "Participant_87692_assignsubmission_file",
+        "Participant_87694_assignsubmission_file",
+        "Participant_87696_assignsubmission_file",
+        "Participant_87698_assignsubmission_file",
+        "Participant_87706_assignsubmission_file",
+        "Participant_87714_assignsubmission_file",
+        "Participant_87716_assignsubmission_file",
+        "Participant_87719_assignsubmission_file"
+      ],
+      "count": 15,
+      "category": "DevOps",
+      "weight": 1.0799999999999998,
+      "bonus": true
+    },
+    "README": {
+      "students": [
+        "Participant_87681_assignsubmission_file",
+        "Participant_87682_assignsubmission_file",
+        "Participant_87683_assignsubmission_file",
+        "Participant_87684_assignsubmission_file",
+        "Participant_87685_assignsubmission_file",
+        "Participant_87687_assignsubmission_file",
+        "Participant_87690_assignsubmission_file",
+        "Participant_87691_assignsubmission_file",
+        "Participant_87692_assignsubmission_file",
+        "Participant_87694_assignsubmission_file",
+        "Participant_87696_assignsubmission_file",
+        "Participant_87698_assignsubmission_file",
+        "Participant_87703_assignsubmission_file",
+        "Participant_87706_assignsubmission_file",
+        "Participant_87707_assignsubmission_file",
+        "Participant_87714_assignsubmission_file",
+        "Participant_87715_assignsubmission_file",
+        "Participant_87716_assignsubmission_file",
+        "Participant_87719_assignsubmission_file",
+        "Participant_87721_assignsubmission_file"
+      ],
+      "count": 20,
+      "category": "Documentation",
+      "weight": 1.0,
+      "required": true,
+      "required_penalty": -5.0
+    },
+    "Contributing Guide": {
+      "students": [
+        "Participant_87682_assignsubmission_file",
+        "Participant_87687_assignsubmission_file",
+        "Participant_87706_assignsubmission_file",
+        "Participant_87714_assignsubmission_file"
+      ],
+      "count": 4,
+      "category": "Documentation",
+      "weight": 0.2
+    },
+    "Screenshots": {
+      "students": [
+        "Participant_87681_assignsubmission_file",
+        "Participant_87684_assignsubmission_file",
+        "Participant_87685_assignsubmission_file",
+        "Participant_87690_assignsubmission_file",
+        "Participant_87691_assignsubmission_file",
+        "Participant_87692_assignsubmission_file",
+        "Participant_87694_assignsubmission_file",
+        "Participant_87696_assignsubmission_file",
+        "Participant_87698_assignsubmission_file",
+        "Participant_87703_assignsubmission_file",
+        "Participant_87706_assignsubmission_file",
+        "Participant_87714_assignsubmission_file",
+        "Participant_87716_assignsubmission_file",
+        "Participant_87719_assignsubmission_file"
+      ],
+      "count": 14,
+      "category": "Visuals",
+      "weight": 0.63
+    },
+    "API Documentation": {
+      "students": [
+        "Participant_87682_assignsubmission_file",
+        "Participant_87687_assignsubmission_file"
+      ],
+      "count": 2,
+      "category": "Documentation",
+      "weight": 0.1
+    },
+    "No Hardcoded Secrets (verified)": {
+      "students": [
+        "Participant_87681_assignsubmission_file",
+        "Participant_87682_assignsubmission_file",
+        "Participant_87683_assignsubmission_file",
+        "Participant_87684_assignsubmission_file",
+        "Participant_87685_assignsubmission_file",
+        "Participant_87687_assignsubmission_file",
+        "Participant_87690_assignsubmission_file",
+        "Participant_87691_assignsubmission_file",
+        "Participant_87692_assignsubmission_file",
+        "Participant_87694_assignsubmission_file",
+        "Participant_87696_assignsubmission_file",
+        "Participant_87698_assignsubmission_file",
+        "Participant_87703_assignsubmission_file",
+        "Participant_87706_assignsubmission_file",
+        "Participant_87707_assignsubmission_file",
+        "Participant_87714_assignsubmission_file",
+        "Participant_87715_assignsubmission_file",
+        "Participant_87716_assignsubmission_file",
+        "Participant_87719_assignsubmission_file",
+        "Participant_87721_assignsubmission_file"
+      ],
+      "count": 20,
+      "category": "CodeQuality",
+      "weight": 1.5
+    },
+    "Docker Containerization": {
+      "students": [
+        "Participant_87682_assignsubmission_file",
+        "Participant_87684_assignsubmission_file",
+        "Participant_87687_assignsubmission_file",
+        "Participant_87690_assignsubmission_file",
+        "Participant_87691_assignsubmission_file",
+        "Participant_87692_assignsubmission_file",
+        "Participant_87696_assignsubmission_file",
+        "Participant_87698_assignsubmission_file",
+        "Participant_87706_assignsubmission_file",
+        "Participant_87714_assignsubmission_file",
+        "Participant_87716_assignsubmission_file"
+      ],
+      "count": 11,
+      "category": "DevOps",
+      "weight": 0.792,
+      "bonus": true
+    },
+    "Problem Statement": {
+      "students": [
+        "Participant_87681_assignsubmission_file",
+        "Participant_87682_assignsubmission_file",
+        "Participant_87683_assignsubmission_file",
+        "Participant_87684_assignsubmission_file",
+        "Participant_87685_assignsubmission_file",
+        "Participant_87687_assignsubmission_file",
+        "Participant_87691_assignsubmission_file",
+        "Participant_87694_assignsubmission_file",
+        "Participant_87696_assignsubmission_file",
+        "Participant_87698_assignsubmission_file",
+        "Participant_87706_assignsubmission_file",
+        "Participant_87707_assignsubmission_file",
+        "Participant_87714_assignsubmission_file",
+        "Participant_87715_assignsubmission_file",
+        "Participant_87716_assignsubmission_file",
+        "Participant_87719_assignsubmission_file",
+        "Participant_87721_assignsubmission_file"
+      ],
+      "count": 17,
+      "category": "Planning",
+      "weight": 0.935
+    },
+    "MyPy Type Checking": {
+      "students": [
+        "Participant_87682_assignsubmission_file",
+        "Participant_87683_assignsubmission_file",
+        "Participant_87684_assignsubmission_file",
+        "Participant_87687_assignsubmission_file",
+        "Participant_87690_assignsubmission_file",
+        "Participant_87691_assignsubmission_file",
+        "Participant_87696_assignsubmission_file",
+        "Participant_87698_assignsubmission_file",
+        "Participant_87706_assignsubmission_file",
+        "Participant_87714_assignsubmission_file",
+        "Participant_87715_assignsubmission_file",
+        "Participant_87716_assignsubmission_file"
+      ],
+      "count": 12,
+      "category": "CodeQuality",
+      "weight": 0.8999999999999999
+    }
+  }
+}

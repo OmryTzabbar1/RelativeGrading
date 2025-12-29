@@ -65,7 +65,7 @@ These are HOW the project was built, not WHAT was accomplished. Different studen
 
 | Filename Pattern | Criterion to Credit | Notes |
 |-----------------|-------------------|-------|
-| `PRD.md`, `prd.md`, `ProductRequirements.md` | PRD Document | Product requirements |
+| `PRD.md`, `prd.md`, `PRD_*.md`, `ProductRequirements.md` | PRD Document | Product requirements (includes files starting with PRD_) |
 | `TESTING.md`, `testing.md`, `TEST.md` | Testing Documentation | Testing guide |
 | `CONTRIBUTING.md`, `contributing.md` | Contributing Guide | Contribution guidelines |
 | `QUICKSTART.md`, `QuickStart.md`, `quick-start.md` | Quick Start Guide | Quick setup guide |
@@ -75,6 +75,10 @@ These are HOW the project was built, not WHAT was accomplished. Different studen
 | `ROADMAP.md`, `roadmap.md` | Roadmap | Project roadmap |
 | `DEPLOYMENT.md`, `deployment.md`, `DEPLOY.md` | Deployment Guide | Deployment instructions |
 | `TROUBLESHOOTING.md`, `troubleshooting.md`, `FAQ.md` | Troubleshooting Guide | Problem-solving guide |
+| `RESEARCH_FINDINGS.md`, `FINDINGS.md`, `research.md` | Research Findings | Research conclusions |
+| `EXPERIMENTS.md`, `experiments.md`, `METHODOLOGY.md` | Experimentation | Experimental methodology |
+| `RESULTS.md`, `results.md`, `ANALYSIS.md` | Results Documentation | Experimental results |
+| `BENCHMARKS.md`, `benchmarks.md`, `PERFORMANCE.md` | Benchmarking | Performance benchmarks |
 
 **File reference detection:**
 If markdown contains links or references to these files (e.g., `[TESTING.md](TESTING.md)` or `See TESTING.md for details`), credit the corresponding criterion.
@@ -90,7 +94,7 @@ If markdown contains links or references to these files (e.g., `[TESTING.md](TES
 | `## Installation`, `## Setup`, `## Getting Started` | Installation Instructions | Must have actual steps |
 | `## Usage`, `## How to Use` | Usage Guide | Must have examples/instructions |
 | `## Features`, `## Functionality` | Scan content for specific features | List features individually |
-| `## Screenshots`, `## Demo`, `## Examples` | Screenshots/Visuals | Must reference actual images/demos |
+| `## Screenshots`, `## Demo`, `## Examples`, `## Figures`, `## Results`, `## Visualizations`, `## Plots`, `## Graphs` | Screenshots/Visuals | Must reference actual images/demos |
 | `## Architecture`, `## Design` | Architecture Documentation | Must have design details |
 | `## CI/CD`, `## Deployment`, `## DevOps` | DevOps elements | Scan for specific tools |
 | `## API`, `## Endpoints`, `## API Reference` | API Documentation | Must have endpoint details |
@@ -106,6 +110,11 @@ If markdown contains links or references to these files (e.g., `[TESTING.md](TES
 | `## Roadmap`, `## Future Work`, `## Next Steps` | Roadmap | Must outline future plans |
 | `## User Stories`, `## User Personas` | User Research | Must define users/stories |
 | `## Design Decisions`, `## Trade-offs` | Design Rationale | Must explain decisions |
+| `## Experiments`, `## Experimental Design`, `## Methodology` | Experimentation | Must describe experiments conducted |
+| `## Results`, `## Experimental Results`, `## Findings` | Results Documentation | Must present results/data |
+| `## Analysis`, `## Data Analysis`, `## Statistical Analysis` | Data Analysis | Must analyze data/results |
+| `## Benchmarking`, `## Performance Comparison`, `## Comparison` | Benchmarking | Must compare performance |
+| `## Research Findings`, `## Conclusions`, `## Discussion` | Research Findings | Must present research conclusions |
 
 ## What to Extract
 
@@ -168,6 +177,15 @@ Look for mentions of implemented features:
 - "Constraints: Limited to 100 concurrent users" → "Constraints Documentation"
 - "The system must handle 1000 requests/second" → "Functional Requirements"
 - "Trade-offs: We chose simplicity over feature richness" → "Trade-offs Analysis"
+
+**Visuals & results:**
+- "## Figure-Based Results" with `![Figure 1](image.png)` → "Screenshots"
+- "Figure 1 shows the accuracy comparison..." → "Screenshots"
+- "See plots below for performance metrics" → "Screenshots"
+- "The following graph illustrates..." → "Screenshots"
+- "Visualization results are shown in..." → "Screenshots"
+- "![Accuracy plot](results/plot.png)" → "Screenshots"
+- "Charts demonstrate the improvement..." → "Screenshots"
 
 ### Documentation Elements
 
@@ -326,19 +344,70 @@ Look for DevOps elements:
 
 ### Research & Analysis
 
-Look for research work:
+Look for research work (critical for research-focused assignments like RAG labs):
 
-- "Analysis in notebooks/" → "Data analysis notebooks"
-- "Benchmark results show..." → "Performance benchmarking"
-- "User research findings" → "User research"
+**Experimentation:**
+- "Experiment 1", "Experiment 2", "Experiment 3" → "Experimentation"
+- "## Experiments", "## Experimental Design", "## Methodology" → "Experimentation"
+- "We conducted experiments", "experimental setup" → "Experimentation"
+- "hypothesis", "we tested", "testing different configurations" → "Experimentation"
+
+**Results Documentation:**
+- "## Results", "## Findings", "## Experimental Results" → "Results Documentation"
+- "results show", "our findings indicate", "observed that" → "Results Documentation"
+- Tables/charts with performance metrics → "Results Documentation"
+- "accuracy: X%", "latency: X ms", "performance metrics" → "Results Documentation"
+
+**Data Analysis:**
+- "Statistical analysis", "ANOVA", "t-test", "p-value" → "Data Analysis"
+- "Cohen's d", "confidence interval", "regression" → "Data Analysis"
+- "Data analysis", "analyzed the data", "analysis results" → "Data Analysis"
+- "Jupyter notebook", "analysis.ipynb", "notebooks/" → "Data Analysis"
+- "matplotlib", "seaborn", "plotly" visualizations → "Data Analysis"
+- "Data exploration", "exploratory analysis", "insights" → "Data Analysis"
+- "Model evaluation", "machine learning experiments" → "Data Analysis"
+
+**Benchmarking:**
+- "Benchmark", "benchmarking", "performance comparison" → "Benchmarking"
+- "compared X vs Y", "comparison table", "baseline vs" → "Benchmarking"
+- "A is X% faster than B", "performance evaluation" → "Benchmarking"
+- "Comparison study", "comparative analysis" → "Benchmarking"
+
+**Research Findings:**
+- Filename: "RESEARCH_FINDINGS.md", "FINDINGS.md" → "Research Findings"
+- "## Conclusions", "## Discussion", "## Key Findings" → "Research Findings"
+- "Our research shows", "we found that", "findings indicate" → "Research Findings"
+- "Literature review", "related work", "background research" → "Research Findings"
+
+**Cost Analysis:**
+- "Cost analysis", "cost breakdown", "pricing comparison" → "Cost Analysis"
+- "API costs", "total cost: $X", "cost per query" → "Cost Analysis"
+- "ROI analysis", "cost-benefit", "budget" → "Cost Analysis"
+
+**User Research:**
+- "User research findings", "user interviews", "user feedback" → "User Research"
+- "User testing results", "usability study" → "User Research"
 
 ### Visual Elements
 
-Look for visuals:
+Look for visuals (check for both documentation AND markdown image syntax):
 
+**Text patterns:**
 - "Screenshots in /images" → "Screenshots"
+- "See screenshots below" → "Screenshots"
+- "Figure 1", "Figure 2", "Figure-based results" → "Screenshots"
+- "Visualization results", "Data visualizations" → "Screenshots"
+- "Plots and graphs", "Analysis plots" → "Screenshots"
+- "Charts showing...", "Graph of..." → "Screenshots"
 - "Architecture diagram below" → "Architecture diagram"
 - "Demo video: [link]" → "Demo video"
+
+**Markdown image syntax:**
+- `![Any text](path/to/image.png)` → "Screenshots" (if image appears to be a chart/plot/result)
+- `![Architecture](diagram.png)` → "Architecture diagram"
+- Multiple `![Figure N](...)` patterns → "Screenshots"
+
+**Note:** Academic/research projects often use "Figure", "Plot", "Graph" terminology instead of "Screenshots". These should all count toward the Screenshots/Visuals criterion.
 
 ---
 
@@ -368,6 +437,8 @@ Look for visuals:
 **Evidence of completion:**
 ```
 "Screenshot of X below:"
+"Figure 1 shows X:"
+"See plots in results/"
 "See X in action:"
 "X test results: PASSED"
 "Coverage: 85%"

@@ -15,7 +15,8 @@ from openpyxl.styles import Font, PatternFill, Alignment
 from openpyxl.utils import get_column_letter
 
 # Add skills directory to path
-skills_dir = Path(__file__).parent / ".claude" / "skills" / "evaluating-student-projects"
+project_root = Path(__file__).parent.parent  # Go up from scripts/ to project root
+skills_dir = project_root / ".claude" / "skills" / "evaluating-student-projects"
 sys.path.insert(0, str(skills_dir))
 
 # Import the new modules
@@ -42,8 +43,13 @@ def extract_criteria_from_markdown(md_content, filename):
 
     # Filename-based detection
     filename_lower = filename.lower()
+
+    # Check for PRD document (flexible matching)
+    if filename_lower.startswith('prd') or 'prd.md' in filename_lower or 'product_requirements' in filename_lower:
+        criteria.append('PRD Document')
+
+    # Other filename patterns (exact match)
     filename_criteria = {
-        'prd.md': 'PRD Document',
         'testing.md': 'Testing Documentation',
         'contributing.md': 'Contributing Guide',
         'architecture.md': 'Architecture Documentation',
